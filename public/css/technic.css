@@ -1,0 +1,43 @@
+#main{
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+#myTabContent{
+    padding: 20px 30px;
+}
+
+#myTabContent dl{
+    margin-top: 20px;
+}
+
+#myTabContent dl dt,#myTabContent dl dd{
+    padding: 5px 0px;
+}
+
+#myTabContent dl dt{
+       font-size:28px;
+       color:black;
+}
+#myTabContent dl dd{
+      font-size:14px;
+      color:black;
+}
+#date table tr td{
+    font-size: 16px;
+    padding: 10px 0;
+}
+
+#myTab li.active a{
+    background:  #01aebc !important;
+    color: #FFF !important;
+} 
+ul#myTab{
+    border-bottom: 1px solid #01aebc !important;
+}
+#myTab li a{
+    color: #000 !important;
+} 
+#myTab li a:hover{
+    border-bottom: 1px solid #01aebc !important;
+}

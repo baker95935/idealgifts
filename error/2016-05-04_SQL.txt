@@ -1,0 +1,30 @@
+错误SQL语句：
+INSERT INTO mvc_gallery  VALUES (-1,-1,' uploads/images/2016-05-04/smallimg/1462296080_thumb350x350.jpg')
+客户IP:127.0.0.1
+时间 :2016-05-04 01:21:24
+
+错误SQL语句：
+INSERT INTO mvc_gallery  VALUES (-1,44,' uploads/images/2016-05-04/smallimg/1462296078_thumb350x350.jpg')
+客户IP:127.0.0.1
+时间 :2016-05-04 01:21:39
+
+错误SQL语句：
+INSERT INTO mvc_gallery  VALUES (-1,0,' uploads/images/2016-05-04/smallimg/1462296080_thumb350x350.jpg')
+客户IP:127.0.0.1
+时间 :2016-05-04 01:21:39
+
+错误SQL语句：
+INSERT INTO mvc_gallery  VALUES (-1,45,' uploads/images/2016-05-04/smallimg/1462296078_thumb350x350.jpg')
+客户IP:127.0.0.1
+时间 :2016-05-04 01:21:52
+
+错误SQL语句：
+INSERT INTO mvc_gallery  VALUES (-1,0,' uploads/images/2016-05-04/smallimg/1462296080_thumb350x350.jpg')
+客户IP:127.0.0.1
+时间 :2016-05-04 01:21:52
+
+错误SQL语句：
+INSERT INTO mvc_gallery  VALUES (-1,46,' uploads/images/2016-05-04/smallimg/1462296305_thumb350x350.jpg')
+客户IP:127.0.0.1
+时间 :2016-05-04 01:25:09
+

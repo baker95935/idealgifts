@@ -1,0 +1,75 @@
+错误SQL语句：
+UPDATE mvc_category SET  WHERE category_id=
+客户IP:127.0.0.1
+时间 :2016-05-15 15:47:21
+
+错误SQL语句：
+SELECT * FROM mvc_category  Where category_id=
+客户IP:127.0.0.1
+时间 :2016-05-15 16:54:11
+
+错误SQL语句：
+SELECT * FROM mvc_category  Where category_id=
+客户IP:127.0.0.1
+时间 :2016-05-15 16:55:21
+
+错误SQL语句：
+select category_id,categoy_pid,category_name,concat(category_path,"-",category_id) as path  from mvc_category order by path
+客户IP:127.0.0.1
+时间 :2016-05-15 17:05:48
+
+错误SQL语句：
+UPDATE mvc_category SET category_name='key Ring',category_pid='0',sort_order='2',is_show='0',cover_path='undefined' WHERE category_id=$data.category_id}
+客户IP:127.0.0.1
+时间 :2016-05-15 17:40:59
+
+错误SQL语句：
+UPDATE mvc_category SET category_name='key Ring',category_pid='0',category_path='0',sort_order='2',is_show='0',cover_path='undefined' WHERE category_id=$data.category_id}
+客户IP:127.0.0.1
+时间 :2016-05-15 17:43:24
+
+错误SQL语句：
+INSERT INTO mvc_category  VALUES (-1,'Keychain',0,'0',1,0,' uploads/images/2016-05-15/smallimg/1463314907_thumb350x350.jpg')
+客户IP:127.0.0.1
+时间 :2016-05-15 20:21:53
+
+错误SQL语句：
+select category_id,category_name,concat(category_path,"-",category_id) as path  from mvc_category where is_show = 1 and is_delete = 0order by path
+客户IP:127.0.0.1
+时间 :2016-05-15 21:42:28
+
+错误SQL语句：
+SELECT * FROM mvc_category  Where category_path like %1% order by sore_order desc limit 0,3
+客户IP:127.0.0.1
+时间 :2016-05-15 22:02:30
+
+错误SQL语句：
+SELECT * FROM mvc_category  Where category_path like %1% order by sore_order desc limit 0,3
+客户IP:127.0.0.1
+时间 :2016-05-15 22:02:30
+
+错误SQL语句：
+SELECT * FROM mvc_category  Where category_path like %1% order by sore_order desc limit 0,3
+客户IP:127.0.0.1
+时间 :2016-05-15 22:02:30
+
+错误SQL语句：
+SELECT * FROM mvc_category  Where category_path like '%1%' order by sore_order desc limit 0,3
+客户IP:127.0.0.1
+时间 :2016-05-15 22:03:09
+
+错误SQL语句：
+SELECT * FROM mvc_category  Where category_path like '%2%' order by sore_order desc limit 0,3
+客户IP:127.0.0.1
+时间 :2016-05-15 22:03:09
+
+错误SQL语句：
+SELECT * FROM mvc_category  Where category_path like '%3%' order by sore_order desc limit 0,3
+客户IP:127.0.0.1
+时间 :2016-05-15 22:03:09
+
+错误SQL语句：
+SELECT * FROM mvc_good  Where category_id in () order by good_order desc limit 0,3
+客户IP:127.0.0.1
+时间 :2016-05-15 22:13:20
+

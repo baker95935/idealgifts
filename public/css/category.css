@@ -1,0 +1,115 @@
+.pro_left {
+    width: 238px;
+}
+.side_category {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #d5d5d5;
+}
+.side_category .cate_title {
+    background: #e6e6e6 none repeat scroll 0 0;
+    font-weight: bold;
+    line-height: 160%;
+    padding: 10px 10px 10px 30px;
+}
+/*.side_category .cate_menu dd {
+    padding: 0 3px;
+    background: url(../images/catmenu_bg.png) repeat-x 0 center;
+}*/
+.side_category .cate_menu dd.first {
+    margin: 0 3px;
+    padding: 0;
+}
+.side_category .cate_menu dd:first-child {
+    border-top: 0 none;
+}
+.side_category a {
+    border: 0 none;
+    display: block;
+    padding-left: 13px;
+}
+/*.side_category .cate_menu dd > a {
+    line-height: 46px;
+}*/
+.side_category .cate_menu dd.first > a {
+    background-position: 3px 13px;
+    border-bottom: 1px dotted #d5d5d5;
+}
+.pro_right {
+    width: 940px;
+}
+.narrow_search {
+    margin-bottom: 10px;
+}
+.narrow_search .ns_title {
+    background: #f7f7f7 none repeat scroll 0 0;
+    margin-bottom: 1px;
+    padding: 5px 0;
+}
+.clearfix::after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+.narrow_search .ns_title h1 {
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 18px;
+    margin-left: 24px;
+    padding: 2px 10px 3px 0;
+}
+.prod_list {
+    padding-top: 20px;
+}
+.prod_list .prod_box {
+    position: relative;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    min-height: 280px;
+    width: 220px;
+
+}
+.prod_list .first, .pro_list .prod_box:first-child {
+    margin-left: 0;
+}
+.prod_list .prod_box .prod_box_pic {
+    background: #fff none repeat scroll 0 0;
+    border: 2px solid #fff;
+    height: 216px;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    z-index: 10;
+    overflow: hidden;
+}
+.prod_list .prod_box .prod_box_pic .pic_box img{
+    width: 350px;
+    height: 350px;
+}
+.prod_list .prod_box .prod_box_inner {
+    padding: 0 7px;
+}
+.prod_list .prod_box .prod_name {
+    height: 36px;
+    line-height: 145%;
+    overflow: hidden;
+    padding-top: 8px;
+}
+
+.prod_list .prod_box a {
+    color: #666;
+}
+.cover-box {
+    display: inline-block;
+    width: 200px;
+    height: 200px;   
+    float: left;
+    margin: 20px 10px 0 0;
+}
+.cover-box img{
+    width: 100%;
+    height: 100%;
+}

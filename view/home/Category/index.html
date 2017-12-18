@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {include file="home/public/top.html"}
+        <link rel="stylesheet" type="text/css" href="public/css/category.css" />
+        <link rel="stylesheet" type="text/css" href="public/css/page.css" />
+        <script type='text/javascript' src='public/js/home_new.js' ></script>
+    </head>
+    <body>
+        {include file="home/public/header.html"}
+        {include file="home/public/banner.html"}
+         <div class="wide-1200 clearfix" style="margin-top: 20px;">
+             <div style="float:left;margin-top: 50px;">
+            {include file="home/public/category.html"}
+             </div>
+            <div class="width-950 pull-right" style="height: 100%;">
+                <h1 style="letter-spacing: 2px;font-weight: 600;height: 40px;line-height: 40px;text-align: center;border-bottom: 1px solid #000;margin: 10px 20px;color:#000;font-size: 20px;">PRODUCTS</h1>
+                <dl id="product" class="width-950 clearfix">
+                    <dt class="hidden">Product</dt>
+                    {foreach from=$data item=val}
+                    {$val}
+                    {/foreach}                  
+                </dl>
+                <div class="paging">{$page}</div>
+            </div>
+
+        </div>
+        <div class="blank25"></div>
+        {include file="home/public/footer.html"}       
+    </body>
+</html>

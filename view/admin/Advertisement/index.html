@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>后台管理系统</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">      
+        <link rel="stylesheet" type="text/css" href="public/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="public/admin/css/share.css"/>
+        <script type="text/javascript" src="public/js/jquery-2.0.0.js"></script>
+        <script type="text/javascript" src="public/bootstrap/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+         <div class="mainContent-top"> 
+            <form class="form-inline" role="form">
+                <div class="form-group">                  
+                    <input  class="form-control" name="ad_name" id="good_name"/>
+                    <button class="btn btn-default" >查询</button>
+                </div>
+            </form>
+        </div>
+        <div class="mainContent-box ">
+            <table class="table table-hover table-border">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>广告名称</th>
+                        <th>类型</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  {foreach from=$data  item=val}      
+                    <tr>
+                        <td>{$val.id}</td>                       
+                        <td>{$val.ad_name}</td>   
+                        <td>{if $val.type eq 0}单图{else}多图{/if}</td>
+                        <td><a href="?p=admin&c=Advertisement&a=ad_edit&id={$val.id}&type={$val.type}">编辑</a></td>                       
+                    </tr>
+                    {/foreach}
+
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 100px;"></div>
+    </body>
+</html>

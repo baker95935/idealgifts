@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="public/css/global.css" />
+        <link rel="stylesheet" type="text/css" href="public/css/good.css" />
+        <script type='text/javascript' src='public/js/jquery-2.0.0.js' ></script>
+    </head>
+    <body>
+        {include file="home/public/header.html"}
+        <div id="main" class="wide">
+            <div id="location">Your position: <a href="/?p=home&c=index&a=index">Home</a> &gt; Products</div>
+            <div class="good_left fl" >
+                <div><img id="preview" src="{$data.good_small_img}" ></div>
+                <div id="thumb" class="mt-20">
+                    <ul>
+                        {foreach from=$thumbs item=val}
+                        {$val}
+                        {/foreach}
+                    </ul>
+                </div>
+            </div>
+            <div class="good_right fr">
+                <div id="goodName"><h2>{$data.good_name}</h2></div>
+                <div id="describe">{$data.good_desc}</div>
+                <div class="caracts">
+                    <div class="row caract">
+                        <div class="col-xs-1">
+                            <img alt="" class="caracteristique" src="public/images/good_icon/moq.png">
+                        </div>
+                        <div class="col-xs-11">
+                            <span class="gras">weight</span> : {$data.good_weight}                                                </div>
+                    </div>
+                    <div class="row caract">
+                        <div class="col-xs-1">
+                            <img alt="" class="caracteristique" src="public/images/good_icon/delais.png">
+                        </div>
+                        <div class="col-xs-11">
+                            <span class="gras">packing</span> : {$data.packing}                                                </div>
+                    </div>
+                    <div class="row caract">
+                        <div class="col-xs-1">
+                            <img alt="" class="caracteristique" src="public/images/good_icon/colisage.png">
+                        </div>
+                        <div class="col-xs-11">
+                            <span class="gras">material</span> : {$data.material}                                                </div>
+                    </div>
+                    <div class="row caract">
+                        <div class="col-xs-1">
+                            <img alt="" class="caracteristique" src="public/images/good_icon/poids.png">
+                        </div>
+                        <div class="col-xs-11">
+                            <span class="gras">size</span> : {$data.size}                                                </div>
+                    </div>
+                    <div class="row caract">
+                        <div class="col-xs-1">
+                            <img alt="" class="caracteristique" src="public/images/good_icon/origine.png">
+                        </div>
+                        <div class="col-xs-11">
+                            <span class="gras">shipping_info</span> : {$data.shipping_info}                                               </div>
+                    </div>
+                    
+                </div>
+                <div class="mt-20">
+                    <a id="download" href="{$pdf_path}"><img src="public/images/pdficon.jpg"></a>
+                    <a href="Mailto:yang@idealgiftscn.com">给我发邮件</a></pre>
+                </div>
+            </div>
+            <div class="blank20"></div>
+        </div>
+        <div class="blank25"></div>
+        {include file="home/public/footer.html"}       
+    </body>
+</html>

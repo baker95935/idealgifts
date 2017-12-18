@@ -1,0 +1,24 @@
+.paging{margin:8px 0;overflow:hidden;text-align:center;}
+.paging span,.paging a{
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #cecece;
+    border-radius: 4px;
+    display: inline-block;
+    font-size: 14px;
+    height: 33px;
+    line-height: 33px;
+    margin: 0 4px;
+    padding: 0 12px;
+    overflow: hidden;
+    vertical-align: top;
+}
+.paging span{
+    cursor: default;
+}
+.paging .me{
+    background: #333 none repeat scroll 0 0;
+    color: #fff;
+    cursor: default;
+}
+
+

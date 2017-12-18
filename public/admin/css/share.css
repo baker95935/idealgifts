@@ -1,0 +1,53 @@
+button#go_back {
+    margin-left: 10px;
+}
+
+.mainContent-top{
+    padding-top:20px;
+    padding-right: 20px;
+}
+.mainContent-box{
+    padding:10px 0 50px;
+}
+.mainContent-box table td {
+    vertical-align: middle !important;
+} 
+
+.mainContent-box .table-border{
+    border: 1px solid #ddd;
+}
+.mainContent-box table td .goodimg{
+    width: 100px;
+    height:100px;
+}
+
+.text_area{
+    display: inline-block;
+    border: 1px solid #cccccc;
+    background: #F0F0F0;
+    min-width: 500px;
+    min-height: 200px;
+    border-radius: 3px;
+}
+
+.w-700{
+    width: 700px;
+}
+
+.pl-15{
+    padding-left: 15px !important; 
+}
+
+.pr-15{
+    padding-right: 15px !important;
+}
+
+.width-800{
+    width: 800px;
+}
+.width-1000{
+    width: 1000px;
+}
+img.is-show{
+    cursor: pointer;
+}

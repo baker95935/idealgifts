@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="public/css/global.css" />
+        <script type='text/javascript' src='public/js/jquery-2.0.0.js' ></script>
+    </head>
+    <body>
+        {include file="home/public/header.html"}
+        <div id="main" class="wide">
+            <div id="location">Your position: <a href="/?p=home&c=index&a=index">Home</a> &gt; Promotion</div>         
+            <div id="prod_list" class="list prod_list clearfix">
+
+                {foreach from=$data item=val}                 
+                <a href="?p=home&c=Good&a=index&id={$val.good_id}" class="cover-box">
+                    <img src="{$val.good_small_img}">
+                </a>             
+                {/foreach}
+
+
+            </div>
+        </div>
+        <div class="blank25"></div>
+        {include file="home/public/footer.html"}    
+    </body>
+</html>

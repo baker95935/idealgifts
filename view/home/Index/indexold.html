@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="public/css/global.css" />
+        <link rel="stylesheet" type="text/css" href="public/css/home.css" />
+        <script type='text/javascript' src='public/js/jquery-2.0.0.js' ></script>
+        <script type='text/javascript' src='public/js/jquery.SuperSlide.js' ></script>
+        <script type='text/javascript' src='public/js/home.js' ></script>
+    </head>
+    <body>
+        {include file="home/public/header.html"}
+        {include file="home/public/banner.html"}
+        {if $shop_info.is_show eq 1}
+
+        <div class="wide" id="companyInfo">
+            <a href="?p=home&c=Shop&a=index">
+                <div style="text-align:center;padding:20px 0;" class="encadrage">
+                    <h1 style="font-size:32px;">{$shop_info.title}</h1>
+                    <h2 style="color: #231f20;font-size: 1.8em;font-weight: 800;margin-bottom: 10px;margin-top: 20px;">{$shop_info.sub_title}</h2>
+                </div>
+            </a>
+        </div>
+        {/if}
+        <div class="wide" id="main">
+            <div class="pro_left fl">
+                <div class="sidebar" id="what_hot">
+                    <h2 class="b_title FontColor">What's Hot</h2>
+                    <div class="b_list">
+
+                        {foreach from=$hots item=val}
+                        {$val}
+                        {/foreach}
+                    </div>
+                    <a href="{php}echo SERVER{/php}/?p=home&c=Category&a=index" class="b_bottom FontColor">See More&gt;&gt;</a>
+                </div>
+
+                <div class="blank15"></div>
+                <div>   <a href="{if $left_bottom1.href eq ''}javascript:void(0);{else}http://{$left_bottom1.href}{/if}" ><img src="{$left_bottom1.img_path}" alt="" /></a>	</div>		<div class="blank15"></div>
+                <div>   <a href="{if $left_bottom2.href eq ''}javascript:void(0);{else}http://{$left_bottom2.href}{/if}" ><img src="{$left_bottom2.img_path}" alt="" /></a>	</div>    </div>
+            <div class="pro_right fr">
+                <div class="pro_list">
+                    <div class="title">
+                        <h3 class="fl">Best Deals</h3>
+                        <a class="fr" href="{php}echo SERVER{/php}/?p=home&c=Category&a=index">More &gt;&gt;</a>
+                    </div>
+                    <div class="blank15"></div>
+                    {foreach from=$bests item=val}
+                    {$val}
+                    {/foreach}
+                    <div class="clear"></div>
+                </div>
+
+                <div class="ad"><div>   <a href="{if $middle.href eq ''}javascript:void(0);{else}http://{$middle.href}{/if}" ><img src="{$middle.img_path}" alt="" /></a>	</div></div>
+                <div class="pro_list">
+                    <div class="title">
+                        <h3 class="fl">New Products</h3>
+                        <a class="fr" href="{php}echo SERVER{/php}/?p=home&c=Category&a=index">More &gt;&gt;</a>
+                    </div>
+                    <div class="blank15"></div>
+                    {foreach from=$news item=val}
+                    {$val}
+                    {/foreach}
+                    <div class="clear"></div>
+                </div>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+        {include file="home/public/footer.html"}       
+    </body>
+</html>

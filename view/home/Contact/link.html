@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {include file="home/public/top.html"}
+        <link rel="stylesheet" type="text/css" href="public/css/category.css" />
+        <link rel="stylesheet" type="text/css" href="public/css/page.css" />
+        <script type='text/javascript' src='public/js/home_new.js' ></script>
+    </head>
+    <body>
+        {include file="home/public/header.html"}
+        {include file="home/public/banner.html"}
+        <div class="wide-1200 clearfix" style="margin-top: 20px;">
+<!--            <div class="pull-left width-238">
+                <div class="side_category">
+                    <div class="cate_title">Information</div>
+                    <dl class="cate_menu">
+                        <dd><a href="?p=home&c=contact&a=index&no">About us</a></dd>      
+                        <dd><a href="?p=home&c=contact&a=link&no">contact us</a></dd>  
+                    </dl>
+                </div>
+            </div>-->
+            <div  style="color:black;padding: 10px 20px;word-break: break-all;">
+                <h1 class="text-center" style="font-size: 20px;margin-bottom: 20px;"><strong>{$shop_info.title}</strong></h1>
+                <div style="font-size: 16px;">{$shop_info.introduction}</div>
+            </div>
+
+        </div>
+        <div class="blank25"></div>
+        {include file="home/public/footer.html"}       
+    </body>
+</html>

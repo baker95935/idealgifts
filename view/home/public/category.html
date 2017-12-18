@@ -1,0 +1,11 @@
+<div class="pull-left width-238">
+    <div class="side_category">
+        <dl class="cate_menu">
+            {foreach from=$category item=cat}
+            {foreach from=$cat item=value}
+            <dd><a id="category{$value.category_id}" href="?p=home&c=category&a=index&id={$value.category_id}">{$value.category_name}</a></dd>
+            {/foreach}
+            {/foreach}                        
+        </dl>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+#companyInfo {
+    overflow: hidden;
+    border: 1px solid #666;
+    margin-top: 20px;
+    background-color: #FFF;
+}
+#companyInfo a:hover{
+    text-decoration:none;
+}
+.encadrage {
+    margin: 0;
+    overflow: hidden;
+    padding: 15px 0px;
+    color: black;
+    width: 810px;
+    float: right;
+}
+.encadrage h1{
+    text-align: center;
+    font-size: 22px;
+}
+.encadrage h2{
+    font-size: 18px;
+    margin-top: 10px;
+    height: 135px;
+    overflow: hidden;
+    text-indent: 40px;
+    line-height: 150%;
+/*    word-break: break-all;*/
+}   
+
+#product dd.split{
+    height: 1px;background: black;display: block;width: 100%
+}
+
+
+

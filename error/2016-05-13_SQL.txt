@@ -1,0 +1,45 @@
+SQL语句错误：
+
+客户IP:127.0.0.1
+时间 :2016-05-13 00:02:12
+
+SQL语句错误：
+
+客户IP:127.0.0.1
+时间 :2016-05-13 00:05:25
+
+SQL语句错误：
+
+客户IP:127.0.0.1
+时间 :2016-05-13 00:06:23
+
+SQL语句错误：
+
+客户IP:127.0.0.1
+时间 :2016-05-13 00:06:26
+
+SQL语句错误：
+
+客户IP:127.0.0.1
+时间 :2016-05-13 00:06:43
+
+SQL语句错误：
+
+客户IP:127.0.0.1
+时间 :2016-05-13 00:07:12
+
+SQL语句错误：
+
+客户IP:127.0.0.1
+时间 :2016-05-13 00:07:41
+
+错误SQL语句：
+select t1.*,t2.category_name form mvc_promotion t1 left join mvc_category t2 on t1.item_id = t2.id order by t1.id
+客户IP:127.0.0.1
+时间 :2016-05-13 00:10:13
+
+错误SQL语句：
+select t1.*,t2.category_name from mvc_promotion t1 left join mvc_category t2 on t1.item_id = t2.id order by t1.id
+客户IP:127.0.0.1
+时间 :2016-05-13 00:10:57
+

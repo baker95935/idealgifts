@@ -1,0 +1,30 @@
+数据库不可用：
+
+客户IP:127.0.0.1
+时间 :2016-04-21 13:57:15
+
+数据库不可用：
+
+客户IP:127.0.0.1
+时间 :2016-04-21 13:57:24
+
+数据库不可用：
+
+客户IP:127.0.0.1
+时间 :2016-04-21 13:57:52
+
+错误SQL语句：
+SELECT * FROM mvc_admin  Where admin_name=admin
+客户IP:127.0.0.1
+时间 :2016-04-21 22:20:06
+
+错误SQL语句：
+SELECT * FROM mvc_admin  Where admin_name=admin
+客户IP:127.0.0.1
+时间 :2016-04-21 22:20:12
+
+错误SQL语句：
+SELECT * FROM ·mvc_admin·  Where ·admin_name·='admin'
+客户IP:127.0.0.1
+时间 :2016-04-21 22:22:57
+

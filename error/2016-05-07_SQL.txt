@@ -1,0 +1,15 @@
+错误SQL语句：
+SELECT * FROM mvc_ad_img  Where ad_id =  order by img_order
+客户IP:127.0.0.1
+时间 :2016-05-07 14:22:27
+
+错误SQL语句：
+SELECT * FROM mvc_ad_img  Where ad_id = 
+客户IP:127.0.0.1
+时间 :2016-05-07 18:31:35
+
+错误SQL语句：
+SELECT * FROM mvc_ad_img  Where ad_id = 
+客户IP:127.0.0.1
+时间 :2016-05-07 18:49:57
+

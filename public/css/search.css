@@ -1,0 +1,28 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2016-6-11, 12:32:44
+    Author     : Onion
+*/
+
+#search caption{
+    background: #e6e6e6 none repeat scroll 0 0;
+    font-weight: bold;
+    line-height: 160%;
+    padding: 5px 0 5px 15px;
+    font-size: 16px;
+    color: #666;
+}
+#search th {
+    font-size: 16px;
+}
+
+#search td {
+    cursor: pointer;
+    vertical-align:middle;
+        font-size: 16px;
+}
+

@@ -1,0 +1,20 @@
+错误SQL语句：
+select count(`id`) as sum from mvc_category  Where category_pid = 0
+客户IP:127.0.0.1
+时间 :2016-05-06 01:44:24
+
+错误SQL语句：
+SELECT good_id,good_name,good_small_img FROM mvc_good  Where category_id = 34 limit 0,
+客户IP:127.0.0.1
+时间 :2016-05-06 09:22:56
+
+错误SQL语句：
+SELECT good_id,good_name,good_small_img FROM mvc_good  Where category_id = 34 limit 0,
+客户IP:127.0.0.1
+时间 :2016-05-06 09:22:57
+
+错误SQL语句：
+select good_id,good_name,good_small_img,is_show from mvc_good order by good_id desc limit -2,2
+客户IP:127.0.0.1
+时间 :2016-05-06 12:59:10
+

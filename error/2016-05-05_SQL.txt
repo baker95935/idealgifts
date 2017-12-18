@@ -1,0 +1,30 @@
+错误SQL语句：
+UPDATE mvc_shop SET shop_name,title,sub_title,is_show,introduction WHERE 'sd','sd','sda',1,''
+客户IP:127.0.0.1
+时间 :2016-05-05 20:54:41
+
+错误SQL语句：
+UPDATE mvc_shop SET shop_name,title,sub_title,is_show,introduction WHERE 'sd','sd','sda',1,'<p>ere<img src="/ueditor/php/upload/image/20160505/1462452858660882.jpg" title="1462452858660882.jpg" alt="91564551-b768-402c-af4c-8fcac6ed99b5.jpg" width="426" height="83" style="width: 426px; height: 83px;"/></p>'
+客户IP:127.0.0.1
+时间 :2016-05-05 20:54:41
+
+错误SQL语句：
+UPDATE mvc_shop SET shop_name,title,sub_title,is_show,introduction WHERE 'sd','sd','sda',1,''
+客户IP:127.0.0.1
+时间 :2016-05-05 20:56:57
+
+错误SQL语句：
+UPDATE mvc_shop SET shop_name,title,sub_title,is_show,introduction WHERE 'sd','sd','sda',1,'<p>fd &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>'
+客户IP:127.0.0.1
+时间 :2016-05-05 20:56:57
+
+错误SQL语句：
+UPDATE mvc_shop SET shop_name='',title='',sub_title='',is_show=,introduction='' WHERE id=
+客户IP:127.0.0.1
+时间 :2016-05-05 21:22:48
+
+错误SQL语句：
+UPDATE mvc_shop SET shop_name='',title='',sub_title='',is_show=,introduction='' WHERE id=
+客户IP:127.0.0.1
+时间 :2016-05-05 21:24:13
+

@@ -1,0 +1,35 @@
+错误SQL语句：
+INSERT INTO mvc_good (category_id,good_code,good_name,is_show,good_desc,good_small_img,good_order,is_hot,is_new,is_best,pdf_path) VALUES (0,'sds','a',1,'','',0,,,,'')
+客户IP:127.0.0.1
+时间 :2016-05-08 14:19:11
+
+错误SQL语句：
+INSERT INTO category_id,good_code,good_name,is_show,good_desc,good_small_img,good_order,is_hot,is_new,is_best,pdf_path (category_id,good_code,good_name,is_show,good_desc,good_small_img,good_order,is_hot,is_new,is_best,pdf_path) VALUES ('0','sds','a','1','',,'0',,'1','1',)
+客户IP:127.0.0.1
+时间 :2016-05-08 15:06:28
+
+错误SQL语句：
+INSERT INTO mvc_good (category_id,good_code,good_name,is_show,good_desc,good_small_img,good_order,is_hot,is_new,is_best,pdf_path) VALUES ('0','sds','a','1','',,'0',,'1','1',)
+客户IP:127.0.0.1
+时间 :2016-05-08 15:08:26
+
+错误SQL语句：
+INSERT INTO mvc_good (category_id,good_code,good_name,is_show,good_desc,good_small_img,good_order,is_hot,is_new,is_best,pdf_path) VALUES ('0','sds','a','1','',,'0',,'1','1',)
+客户IP:127.0.0.1
+时间 :2016-05-08 15:17:48
+
+错误SQL语句：
+DELETE FROM mvc_gallery WHERE good_id = 
+客户IP:127.0.0.1
+时间 :2016-05-08 21:32:57
+
+错误SQL语句：
+UPDATE mvc_good SET "category_id":"'34'","good_code":"'\u662f'","good_name":"'das'","is_show":"'1'","good_desc":"'\u8bf4\u7684\u662fsddas'","good_small_img":"' uploads\/images\/2016-05-08\/smallimg\/1462707546_thumb350x350.jpg'","good_order":"'0'","is_hot":"'1'","is_new":"'1'","createtime":"'2016-05-08 21:32:57'","good_weight":"''","packing":"''","material":"''","size":"''","discount_price":"''","sale_price":"'0.00'","shipping_info":"'sa'" WHERE good_id = 
+客户IP:127.0.0.1
+时间 :2016-05-08 21:32:57
+
+错误SQL语句：
+UPDATE mvc_good SET "category_id":"'34'","good_code":"'\u662f'","good_name":"'dassdasds'","is_show":"'1'","good_desc":"'\u8bf4\u7684\u662fsddas'","good_small_img":"' uploads\/images\/2016-05-08\/smallimg\/1462707546_thumb350x350.jpg'","good_order":"'0'","is_hot":"'1'","is_new":"'1'","createtime":"'2016-05-08 21:35:53'","good_weight":"''","packing":"''","material":"''","size":"''","discount_price":"''","sale_price":"'0.00'","shipping_info":"'sadsa'" WHERE good_id = 43
+客户IP:127.0.0.1
+时间 :2016-05-08 21:35:53
+

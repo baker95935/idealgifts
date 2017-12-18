@@ -1,0 +1,162 @@
+#companyInfo {
+    padding: 20px 0;
+    overflow: hidden;
+}
+.encadrage {
+    border: 1px solid #000000;
+    margin: 0;
+    padding: 15px;
+    height: 200px;
+    overflow: hidden;
+}
+#main {
+    padding: 20px 0;
+}
+#main .pro_left {
+    margin-right: 22px;
+    width: 238px;
+}
+.sidebar {
+    border: 1px solid #e6e6e6;
+    margin-top: 20px;
+}
+#main .pro_left .sidebar:first-child {
+    margin-top: 0;
+}
+.FontColor, a.FontColor, a.FontColor:hover, a:hover {
+    color: #5a1870;
+}
+.sidebar .b_title {
+    border-bottom: 1px dashed #ccc;
+    font-size: 15px;
+    height: 35px;
+    line-height: 35px;
+    margin: 0 10px;
+}
+.pro_item {
+    background: #fff none repeat scroll 0 0;
+}
+
+#what_hot .pro_item {
+    padding: 10px;
+}
+.pro_item dt {
+    overflow: hidden;
+    position: relative;
+}
+#what_hot .pro_item > dt {
+    border: 1px solid #f2f2f2;
+    height: 82px;
+    text-align: center;
+    vertical-align: middle;
+    width: 82px;
+}
+#what_hot .pro_item a {
+    color: #666;
+}
+.pic_box img {
+    vertical-align: middle;
+}
+#what_hot .pro_item > dt img {
+    max-height: 100%;
+    max-width: 100%;
+}
+#what_hot .pro_item .pro_info {
+    margin-left: 10px;
+    overflow: hidden;
+    width: 121px;
+}
+#what_hot .pro_item .pro_name {
+    height: 50px;
+    line-height: 140%;
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+.pro_item .pro_price, .pro_item .pro_price * {
+    font-size: 14px;
+    font-weight: bold;
+}
+.PriceColor {
+    color: #b00074;
+}
+.sidebar .b_bottom {
+    color: #1363bc;
+    line-height: 30px;
+    margin-left: 10px;
+    text-decoration: none;
+}
+.blank15 {
+    clear: both;
+    font-size: 1px;
+    height: 15px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+#main .pro_right {
+    overflow: hidden;
+    width: 940px;
+}
+.pro_list {
+    border: 1px solid #f2f2f2;
+    margin-bottom: 20px;
+    padding: 0 18px;
+}
+.pro_list .title {
+    border-bottom: 1px dashed #ccc;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 5px;
+}
+.pro_list .title h3 {
+    font-size: 15px;
+}
+.pro_list .pro_item {
+    margin-bottom: 20px;
+    margin-left: 12px;
+    width: 210px;;
+}
+.pro_list .first {
+    margin-left: 0;
+}
+.pro_item dt {
+    overflow: hidden;
+    position: relative;
+}
+.pro_list .pro_item > dt {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #fff;
+    height: 160px;
+    padding-bottom: 5px;
+    text-align: center;
+    vertical-align: middle;
+}
+.pro_list .pro_item > dt {
+    height: 208px;
+}
+.pro_list .pro_item > dt img {
+    max-height: 100%;
+    max-width: 100%;
+}
+.pro_item .pro_name {
+    line-height: 18px;
+}
+.pro_list .pro_item > dd {
+    padding: 0 7px;
+}
+.pro_list .pro_item .pro_name {
+    height: 36px;
+    line-height: 145%;
+    overflow: hidden;
+    padding-top: 8px;
+}
+.pro_list .pro_item a {
+    color: #666;
+}
+.pro_list .pro_item .pro_price {
+    line-height: 120%;
+}
+.pro_list .pro_item del .currency_data, .pro_list .pro_item del .price_data {
+    color: #666;
+    font-size: 12px;
+    font-weight: normal;
+}

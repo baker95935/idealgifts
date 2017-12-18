@@ -1,0 +1,30 @@
+错误SQL语句：
+SELECT category_id,good_id,good_name,good_small_img FROM mvc_good  Where category_id = 15' limit 0,16
+客户IP:87.169.157.123
+时间 :2017-10-29 09:12:24
+
+错误SQL语句：
+select count(`good_id`) as sum from mvc_good  Where category_id = 15'
+客户IP:87.169.157.123
+时间 :2017-10-29 09:12:24
+
+错误SQL语句：
+SELECT category_id,good_id,good_name,good_small_img FROM mvc_good  Where category_id = 15'A=0 limit 0,16
+客户IP:87.169.157.123
+时间 :2017-10-29 09:46:09
+
+错误SQL语句：
+select count(`good_id`) as sum from mvc_good  Where category_id = 15'A=0
+客户IP:87.169.157.123
+时间 :2017-10-29 09:46:09
+
+错误SQL语句：
+SELECT category_id,good_id,good_name,good_small_img FROM mvc_good  Where category_id = 15' '0=A ' limit 0,16
+客户IP:87.169.157.123
+时间 :2017-10-29 10:18:11
+
+错误SQL语句：
+select count(`good_id`) as sum from mvc_good  Where category_id = 15' '0=A '
+客户IP:87.169.157.123
+时间 :2017-10-29 10:18:11
+

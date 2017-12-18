@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">      
+        <link rel="stylesheet" type="text/css" href="public/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="public/admin/css/share.css"/>
+        <script type="text/javascript" src="public/js/jquery-2.0.0.js"></script>
+        <script type="text/javascript" src="public/bootstrap/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="mainContent-box ">
+            {if $type eq 1}
+            <table class="table table-hover table-border">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>图片</th>
+                        <th>是否显示</th>
+                        <th>href</th>
+                        <th>操作</th>        
+                    </tr>
+                </thead>
+                <tbody>
+                    {foreach from=$data  item=val}      
+                    <tr>
+                        <td>{$val.id}</td>                       
+                        <td>{$val.img_path}</td>   
+                        <td>{if $val.is_show eq 0}<img src="public/images/no.gif" />{else}<img src="public/images/yes.gif"/>{/if}</td>
+                        <td>{$val.href}</td>   
+                        <td><a href="?p=admin&c=Advertisement&a=ad_img_edit&id={$val.id}">编辑</a></td>                       
+                    </tr>
+                    {/foreach}
+
+                </tbody>
+            </table>
+            {/if}
+        </div>
+        <div style="height: 100px;"></div>
+    </body>
+</html>

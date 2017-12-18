@@ -1,0 +1,21 @@
+<div id="myCarousel" class="carousel slide" >
+    <!-- 轮播（Carousel）指标 -->
+    <ol class="carousel-indicators">
+        {section name="ban" loop=$banner}
+
+          {if $smarty.section.ban.index eq 0}
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          {else}
+           <li data-target="#myCarousel" data-slide-to="{$smarty.section.ban.index}"></li>
+           {/if}
+        {/section}
+    </ol>   
+    <!-- 轮播（Carousel）项目 -->
+    <div class="carousel-inner" style="width: 1200px;margin: 0 auto;">
+        {foreach from=$banner item=val}
+        <div class="item">
+            <img src="{$val.img_path}" width="1200">
+        </div>
+        {/foreach}
+    </div>
+</div> 

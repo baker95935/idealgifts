@@ -1,0 +1,40 @@
+错误SQL语句：
+select category_id,category_name,concat(category_path,"-",category_id) as path  from mvc_category where is_show = 1 and is_delete = 0 order by path limit0,16
+客户IP:127.0.0.1
+时间 :2016-05-16 09:31:29
+
+错误SQL语句：
+INSERT INTO mvc_good (`category_id`,`good_code`,`good_name`,`is_show`,`good_desc`,`good_small_img`,`good_order`,`pdf_path`,`createtime`,`pdf_path`,`good_weight`,`packing`,`material`,`size`,`discount_price`,`sale_price`,`shipping_info`,`logo`,`plate`,`MOQ`,`type`) VALUES ('5','sd','jd','1','',' uploads/images/2016-05-16/smallimg/1463407023_thumb350x350.jpg','0',' uploads/files/2016-05-16/ISL6225.pdf.pdf','2016-05-16 21:57:26','','','','','','','','zx','zxz','zxz','zxz')
+客户IP:127.0.0.1
+时间 :2016-05-16 21:57:26
+
+错误SQL语句：
+INSERT INTO mvc_good (`category_id`,`good_code`,`good_name`,`is_show`,`good_desc`,`good_small_img`,`good_order`,`pdf_path`,`createtime`,`pdf_path`,`good_weight`,`packing`,`material`,`size`,`discount_price`,`sale_price`,`shipping_info`,`logo`,`plate`,`MOQ`,`type`) VALUES ('5','sd','jd','1','',' uploads/images/2016-05-16/smallimg/1463407023_thumb350x350.jpg','0',' uploads/files/2016-05-16/ISL6225.pdf.pdf','2016-05-16 21:57:33','','','','','','','','zx','zxz','zxz','zxz')
+客户IP:127.0.0.1
+时间 :2016-05-16 21:57:33
+
+错误SQL语句：
+INSERT INTO mvc_good (`category_id`,`good_code`,`good_name`,`is_show`,`good_desc`,`good_small_img`,`good_order`,`pdf_path`,`createtime`,`pdf_path`,`good_weight`,`packing`,`material`,`size`,`discount_price`,`sale_price`,`shipping_info`,`logo`,`plate`,`MOQ`,`type`) VALUES ('5','sd','jd','1','',' uploads/images/2016-05-16/smallimg/1463407023_thumb350x350.jpg','0',' uploads/files/2016-05-16/ISL6225.pdf.pdf','2016-05-16 21:57:42','','','','','','','','zx','zxz','zxz','zxz')
+客户IP:127.0.0.1
+时间 :2016-05-16 21:57:42
+
+错误SQL语句：
+INSERT INTO mvc_good (`category_id`,`good_code`,`good_name`,`is_show`,`good_desc`,`good_small_img`,`good_order`,`pdf_path`,`createtime`,`pdf_path`,`good_weight`,`packing`,`material`,`size`,`discount_price`,`sale_price`,`shipping_info`,`logo`,`plate`,`MOQ`,`type`) VALUES ('5','sd','jd','1','',' uploads/images/2016-05-16/smallimg/1463407023_thumb350x350.jpg','0',' uploads/files/2016-05-16/ISL6225.pdf.pdf','2016-05-16 21:57:44','','','','','','','','zx','zxz','zxz','zxz')
+客户IP:127.0.0.1
+时间 :2016-05-16 21:57:44
+
+错误SQL语句：
+INSERT INTO mvc_good (`category_id`,`good_code`,`good_name`,`is_show`,`good_desc`,`good_small_img`,`good_order`,`pdf_path`,`createtime`,`pdf_path`,`good_weight`,`packing`,`material`,`size`,`discount_price`,`sale_price`,`shipping_info`,`logo`,`plate`,`MOQ`,`type`) VALUES ('5','sd','jd','1','',' uploads/images/2016-05-16/smallimg/1463407023_thumb350x350.jpg','0',' uploads/files/2016-05-16/ISL6225.pdf.pdf','2016-05-16 21:57:45','','','','','','','','zx','zxz','zxz','zxz')
+客户IP:127.0.0.1
+时间 :2016-05-16 21:57:45
+
+错误SQL语句：
+INSERT INTO mvc_good (`category_id`,`good_code`,`good_name`,`is_show`,`good_desc`,`good_small_img`,`good_order`,`pdf_path`,`createtime`,`good_weight`,`packing`,`material`,`size`,`discount_price`,`sale_price`,`shipping_info`,`logo`,`plate`,`MOQ`,`type`) VALUES ('5','sd','jd','1','',' uploads/images/2016-05-16/smallimg/1463407023_thumb350x350.jpg','0',' uploads/files/2016-05-16/ISL6225.pdf.pdf','2016-05-16 22:03:34','','','','','','','','zx','zxz','zxz','zxz')
+客户IP:127.0.0.1
+时间 :2016-05-16 22:03:34
+
+错误SQL语句：
+INSERT INTO mvc_good (`category_id`,`good_code`,`good_name`,`is_show`,`good_desc`,`good_small_img`,`good_order`,`pdf_path`,`createtime`,`good_weight`,`packing`,`material`,`size`,`discount_price`,`sale_price`,`shipping_info`,`logo`,`plate`,`MOQ`,`type`) VALUES ('5','sd','jd','1','',' uploads/images/2016-05-16/smallimg/1463407023_thumb350x350.jpg','0',' uploads/files/2016-05-16/ISL6225.pdf.pdf','2016-05-16 22:03:50','','','','','','','','zx','zxz','zxz','zxz')
+客户IP:127.0.0.1
+时间 :2016-05-16 22:03:50
+

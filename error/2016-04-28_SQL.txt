@@ -1,0 +1,60 @@
+错误SQL语句：
+INSERT INTO mvc_good ((category_id,good_code,good_name,is_show,good_desc,good_small_img,good_order)) VALUES (,'a','s',is_show,' uploads/images/2016-04-28/smallimg/1461856091_thumb.jpg','',0)
+客户IP:127.0.0.1
+时间 :2016-04-28 23:40:44
+
+错误SQL语句：
+INSERT INTO mvc_good (category_id,good_code,good_name,is_show,good_desc,good_small_img,good_order) VALUES (,'s','a',is_show,' uploads/images/2016-04-28/smallimg/1461858128_thumb.jpg','',3)
+客户IP:127.0.0.1
+时间 :2016-04-28 23:42:16
+
+错误SQL语句：
+INSERT INTO mvc_good (category_id,good_code,good_name,is_show,good_desc,good_small_img,good_order) VALUES (,'s','a',is_show,' uploads/images/2016-04-28/smallimg/1461858197_thumb.jpg','',0)
+客户IP:127.0.0.1
+时间 :2016-04-28 23:43:23
+
+错误SQL语句：
+INSERT INTO mvc_good (category_id,good_code,good_name,is_show,good_desc,good_small_img,good_order) VALUES (,'s','d',is_show,' uploads/images/2016-04-28/smallimg/1461858268_thumb.jpg','',0)
+客户IP:127.0.0.1
+时间 :2016-04-28 23:44:41
+
+错误SQL语句：
+INSERT INTO mvc_good (category_id,good_code,good_name,is_show,good_desc,good_small_img,good_order) VALUES (,'','',is_show,'','',0)
+客户IP:127.0.0.1
+时间 :2016-04-28 23:45:53
+
+错误SQL语句：
+INSERT INTO mvc_good (category_id,good_code,good_name,is_show,good_desc,good_small_img,good_order) VALUES (10,'','',is_show,'','',0)
+客户IP:127.0.0.1
+时间 :2016-04-28 23:46:49
+
+错误SQL语句：
+INSERT INTO mvc_good (category_id,good_code,good_name,is_show,good_desc,good_small_img,good_order) VALUES (14,'是','商',is_show,' uploads/images/2016-04-28/smallimg/1461858422_thumb.jpg','',0)
+客户IP:127.0.0.1
+时间 :2016-04-28 23:47:10
+
+错误SQL语句：
+INSERT INTO mvc_good (category_id,good_code,good_name,is_show,good_desc,good_small_img,good_order) VALUES (0,'商','商',is_show,' uploads/images/2016-04-28/smallimg/1461858447_thumb.jpg','',0)
+客户IP:127.0.0.1
+时间 :2016-04-28 23:47:31
+
+错误SQL语句：
+INSERT INTO mvc_good (category_id,good_code,good_name,is_show,good_desc,good_small_img,good_order) VALUES (0,'商','商',is_show,' uploads/images/2016-04-28/smallimg/1461858447_thumb.jpg','',0)
+客户IP:127.0.0.1
+时间 :2016-04-28 23:47:46
+
+错误SQL语句：
+INSERT INTO mvc_good (category_id,good_code,good_name,is_show,good_desc,good_small_img,good_order) VALUES (0,'商','商',is_show,' uploads/images/2016-04-28/smallimg/1461858447_thumb.jpg','',0)
+客户IP:127.0.0.1
+时间 :2016-04-28 23:47:49
+
+错误SQL语句：
+INSERT INTO mvc_good (category_id,good_code,good_name,is_show,good_desc,good_small_img,good_order) VALUES (0,'商','商',is_show,' uploads/images/2016-04-28/smallimg/1461858447_thumb.jpg','',0)
+客户IP:127.0.0.1
+时间 :2016-04-28 23:47:50
+
+错误SQL语句：
+INSERT INTO mvc_good (category_id,good_code,good_name,is_show,good_desc,good_small_img,good_order) VALUES (15,'d','f',is_show,' uploads/images/2016-04-28/smallimg/1461858574_thumb.jpg','',0)
+客户IP:127.0.0.1
+时间 :2016-04-28 23:49:45
+

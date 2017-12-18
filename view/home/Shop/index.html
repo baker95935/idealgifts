@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="public/css/global.css" />
+        <script type='text/javascript' src='public/js/jquery-2.0.0.js' ></script>
+    </head>
+    <body>
+        {include file="home/public/header.html"}
+        <div id="main" class="wide">
+            <div id="location">Your position: <a href="/?p=home&c=index&a=index">Home</a> &gt; company introduction</div>
+            <h1 class="txt-center">{$shop_info.title}</h1>
+            <div>{$shop_info.introduction}</div>
+            <div class="blank20"></div>
+        </div>
+        <div class="blank25"></div>
+        {include file="home/public/footer.html"}       
+    </body>
+</html>

@@ -1,0 +1,44 @@
+.good_left{
+    width: 380px;
+}
+.good_right{
+    width: 520px;
+}
+#goodName{
+    text-align: center;
+    color: #666;
+    font-size: 18px;
+    padding:10px;
+    border-bottom: 1px solid #080808;
+}
+#describe{
+    margin-top: 10px;
+    background: #e6e6e6;
+    padding: 10px;
+    font-size: 16px;
+}
+.caracts .caract{
+    margin-top: 15px;
+    font-size: 14px;
+}
+#preview{
+    height: 350px;
+    width:350px;
+    border: 1px solid #cfcfcf;
+}
+#thumb ul li{
+    float:left;
+    margin-left:14px;
+    border: 1px solid #666;
+    padding: 0;
+}
+#download img{
+    width: 55px;
+}
+.mt-20{
+    margin-top: 20px;
+}
+
+.goback{
+ text-decoration: none;font-size: 18px;display: inline-block;background: #01aebc;border-radius: 18px;height: 36px;line-height: 36px;padding: 0 20px;color: white;vertical-align: middle;
+}
