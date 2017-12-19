@@ -9,6 +9,23 @@
 class AdminController extends Controller{
     
     public function index(){
+    	
+    	$model = $this->getModel();
+    	
+    	$db = $this->getDb();
+    	
+    	$result = $db->findall($model->table('admin'));
+    	
+    	$data = null;
+    	
+    	while ($rs = $db->fetch_assoc($result)) {
+    	
+    		$data[] = $rs;
+    	
+    	}
+    	
+    	$this->setValue('data', $data);
+    	 
         $this->display('adminList');
     }
     

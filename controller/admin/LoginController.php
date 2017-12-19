@@ -20,17 +20,33 @@ class LoginController extends Controller {
     public function login(){
         $admin_name = $_REQUEST['admin_name'];
         $admin_pwd  = md5($_REQUEST['admin_pwd']);
+         
         $model = $this->getModel();
-       $result = $model->getDb()->select('mvc_admin','*',"admin_name='$admin_name'");
-        if($result){
-            echo '用户名或密码错误';
+        $result = $model->getDb()->select('mvc_admin','*',"admin_name='".$admin_name."'");
+ 
+        $admin = $model->getDb()->fetch_assoc();
+   
+        if($admin['admin_pwd'] == $admin_pwd){
+	        session_start();
+	        $_SESSION['username']=$admin_name;
+	        $_SESSION['password']=$admin_pwd;
+	        //更新下登录时间
+	        $time=time();
+	        $ip=$_SERVER['remote_addr'];
+	        $model->getDb()->update('mvc_admin', 'admin_last_time='.$time.' and admin_last_ip='.$ip, 'admin_id='.$admin['admin_id']);
+	        echo 'ok';
         }else{
-            $admin = $model->getDb()->fetch_assoc();
-            if($admin['admin_pwd'] == $admin_pwd){
-                echo 'ok';
-            }else{
-                echo '用户名或密码错误';
-            }
+        	echo '用户名或密码错误';
         }
+       
+    }
+    
+    public function logout()
+    {
+    	session_start();
+    	$_SESSION['username']='';
+    	$_SESSION['password']='';
+    	echo "<script>window.location.href='?p=admin&c=login&a=index';</script>";
+    	exit;
     }
 }
