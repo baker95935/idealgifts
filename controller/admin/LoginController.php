@@ -32,8 +32,8 @@ class LoginController extends Controller {
 	        $_SESSION['password']=$admin_pwd;
 	        //更新下登录时间
 	        $time=time();
-	        $ip=$_SERVER['remote_addr'];
-	        $model->getDb()->update('mvc_admin', 'admin_last_time='.$time.' and admin_last_ip='.$ip, 'admin_id='.$admin['admin_id']);
+	         
+	        $model->getDb()->update('mvc_admin', 'admin_last_time='.$time, 'admin_id='.$admin['admin_id']);
 	        echo 'ok';
         }else{
         	echo '用户名或密码错误';

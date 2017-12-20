@@ -67,7 +67,7 @@ class AdminController extends Controller{
     }
 
     public function add() {
-
+ 
         $this->display();
 
     }

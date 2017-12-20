@@ -38,15 +38,9 @@ and open the template in the editor.
 
             <form class="form-inline" role="form">
 
-                <div class="form-group">
+           
 
-                    <input  class="form-control" name="good_name" id="good_name"/>
-
-                    <button class="btn btn-default" >查询</button>
-
-                </div>
-
-                <a id="addBtn"  class="btn btn-default pull-right" href="{php}echo SERVER;{/php}/?p=admin&c=promotion&a=add" target="_self">新增</a>
+                <a id="addBtn"  class="btn btn-default pull-right" href=".?p=admin&c=admin&a=add" target="_self">新增</a>
 
             </form>
 
@@ -68,7 +62,7 @@ and open the template in the editor.
 
                         <th>上次登录时间</th>
 
-                        <th>上次登录IP</th>
+                       
 
                     </tr>
 
@@ -84,7 +78,7 @@ and open the template in the editor.
                         <td>{$cat.admin_name}</td>
                         <td>{$cat.admin_login_time|date_format:"%Y-%m-%d %I:%M %p"}</td>
                         <td>{$cat.admin_last_time|date_format:"%Y-%m-%d %I:%M %p"}</td>
-                        <td>{$cat.admin_last_ip}</td>
+                         
 
                     </tr>
 
