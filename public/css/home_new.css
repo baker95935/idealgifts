@@ -4,6 +4,13 @@
     margin-top: 20px;
     background-color: #FFF;
 }
+
+#companyInfoTop {
+    overflow: hidden;
+    margin-top: 20px;
+    background-color: #FFF;
+}
+
 #companyInfo a:hover{
     text-decoration:none;
 }
