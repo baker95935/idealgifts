@@ -51,7 +51,7 @@ class CategoryController extends ForeController {
      
         
         while ($rs = $db->fetch_assoc($result)) {
-            $data[$i] = '<dd><a href="' . SERVER . '/?p=home&c=good&a=index&cat_id=' . $rs['category_id'] . '&id=' . $rs['good_id'] . '"><img src="' . $rs['good_small_img'] . '"><h1 class="mask"></h1><h1>' . $rs['good_name'] . '</h1></a></dd>';
+            $data[$i] = '<dd><a href="' . SERVER . '/?p=home&c=good&a=index&cat_id=' . $rs['category_id'] . '&id=' . $rs['good_id'] . '"><img src="' . $rs['good_small_img'] . '"><h1 class="mask"></h1><h1>' . $rs['good_name'];            $rs['sale_price']>0 && $data[$i].='--'.$rs['sale_price'].'$';            $data[$i].='</h1></a></dd>';
             $i++;
         }
          $page = new Page( $goodController->get_goods_count($category_id), Application::$_config['page']['page_size']);

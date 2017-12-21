@@ -13,13 +13,13 @@ class AdminController extends Controller{
  
     	$auth = new AuthController();
     	$model = $this->getModel();
-    	
+    	 
     	$db = $this->getDb();
     	
     	$result = $db->findall($model->table('admin'));
     	
     	$data = null;
-    	
+     
     	while ($rs = $db->fetch_assoc($result)) {
     	
     		$data[] = $rs;
@@ -114,8 +114,9 @@ class AdminController extends Controller{
         }
         
 
-        
-      
-
     }
+    
+     
+    
+    
 }

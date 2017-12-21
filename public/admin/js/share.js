@@ -54,10 +54,10 @@ $(function () {
         }
 
 
-        $.post($('input[name="server"]').val() + '/?p=admin&c=Good&a=insert_or_update', good, function (data) {
+        $.post('?p=admin&c=Good&a=insert_or_update', good, function (data) {
             if (data == 'ok') {
                 layer.msg('操作成功，正在跳转...', {icon: 6, time: 2000}, function () {
-                    window.location.href = $('input[name="server"]').val() + '/?p=admin&c=Good&a=index';
+                    window.location.href = '?p=admin&c=Good&a=index';
                 });
             }
         });
@@ -126,10 +126,10 @@ $(function () {
 //                });
 //            }
 //        });
-        $.post($('input[name="server"]').val() + '/?p=admin&c=Good&a=insert_or_update', good, function (data) {
+        $.post('?p=admin&c=Good&a=insert_or_update', good, function (data) {
             if (data == 'ok') {
                 layer.msg('操作成功，正在跳转...', {icon: 6, time: 2000}, function () {
-                    window.location.href = $('input[name="server"]').val() + '/?p=admin&c=Good&a=index';
+                    window.location.href = '?p=admin&c=Good&a=index';
                 });
             }
         });

@@ -10,10 +10,10 @@ class GoodController extends ForeController {
         $model = $this->getModel();
         $db = $this->getDb();
         if (empty($page))
-            $result = $db->select($model->table('good'), 'category_id,good_id,good_name,good_small_img', "category_id = $cat_id");
+            $result = $db->select($model->table('good'), 'sale_price,category_id,good_id,good_name,good_small_img', "category_id = $cat_id");
         else {
             $start = ($page - 1) * $page_size;
-            $result = $db->select($model->table('good'), 'category_id,good_id,good_name,good_small_img', "category_id = $cat_id limit $start,$page_size");
+            $result = $db->select($model->table('good'), 'sale_price,category_id,good_id,good_name,good_small_img', "category_id = $cat_id limit $start,$page_size");
         }
         return $result;
     }
