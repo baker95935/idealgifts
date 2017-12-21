@@ -61,6 +61,8 @@ and open the template in the editor.
                         <th>注册时间</th>  
 
                         <th>上次登录时间</th>
+                        
+                        <th>改密</th>
 
                        
 
@@ -78,7 +80,7 @@ and open the template in the editor.
                         <td>{$cat.admin_name}</td>
                         <td>{$cat.admin_login_time|date_format:"%Y-%m-%d %I:%M %p"}</td>
                         <td>{$cat.admin_last_time|date_format:"%Y-%m-%d %I:%M %p"}</td>
-                         
+                        <td><a href="?p=admin&c=admin&a=edit&admin_id={$cat.admin_id}">改密</a></td>
 
                     </tr>
 

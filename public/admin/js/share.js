@@ -214,6 +214,43 @@ $(function () {
             }
         });
     });
+    
+    $('#save_admin').click(function () {
+        var t = new jsonUtil();
+        var admin = t.form_to_object('add_admin_form');
+
+        if (admin.admin_name == '') {
+            layer.msg('请填写用户名', {icon: 5, time: 2000});
+            return;
+        }
+        if (admin.admin_pwd == '') {
+            layer.msg('请填写密码', {icon: 5, time: 2000});
+            return;
+        }
+        
+        if (admin.admin_pwd.length < 6) {
+            layer.msg('密码至少大于6位', {icon: 5, time: 2000});
+            return;
+        }
+        
+        if (admin.admin_pwd_re == '') {
+            layer.msg('请填写确认密码', {icon: 5, time: 2000});
+            return;
+        }
+        if (admin.admin_pwd_re != admin.admin_pwd) {
+            layer.msg('2次密码不一致', {icon: 5, time: 2000});
+            return;
+        }
+
+
+        $.post('/?p=admin&c=admin&a=insert_or_update', admin, function (data) {
+            if (data == 'ok') {
+                layer.msg('操作成功，正在跳转...', {icon: 6, time: 2000}, function () {
+                    window.location.href = '/?p=admin&c=admin&a=index';
+                });
+            }
+        });
+    });
 
 });
 

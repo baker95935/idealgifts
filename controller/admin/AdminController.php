@@ -6,11 +6,12 @@
  * @datetime 2016-3-28  17:23:46
  * @version 1.0
  */
+require_once 'controller/admin/AuthController.php';
 class AdminController extends Controller{
     
     public function index(){
  
-    	
+    	$auth = new AuthController();
     	$model = $this->getModel();
     	
     	$db = $this->getDb();
@@ -38,16 +39,16 @@ class AdminController extends Controller{
     
     public function edit() {
     	
-      	$id = $_REQUEST['id'] ? $_REQUEST['id'] : NULL;
+      	$id = $_REQUEST['admin_id'] ? $_REQUEST['admin_id'] : NULL;
 
         if ($id == NULL) {
 
-            echo '参数传递错误，请稍后再试';
+            echo 'failed,please retry!';
 
             return;
 
         }
-
+ 
         $this->setValue('data', $this->get_admin($id));
         $this->display();
 
@@ -60,13 +61,15 @@ class AdminController extends Controller{
 
         $db = $this->getDb();
 
-        $result = $db->select($model->table('admin'), '*', "id = $id");
+        $result = $db->select($model->table('admin'), '*', "admin_id = $id");
 
         return $db->get_array($result);
 
     }
 
     public function add() {
+    	
+    	$auth = new AuthController();
  
         $this->display();
 
@@ -83,19 +86,36 @@ class AdminController extends Controller{
 
         $_POST['admin_name'] = $_POST['admin_name'];
 
-        $_POST['admin_pwd'] = $_POST['admin_pwd'];
+        $_POST['admin_pwd'] = md5($_POST['admin_pwd']);
+        
+        $_POST['admin_id'] = $_POST['admin_id'];
+        
 
-        $column = "item_id,type,is_show,start_time,end_time,create_time,order";
+        $column = "admin_name,admin_pwd,admin_login_time";
 
-        if ($db->insert_by_post_param($model->table('admin'), $column, $_POST)) {
-
-            echo 'ok';
-
-        }else{
-
-            echo '操作失败，请联系相关技术人员';
-
+        if(!empty($_POST['admin_id'])) {
+        	
+        	if ($db->update_by_post_param($model->table('admin'), $column, $_POST, "admin_id = ".$_POST['admin_id'])) {
+        		echo 'ok';
+        	} else {
+        		echo 'failed,please retry!';
+        	}
+        	
+        } else {
+        	if ($db->insert_by_post_param($model->table('admin'), $column, $_POST)) {
+        	
+        		echo 'ok';
+        	
+        	}else{
+        	
+        		echo 'failed,please retry!';
+        	
+        	}
         }
+        
+
+        
+      
 
     }
 }

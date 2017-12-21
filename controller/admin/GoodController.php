@@ -17,7 +17,7 @@ class GoodController extends CommonController {
         parent::index();
     }
 
-    public function add() {
+    public function add() {    	$auth = new AuthController();
         $this->get_category_list('category');
         parent::add();
     }
