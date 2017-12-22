@@ -40,7 +40,7 @@ and open the template in the editor.
 
         <script type="text/javascript" src="public/laydate-v1.1/laydate/laydate.js"></script>
 
-        <script type="text/javascript" src="public/admin/js/promotion.js"></script>
+        <script type="text/javascript" src="public/admin/js/admin_add.js"></script>
 
 
 
@@ -50,48 +50,64 @@ and open the template in the editor.
 
         <div style="width:800px;margin-top: 20px;margin-bottom: 200px;">
 
-            <form class="form-horizontal" role="form" onsubmit="return false;" id="add_promotion_form">
+            <form class="form-horizontal" role="form" onsubmit="return false;" id="add_admin_form">
 
                 <div class="form-group">
 
                     <label for="category_id" class="col-sm-2 control-label">用户名</label>
-					<input type="text" class="form-control" id="admin_name" name="admin_name" disabled value="{$data.admin_name}">
 
-                </div>
+                    <div class="col-sm-10">
 
-                <div class="form-group">
-
-                    <label for="is_show" class="col-sm-2 control-label">密码</label>
-
-                    <input type="text" class="form-control" id="admin_pwd" name="admin_pwd"  >
-
-                </div>
-                
-                <div class="form-group">
-
-                    <label for="is_show" class="col-sm-2 control-label">确认密码</label>
-
-                    <input type="text" class="form-control" id="admin_pwd_re" name="admin_pwd_re"  >
-
-                </div>
-
-
- 
-
-                <div class="form-group">
-
-                    <div class="col-sm-offset-9 col-sm-3">
-
-                        <input type="hidden" name="server" value="{php}echo SERVER;{/php}" />
-
-                        <button  class="btn btn-primary pull-right" id="go_back">返回</button>
-
-                        <button  class="btn btn-success pull-right " id="save_promotion">提交</button>                       
+                       <input type="text" disabled value="{$data.0.admin_name}" class="form-control" id="admin_name" name="admin_name" style="width:200px; margin-right:10px;">
 
                     </div>
 
                 </div>
 
+
+
+                <div class="form-group">
+
+                    <label for="start_time" class="col-sm-2 control-label">密码</label>
+
+                    <div class="col-sm-10">
+
+                        <input type="password" name="admin_pwd" class="laydate-icon form-control" id="admin_pwd" style="width:200px; margin-right:10px;">
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="end_time" class="col-sm-2 control-label">确认密码</label>
+
+                    <div class="col-sm-10">
+
+                        <input type="password" name="admin_pwd_re" class="laydate-icon form-control" id="admin_pwd_re" style="width:200px; margin-right:10px;">
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <div class="col-sm-offset-9 col-sm-3">
+						<input type="hidden" name="admin_id" value="{$data.0.admin_id}" />
+						<input type="hidden" name="admin_name" value="{$data.0.admin_name}" />
+                        <input type="hidden" name="server" value="{php}echo SERVER;{/php}" />
+
+                        <button  class="btn btn-primary pull-right" id="go_back">返回</button>
+
+                        <button  class="btn btn-success pull-right " id="save_admin">提交</button>                       
+
+                    </div>
+
+                </div>
 
 
             </form>

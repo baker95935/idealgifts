@@ -1,10 +1,10 @@
 <?php
 
-require_once 'lib/page.php';
+require_once 'lib/page.php';require_once 'controller/admin/AuthController.php';
 
 class CategoryController extends CommonController {
 
-    public function index() {
+    public function index() {    	    	$auth = new AuthController();
         if (isset($_REQUEST['page'])) {
             $page = $_REQUEST['page'];
         } else {

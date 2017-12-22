@@ -1,9 +1,9 @@
 <?php
-require_once 'controller/admin/CategoryController.php';
+require_once 'controller/admin/CategoryController.php';require_once 'controller/admin/AuthController.php';
 
 class PromotionController extends CommonController {
 
-    public function index() {
+    public function index() {    	    	$auth = new AuthController();
         $data = $this->get_promotion();
         $this->setValue('data', $data);
         parent::index();

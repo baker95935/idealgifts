@@ -1,8 +1,8 @@
 <?php
-
+require_once 'controller/admin/AuthController.php';
 class GalleryController extends CommonController {
 
-    public function insert($good_id, $img) {
+    public function insert($good_id, $img) {    	    	$auth = new AuthController();
         $model = $this->getModel();
         $db = $model->getDb();
         if ($db->insert($model->table('gallery'), 'good_id,img_path', "$good_id,'$img'"))
