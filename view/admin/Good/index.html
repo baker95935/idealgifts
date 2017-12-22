@@ -15,20 +15,15 @@ and open the template in the editor.
         <script type="text/javascript" src="public/js/jquery-2.0.0.js"></script>
         <script type="text/javascript" src="public/layer/layer.js"></script>
         <script type="text/javascript" src="public/bootstrap/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="public/admin/js/good.js"></script>
+        <script type="text/javascript" src="public/admin/js/good.js"></script>     
     </head>
     <body> 
         <div class="mainContent-top"> 
-            <form class="form-inline" role="form">
+            <form action="?p=admin&c=Good&a=index" class="form-inline"  method="get"  >
                 <div class="form-group">
-                    <select class="form-control"  name="category_id" id="category_id">
-                        <option value="0" selected>顶级分类</option>    
-                        {foreach from=$category item=val}
-                        {$val}
-                        {/foreach}
-                    </select>
-                    <input  class="form-control" name="good_name" id="good_name"/>
-                    <button class="btn btn-default" >查询</button>
+           
+                   商品名称： <input type="text" value="{$good_name}" class="form-control" name="good_name" id="good_name"/>                                                         <input type="hidden" name="p" value="admin">                 <input type="hidden" name="c" value="good">                  <input type="hidden" name="a" value="index">       
+                    <input type="submit"   value="查询"> 
                 </div>
                 <a id="addBtn"  class="btn btn-default pull-right" href="{php}echo SERVER;{/php}/?p=admin&c=Good&a=add" target="_self">新增</a>
             </form>

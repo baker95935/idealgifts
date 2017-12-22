@@ -1,75 +1,80 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        {include file="home/public/top.html"}
-        <link rel="stylesheet" type="text/css" href="public/css/home_new.css" />
-        <script src="public/js/home_new.js" type="text/javascript"></script>
-
-    </head>
-    <body>
-        {include file="home/public/header.html"}
-        {include file="home/public/banner.html"}
-        {if $shop_info.is_show eq 1}
-<div class="wide-1200" id="companyInfoTop"><img src="http://www.boracay.fr/photos/delai7jours.jpg" alt="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    <img src="http://www.boracay.fr//photos/cata2017.jpg" alt="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    <img src="http://www.boracay.fr//photos/quiFaitQuoi.jpg" alt="">        </div>
-        <div class="wide-1200" id="companyInfo">
-            <a href="?p=home&c=contact&a=link">
-                <img src="public/images/gift1.jpg" style="height: 200px;">
-                <div class="encadrage">
-                    <h1>{$shop_info.title}</h1>
-                    <h2>{$shop_info.sub_title}</h2>
-                </div>
-            </a>
-        </div>
-        {/if}
-        <!--        <div class="wide-1200 clearfix" style="margin-top: 20px;">
-                   <div class="pull-left width-238">
-                        <div class="side_category">
-                            <div class="cate_title">Related Categories</div>
-                            <dl class="cate_menu">
-                                {foreach from=$category item=cat}
-                                <dd><a href="?p=home&c=category&a=index&id={$cat.category_id}">{$cat.category_name}</a></dd>
-                                {/foreach}                        
-                            </dl>
-                        </div>
-                    </div>
-                    <div class="width-950 pull-right">
-                        <dl id="product" class="width-950 clearfix">
-                            <dt class="hidden">Product</dt>
-                            {foreach from=$Keychain item=val}
-                            <dd><a href="?p=home&c=good&a=index&id={$val.good_id}"><img src="{$val.good_small_img}"><h1 class="mask"></h1><h1>{$val.good_code}</h1></a></dd>
-                            {/foreach}
-                            <dd class="clearfix split" ></dd>
-                            {foreach from=$PIN item=val}
-                            <dd><a href="?p=home&c=good&a=index&id={$val.good_id}"><img src="{$val.good_small_img}"><h1 class="mask"></h1><h1>{$val.good_code}</h1></a></dd>
-                            {/foreach}
-                            <dd class="clearfix split" ></dd>
-                            {foreach from=$Laryard item=val}
-                            <dd><a href="?p=home&c=good&a=index&id={$val.good_id}"><img src="{$val.good_small_img}"><h1 class="mask"></h1><h1>{$val.good_code}</h1></a></dd>
-                            {/foreach}
-        
-        
-                        </dl>
-                    </div>
-        
-                </div>-->
-        <div class="wide-1200 clearfix" style="margin-top: 20px;">
-            {include file="home/public/category.html"}
-            <div class="width-950 pull-right">
-                <dl id="product" class="width-950 clearfix">
-                    <dt class="hidden">Product</dt>
-                    {foreach from=$category item=cat}
-                    {foreach from=$cat item=value}
-                    {if $value.is_tuijian eq 1}
-                    <dd><a href="?p=home&c=Category&a=index&id={$value.category_id}"><img src="{$value.cover_path}"><h1 class="mask"></h1><h1>{$value.category_name}</h1></a></dd>
-                    {/if}
-                    {/foreach}
-                    {/foreach} 
-                </dl>
-                <div class="paging">{$page}</div>
-            </div>
-
-        </div>
-        {include file="home/public/footer.html"}  
-
-    </body>
-</html>
+<!DOCTYPE html>
+<html>
+    <head>
+        {include file="home/public/top.html"}
+        <link rel="stylesheet" type="text/css" href="public/css/home_new.css" />
+        <script src="public/js/home_new.js" type="text/javascript"></script>
+
+    </head>
+    <body>
+        {include file="home/public/header.html"}
+        {include file="home/public/banner.html"}
+        {if $shop_info.is_show eq 1}
+<div class="wide-1200" id="companyInfoTop">
+    <div style="float:left;overflow:hidden"><a href="http://www.idealgiftscn.com/?p=home&c=contact&a=index" ><img src="public/images/banner/left.jpg" alt=""></a> </div>
+    <div style="margin-left:320px"><img src="public/images/banner/mid.jpg" alt=""></div>
+    <div style="float:right;overflow:hidden;margin-left:80px;margin-top:-100px">
+    <a href="http://www.idealgiftscn.com/?p=home&c=category&a=index"><img src="public/images/banner/right.jpg" alt=""></a>  </div>      
+</div>
+        <div class="wide-1200" id="companyInfo">
+            <a href="?p=home&c=contact&a=link">
+                <img src="public/images/gift1.jpg" style="height: 200px;">
+                <div class="encadrage">
+                    <h1>{$shop_info.title}</h1>
+                    <h2>{$shop_info.sub_title}</h2>
+                </div>
+            </a>
+        </div>
+        {/if}
+        <!--        <div class="wide-1200 clearfix" style="margin-top: 20px;">
+                   <div class="pull-left width-238">
+                        <div class="side_category">
+                            <div class="cate_title">Related Categories</div>
+                            <dl class="cate_menu">
+                                {foreach from=$category item=cat}
+                                <dd><a href="?p=home&c=category&a=index&id={$cat.category_id}">{$cat.category_name}</a></dd>
+                                {/foreach}                        
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="width-950 pull-right">
+                        <dl id="product" class="width-950 clearfix">
+                            <dt class="hidden">Product</dt>
+                            {foreach from=$Keychain item=val}
+                            <dd><a href="?p=home&c=good&a=index&id={$val.good_id}"><img src="{$val.good_small_img}"><h1 class="mask"></h1><h1>{$val.good_code}</h1></a></dd>
+                            {/foreach}
+                            <dd class="clearfix split" ></dd>
+                            {foreach from=$PIN item=val}
+                            <dd><a href="?p=home&c=good&a=index&id={$val.good_id}"><img src="{$val.good_small_img}"><h1 class="mask"></h1><h1>{$val.good_code}</h1></a></dd>
+                            {/foreach}
+                            <dd class="clearfix split" ></dd>
+                            {foreach from=$Laryard item=val}
+                            <dd><a href="?p=home&c=good&a=index&id={$val.good_id}"><img src="{$val.good_small_img}"><h1 class="mask"></h1><h1>{$val.good_code}</h1></a></dd>
+                            {/foreach}
+        
+        
+                        </dl>
+                    </div>
+        
+                </div>-->
+        <div class="wide-1200 clearfix" style="margin-top: 20px;">
+            {include file="home/public/category.html"}
+            <div class="width-950 pull-right">
+                <dl id="product" class="width-950 clearfix">
+                    <dt class="hidden">Product</dt>
+                    {foreach from=$category item=cat}
+                    {foreach from=$cat item=value}
+                    {if $value.is_tuijian eq 1}
+                    <dd><a href="?p=home&c=Category&a=index&id={$value.category_id}"><img src="{$value.cover_path}"><h1 class="mask"></h1><h1>{$value.category_name}</h1></a></dd>
+                    {/if}
+                    {/foreach}
+                    {/foreach} 
+                </dl>
+                <div class="paging">{$page}</div>
+            </div>
+
+        </div>
+        {include file="home/public/footer.html"}  
+
+    </body>
+</html>

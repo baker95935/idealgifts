@@ -40,6 +40,13 @@ class GoodController extends ForeController {
     public function index() {
         $good_id = $_REQUEST['id'];
         if ($data = $this->get_good_by_id($good_id)) {
+			if($data['good_desc']){ 
+			//$str="Line1\nLine2\rLine3\r\nLine4\n";
+				$order=array("\r\n","\n","\r");
+				$replace='<br/>';
+				$data['good_desc']=str_replace($order,$replace,$data['good_desc']); 
+			}
+
             $this->setValue('data', $data);
         }
         $thumb = $this->get_thumb($good_id);
