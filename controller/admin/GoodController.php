@@ -88,14 +88,14 @@ class GoodController extends CommonController {
         $model = $this->getModel();
         $db = $model->getDb();
         $start = ($page - 1) * Application::$_config['page']['page_size'];
-        $sql = "select good_id,good_name,good_small_img,is_show from {$model->table('good')} order by good_id desc limit $start," . Application::$_config['page']['page_size'];
+        $sql = "select good_id,good_name,good_small_img,is_show,sale_price from {$model->table('good')} order by good_id desc limit $start," . Application::$_config['page']['page_size'];
         $result = $db->query($sql);
         $i = 0;
         while ($rs = $db->fetch_assoc($result)) {
             $data[$i]['good_id'] = $rs['good_id'];
             $data[$i]['good_name'] = $rs['good_name'];
             $data[$i]['good_small_img'] = "<img class='goodimg' src='{$rs['good_small_img']}'>";
-            $data[$i]['is_show'] = $rs['is_show'] ? "<img src='public/images/yes.gif'>" : "<img src='public/images/no.gif'>";
+            $data[$i]['is_show'] = $rs['is_show'] ? "<img src='public/images/yes.gif'>" : "<img src='public/images/no.gif'>";                        $data[$i]['sale_price'] = $rs['sale_price'];
             $data[$i]['op'] = '<a href="?p=admin&c=Good&a=edit&id=' . $rs['good_id'] . '">编辑</a>&nbsp;&nbsp;<a class="'.'delete" data_id="'.$rs["good_id"].'" href="javascript:void(0);">删除</a>';
             $i++;
         }
