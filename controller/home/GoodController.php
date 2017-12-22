@@ -22,7 +22,7 @@ class GoodController extends ForeController {
         $model = $this->getModel();
         $db = $this->getDb();
         $start = ($page - 1) * $page_size;
-        $result = $db->select($model->table('good'), 'category_id,good_id,good_name,good_small_img', "1=1 limit $start,$page_size");
+        $result = $db->select($model->table('good'), 'sale_price,category_id,good_id,good_name,good_small_img', "1=1 limit $start,$page_size");
         return $result;
     }
 
