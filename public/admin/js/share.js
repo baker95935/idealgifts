@@ -253,6 +253,42 @@ $(function () {
         });
     });
  
+ 	    $('#save_user').click(function () {
+        var t = new jsonUtil();
+        var user = t.form_to_object('add_user_form');
+
+        if (user.user_name == '') {
+            layer.msg('请填写用户名', {icon: 5, time: 2000});
+            return;
+        }
+        if (user.password == '') {
+            layer.msg('请填写密码', {icon: 5, time: 2000});
+            return;
+        }
+        
+        if (user.password.length < 6) {
+            layer.msg('密码至少大于6位', {icon: 5, time: 2000});
+            return;
+        }
+        
+        if (user.password_re == '') {
+            layer.msg('请填写确认密码', {icon: 5, time: 2000});
+            return;
+        }
+        if (user.password_re != user.password) {
+            layer.msg('2次密码不一致', {icon: 5, time: 2000});
+            return;
+        }
+
+ 
+        $.post('/?p=admin&c=user&a=insert_or_update', user, function (data) {
+            if (data == 'ok') {
+                layer.msg('操作成功，正在跳转...', {icon: 6, time: 2000}, function () {
+                    window.location.href = '/?p=admin&c=user&a=index';
+                });
+            }
+        });
+    });
 
 });
 

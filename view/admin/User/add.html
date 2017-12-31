@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<!--
+
+To change this license header, choose License Headers in Project Properties.
+
+To change this template file, choose Tools | Templates
+
+and open the template in the editor.
+
+-->
+
+<html>
+
+    <head>
+
+        <title>TODO supply a title</title>
+
+        <meta charset="UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" type="text/css" href="public/bootstrap/css/bootstrap.min.css"/>
+
+        <link rel="stylesheet" type="text/css" href="public/admin/css/share.css" />
+
+        <link rel="stylesheet" type="text/css" href="public/admin/css/promotion.css" />
+
+        <script type="text/javascript" src="public/js/jquery-2.0.0.js"></script>
+
+        <script type="text/javascript" src="public/js/json2.js"></script>
+
+        <script type="text/javascript" src="public/js/jsonUtil.js"></script>
+
+        <script type="text/javascript" src="public/bootstrap/js/bootstrap.min.js"></script>
+
+        <script type="text/javascript" src="public/admin/js/share.js"></script>
+
+        <script type="text/javascript" src="public/layer/layer.js"></script>
+ 
+ 
+
+
+
+    </head>
+
+    <body>
+
+        <div style="width:800px;margin-top: 20px;margin-bottom: 200px;">
+
+            <form class="form-horizontal" role="form" onsubmit="return false;" id="add_user_form">
+
+                <div class="form-group">
+
+                    <label for="category_id" class="col-sm-2 control-label">用户名<font color="red">*</font></label>
+
+                    <div class="col-sm-10">
+
+                       <input type="text" class="form-control" id="username" name="username" style="width:200px; margin-right:10px;">
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="start_time" class="col-sm-2 control-label">密码<font color="red">*</font></label>
+
+                    <div class="col-sm-10">
+
+                        <input type="password" name="password" class="laydate-icon form-control" id="password" style="width:200px; margin-right:10px;">
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="end_time" class="col-sm-2 control-label">确认密码<font color="red">*</font></label>
+
+                    <div class="col-sm-10">
+
+                        <input type="password" name="password_re" class="laydate-icon form-control" id="password_re" style="width:200px; margin-right:10px;">
+
+                    </div>
+
+                </div>
+
+
+			   <div class="form-group">
+
+                    <label for="category_id" class="col-sm-2 control-label">邮箱</label>
+
+                    <div class="col-sm-10">
+
+                       <input type="text" class="form-control" id="email" name="email" style="width:200px; margin-right:10px;">
+
+                    </div>
+
+                </div>
+                
+            	<div class="form-group">
+
+                    <label for="category_id" class="col-sm-2 control-label">邮箱状态</label>
+
+                    <div class="col-sm-10">
+
+                    
+                       <select name="status" class="form-control" id="status" style="width:200px; margin-right:10px;">
+                       <option value="1">未认证</option>
+                       <option value="2">已认证</option>
+                       </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <div class="col-sm-offset-9 col-sm-3">
+
+                        <input type="hidden" name="server" value="{php}echo SERVER;{/php}" />
+
+                        <button  class="btn btn-primary pull-right" id="go_back">返回</button>
+
+                        <button  class="btn btn-success pull-right " id="save_user">提交</button>                       
+
+                    </div>
+
+                </div>
+
+
+
+            </form>
+
+        </div>
+
+    </body>
+
+</html>
+
