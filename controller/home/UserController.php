@@ -38,7 +38,56 @@ class UserController extends ForeController {
 	public function index()
 	{
 		$auth = new AuthController();
-		echo 'ok';
+		$this->setValue("user", $_SESSION['username']);
+		$this->get_advertisement();
+        $this->get_shop_info();
+        $this->setValue('category', $this->get_all_category());
+		$this->display();
+	}
+	
+	public function changepwd()
+	{
+		$auth = new AuthController();
+		$this->setValue("user", $_SESSION['username']);
+		$this->get_advertisement();
+        $this->get_shop_info();
+        $this->setValue('category', $this->get_all_category());
+		$this->display();
+	}
+	
+	public function modify()
+	{
+		$auth = new AuthController();
+		$password_old = md5($_REQUEST['password_old']);
+        $password  = md5($_REQUEST['password']);
+        
+        $username=$_SESSION['username'];
+        $model = $this->getModel();
+        $result = $model->getDb()->select('mvc_user','*',"username='".$username."'");
+ 
+        $user = $model->getDb()->fetch_assoc();
+ 
+        if($user['password'] == $password_old){
+
+	        //更新下密码
+	        $model->getDb()->update('mvc_user', "password='".$password."'", 'id='.$user['id']);
+	        session_start();
+	        $_SESSION['username']=$username;
+	        $_SESSION['password']=$password;
+	        
+	        echo 'ok';
+        }else{
+        	echo '用户名或密码错误';
+        }
+	}
+	
+	public function logout()
+	{
+		session_start();
+    	$_SESSION['username']='';
+    	$_SESSION['password']='';
+    	echo "<script>window.location.href='?p=home&c=user&a=login';</script>";
+    	exit;
 	}
 	
 	public function login()
@@ -63,6 +112,7 @@ class UserController extends ForeController {
 	        session_start();
 	        $_SESSION['username']=$username;
 	        $_SESSION['password']=$password;
+	        $_SESSION['type']='home';
 	        //更新下登录时间
 	        $time=time();
 	         

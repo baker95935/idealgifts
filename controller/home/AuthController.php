@@ -11,9 +11,8 @@ class AuthController extends Controller{
  	public function __construct()
     {
     	session_start();
-    	if(!$_SESSION['username'] || !$_SESSION['password'] )
+    	if(!$_SESSION['username'] || !$_SESSION['password'] || $_SESSION['type']!='home')
     	{
-    		//$this->redirect('/admin/login/login/');
     		header("Location: ?p=home&c=user&a=login");
     	}
     }

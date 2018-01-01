@@ -27,6 +27,47 @@
               
                 });
                 
+                    
+                  $('#modify_user').click(function () {
+                      var t = new jsonUtil();
+				        var user = t.form_to_object('modify_user_form');
+
+				        if (user.password_old == '') {
+				            layer.msg('please input old password', {icon: 5, time: 2000});
+				            return;
+				        }
+				        if (user.password == '') {
+				            layer.msg('please input password', {icon: 5, time: 2000});
+				            return;
+				        }
+				        
+				        if (user.password_re == '') {
+				            layer.msg('please input password', {icon: 5, time: 2000});
+				            return;
+				        }
+				        
+				       	if (user.password.length < 6) {
+				            layer.msg('password less 6', {icon: 5, time: 2000});
+				            return;
+				        }
+				        
+ 
+				        if (user.password_re != user.password) {
+				            layer.msg('two password is not ok!', {icon: 5, time: 2000});
+				            return;
+				        }
+			 
+
+				        $.post('/?p=home&c=user&a=modify', user, function (data) {
+				            if (data == 'ok') {
+				                layer.msg('操作成功，正在跳转...', {icon: 6, time: 2000}, function () {
+				                    window.location.href = '/?p=home&c=user&a=index';
+				                });
+				            }
+				        });
+              
+                });
+                
                 
 });
 
