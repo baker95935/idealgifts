@@ -15,7 +15,16 @@ require_once 'controller/home/AuthController.php';
 
 class UserController extends ForeController {
 
- 
+ 	
+	public function test()
+	{
+		$mail = $this->load('mailer', FALSE);
+		$targetEmail='zhaoxueming@zhaoyuncapital.com';
+		$res=$mail->sendEmail($targetEmail);
+		var_dump($res);exit;
+
+	}
+		
     private function get_shop_info() {
         $controller = new ContactController();
         $this->setValue('shop_info', $controller->get_shop_info());
@@ -69,7 +78,7 @@ class UserController extends ForeController {
  
         if($user['password'] == $password_old){
 
-	        //更新下密码
+	       
 	        $model->getDb()->update('mvc_user', "password='".$password."'", 'id='.$user['id']);
 	        session_start();
 	        $_SESSION['username']=$username;
@@ -77,7 +86,7 @@ class UserController extends ForeController {
 	        
 	        echo 'ok';
         }else{
-        	echo '用户名或密码错误';
+        	echo 'failed,please retry!';
         }
 	}
 	
@@ -113,13 +122,13 @@ class UserController extends ForeController {
 	        $_SESSION['username']=$username;
 	        $_SESSION['password']=$password;
 	        $_SESSION['type']='home';
-	        //更新下登录时间
+ 
 	        $time=time();
 	         
 	        $model->getDb()->update('mvc_user', 'utime='.$time, 'id='.$user['id']);
 	        echo 'ok';
         }else{
-        	echo '用户名或密码错误';
+        	echo 'failed,please retry!';
         }
 	}
  	
