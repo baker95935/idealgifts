@@ -15,26 +15,7 @@
     
     <body>
         {include file="home/public/header.html"}
-        {include file="home/public/banner.html"}
-        {if $shop_info.is_show eq 1}
-<div class="wide-1200" id="companyInfoTop">
- 
-    <div style="float:left;overflow:hidden"><a href="http://www.idealgiftscn.com/?p=home&c=contact&a=index" ><img src="public/images/banner/left.jpg" alt=""></a> </div>
-    <div style="margin-left:320px"><img src="public/images/banner/mid.jpg" alt=""></div>
-    <div style="float:right;overflow:hidden;margin-left:80px;margin-top:-100px">
-    <a href="http://www.idealgiftscn.com/?p=home&c=category&a=index"><img src="public/images/banner/right.jpg" alt=""></a>  </div>      
- 
-</div>
-        <div class="wide-1200" id="companyInfo">
-            <a href="?p=home&c=contact&a=link">
-                <img src="public/images/gift1.jpg" style="height: 200px;">
-                <div class="encadrage">
-                    <h1>{$shop_info.title}</h1>
-                    <h2>{$shop_info.sub_title}</h2>
-                </div>
-            </a>
-        </div>
-        {/if}
+       
         
         <div class="wide-1200 clearfix" style="margin-top: 20px;">
             {include file="home/user/left.html"}

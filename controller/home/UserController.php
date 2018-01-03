@@ -25,13 +25,36 @@ class UserController extends ForeController {
 
 	}
 	
+	public function addresslist()
+	{
+		$auth = new AuthController();
+		$this->setValue("user", $_SESSION['username']);
+        
+        $model = $this->getModel();
+        $db = $this->getDb();
+        $result = $db->select($model->table('user_address'), '*', "username = '".$_SESSION['username']."' limit 0,5");
+  		$data = null;
+     
+    	while ($rs = $db->fetch_assoc($result)) {
+    	
+    		$data[] = $rs;
+    	
+    	}
+        $this->setValue("data", $data);
+		$this->display();
+	}
+	
+	public function addressadd()
+	{
+		$auth = new AuthController();
+		$this->setValue("user", $_SESSION['username']);
+ 
+		$this->display();
+	}
+	
 	public function changeemail()
 	{
 		$auth = new AuthController();
-		$this->get_advertisement();
-		$this->get_shop_info();
-		$this->setValue('category', $this->get_all_category());
-		
 		$this->setValue('user',$this->get_user($_SESSION['username']));
 		
 		$this->display();
@@ -61,22 +84,10 @@ class UserController extends ForeController {
 		
 	}
 	
-    private function get_shop_info() {
-        $controller = new ContactController();
-        $this->setValue('shop_info', $controller->get_shop_info());
-    }
-
-    private function get_advertisement() {
-        $controller = new AdvertisementController();
  
-        $this->setValue('banner', $controller->get_banner_img());
-    }
 
     public function register() {
         $this->get_advertisement();
-        $this->get_shop_info();
-        $this->setValue('category', $this->get_all_category());
- 
         $this->display();
     }
 
@@ -84,9 +95,6 @@ class UserController extends ForeController {
 	{
 		$auth = new AuthController();
 		$this->setValue("user", $_SESSION['username']);
-		$this->get_advertisement();
-        $this->get_shop_info();
-        $this->setValue('category', $this->get_all_category());
 		$this->display();
 	}
 	
@@ -94,9 +102,6 @@ class UserController extends ForeController {
 	{
 		$auth = new AuthController();
 		$this->setValue("user", $_SESSION['username']);
-		$this->get_advertisement();
-        $this->get_shop_info();
-        $this->setValue('category', $this->get_all_category());
 		$this->display();
 	}
 	
@@ -137,9 +142,6 @@ class UserController extends ForeController {
 	
 	public function login()
 	{
-		$this->get_advertisement();
-        $this->get_shop_info();
-        $this->setValue('category', $this->get_all_category());
 		$this->display();
 	}
 	
@@ -168,10 +170,7 @@ class UserController extends ForeController {
         }
 	}
  	
-    public function creatCaptcha() {
-        $captcha = $this->load('captcha', FALSE);
-        $captcha->create();
-    }
+ 
     
     
     public function insert(){

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {include file="home/public/top.html"}
+        <link rel="stylesheet" type="text/css" href="public/css/home_new.css" />
+        <script src="public/js/home_new.js" type="text/javascript"></script>
+        <script src="public/js/verificationNumbers.js"></script>
+        <script src="public/js/user.js" type="text/javascript"></script>
+        <script type="text/javascript" src="public/js/jsonUtil.js"></script>
+        <script type="text/javascript" src="public/layer/layer.js"></script>
+        
+
+    </head>
+ 
+    
+    <body>
+        {include file="home/public/header.html"}
+  
+ 
+        
+        <div class="wide-1200 clearfix" style="margin-top: 20px;">
+            {include file="home/user/left.html"}
+            
+            <div class="width-950 pull-right">
+            <div   class="btn-lg">
+              <span class="glyphicon glyphicon-user "></span>{$user}
+              </div>
+              <a id="addBtn"  class="btn btn-default pull-right" href="/?p=home&c=user&a=addressadd" target="_self">新增</a>
+                <table class="table table-hover table-border">
+
+                <thead>
+
+                    <tr>
+
+                        <th>id</th>
+
+                        <th>name</th>
+
+                        <th>phone</th>
+                        
+                        <th>address</th>
+
+                        <th>action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+               
+				 {foreach from=$data  item=val}      
+                    <tr>
+
+                        <td>{$val.id}</td>                       
+
+                        <td>{$val.name}</td>   
+
+                        <td>{$val.phone}</td>
+						<td>{$val.address}</td>
+						
+                        <td><a href=" ">edit</a>&nbsp;<a href=" ">del</a></td>                       
+
+                    </tr>
+				 {/foreach} 
+                   
+
+
+
+                </tbody>
+
+            </table>
+
+            </div>
+
+        </div>
+        {include file="home/public/footer.html"}  
+
+    </body>
+</html>

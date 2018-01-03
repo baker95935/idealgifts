@@ -18,11 +18,11 @@
         
         
         <div class="wide-1200 clearfix" style="margin-top: 20px;">
-            {include file="home/public/category.html"}
+            {include file="home/user/left.html"}
             
             <div class="width-950 pull-right">
             <div   class="btn-lg">
-              <span class="glyphicon glyphicon-user "></span>register
+              <span class="glyphicon glyphicon-user "></span>address add
               </div>
               
             <form  role="form" onsubmit="return false;" id="add_user_form">
@@ -51,43 +51,6 @@
                 <span style="display: none;" class="glyphicon glyphicon-ok form-control-feedback"></span>
             </div>
 
-            <div class="form-group has-feedback">
-                <label for="passwordConfirm">confirm password</label>
-                <div class="input-group">
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                    <input id="password_re" name="password_re" class="form-control" placeholder="please input confirm password" maxlength="20" type="password">
-                </div>
-                <span style="color:red;display: none;" class="tips"></span>
-                <span style="display: none;" class="glyphicon glyphicon-remove form-control-feedback"></span>
-                <span style="display: none;" class="glyphicon glyphicon-ok form-control-feedback"></span>
-            </div>
-
-
-
-
-            <div class="row">
-                <div class="col-xs-7">
-                    <div class="form-group has-feedback">
-                        <label for="idcode-btn">qcode</label>
-                        <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-qrcode"></span></span>
-                            <input id="qcode" name="qcode" class="form-control" placeholder="please input qcode" maxlength="4" type="text">
-                        </div>
-                        <span style="color:red;display: none;" class="tips"></span>
-                        <span style="display: none;" class="glyphicon glyphicon-remove form-control-feedback"></span>
-                        <span style="display: none;" class="glyphicon glyphicon-ok form-control-feedback"></span>
-                    </div>
-                </div>
-                
-                <div class="col-xs-5" style="padding-top: 20px">
-                  <div class="checkcode">
-                
-                    <canvas style="width:85px;height:36px;padding:3px;z-index:0;" id="myCanvas" onclick="createCode()">对不起，您的浏览器不支持canvas，请下载最新版浏览器!</canvas>
-                </div>
-                </div>
-                
-               
-            </div>
 
             <div class="form-group has-feedback">
                 <label for="phoneNum">email</label>
