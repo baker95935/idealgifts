@@ -68,6 +68,31 @@
               
                 });
                 
+                  
+                $('#modify_email').click(function () {
+                      var t = new jsonUtil();
+				        var user = t.form_to_object('modify_user_email');
+
+				        if (user.email == '') {
+				            layer.msg('please input your new email', {icon: 5, time: 2000});
+				            return;
+				        }
+				        
+				        if (user.email == user.email_old) {
+				            layer.msg('two mail is the same!', {icon: 5, time: 2000});
+				            return;
+				        }
+				        
+
+				        $.post('/?p=home&c=user&a=modifyemail', user, function (data) {
+				            if (data == 'ok') {
+				                layer.msg('操作成功，正在跳转...', {icon: 6, time: 2000}, function () {
+				                    window.location.href = '/?p=home&c=user&a=index';
+				                });
+				            }
+				        });
+              
+                });
                 
 });
 

@@ -45,9 +45,9 @@ class Mailer { //class start
 		$mail->Subject = 'PHPMailer SMTP test';
 		//Read an HTML message body from an external file, convert referenced images to embedded,
 		//convert HTML into a basic plain-text alternative body
-		$mail->msgHTML('<div style="width: 640px; font-family: Arial, Helvetica, sans-serif; font-size: 11px;">
-  							<h1>This is a test of PHPMailer.</h1>
-						</div>');
+		$mail->msgHTML("<div style='width: 640px; font-family: Arial, Helvetica, sans-serif; font-size: 11px;'>
+  							<h1>hi".$username.",welcome visit idealgiftscn.</h1>
+						</div>");
 		//Replace the plain text body with one created manually
 		$mail->AltBody = 'This is a plain-text message body';
 		//Attach an image file
@@ -56,9 +56,9 @@ class Mailer { //class start
 		//send the message, check for errors
 		if (!$mail->send()) {
 		    //echo "Mailer Error: " . $mail->ErrorInfo;
-		    return 'error';
+		    return '2';
 		} else {
-		    return "ok";
+		    return "1";
 		}
 		    	
     }

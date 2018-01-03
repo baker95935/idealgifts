@@ -24,7 +24,43 @@ class UserController extends ForeController {
 		var_dump($res);exit;
 
 	}
+	
+	public function changeemail()
+	{
+		$auth = new AuthController();
+		$this->get_advertisement();
+		$this->get_shop_info();
+		$this->setValue('category', $this->get_all_category());
 		
+		$this->setValue('user',$this->get_user($_SESSION['username']));
+		
+		$this->display();
+	}
+
+	public function modifyemail()
+	{
+		$auth=new AuthController();
+		
+		$username=$_SESSION['username'];
+		
+		$email=$_POST['email'];
+ 
+		if(!empty($email) && !empty($username)) {
+			
+			//发个邮件
+			$mail = $this->load('mailer', FALSE);
+			$mail->sendEmail($email,$username);
+			
+			//更改邮件地址
+			$model = $this->getModel();
+			$model->getDb()->update('mvc_user', "email='".$email."'", "username='".$username."'");
+			echo 'ok';
+			exit;
+		}
+		echo 'error,please retry';
+		
+	}
+	
     private function get_shop_info() {
         $controller = new ContactController();
         $this->setValue('shop_info', $controller->get_shop_info());
@@ -156,6 +192,20 @@ class UserController extends ForeController {
 
         $column = "username,password,utime,email,status,ctime";
     	
+        
+        //校验下用户名的唯一
+        $res=$this->get_user($_POST['username']);
+        if($res!=0) {
+        	echo 'username is not only one!please retry';
+        	exit;
+        }
+        
+        //发邮件
+        $mail = $this->load('mailer', FALSE);
+        if(!empty($_POST['email']) && !empty($_POST['username'])) {
+        	$mail->sendEmail($_POST['email'],$_POST['username']);
+        }
+        
     	if ($db->insert_by_post_param($model->table('user'), $column, $_POST)) {
     	
     		echo 'ok';
@@ -165,9 +215,23 @@ class UserController extends ForeController {
     		echo 'failed,please retry!';
     	
     	}
-       
-        
 
+    }
+    
+    private function get_user($username='') {
+    
+    	$res=0;
+    	
+    	$model = $this->getModel();
+    
+    	$db = $this->getDb();
+    
+    	$result = $db->select($model->table('user'), '*', "username ='".$username."'");
+     
+    	$res=$db->get_array($result);
+    	
+    	return $res;
+    
     }
     
     
