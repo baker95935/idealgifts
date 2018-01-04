@@ -93,6 +93,82 @@
 				        });
               
                 });
+
+                $('#save_address').click(function () {
+                      var t = new jsonUtil();
+				        var user = t.form_to_object('add_address_form');
+
+				        if (user.name == '') {
+				            layer.msg('please input your new name', {icon: 5, time: 2000});
+				            return;
+				        }
+
+				        if (user.phone == '') {
+				            layer.msg('please input your new phone', {icon: 5, time: 2000});
+				            return;
+				        }
+
+				        if (user.address == '') {
+				            layer.msg('please input your new address', {icon: 5, time: 2000});
+				            return;
+				        }
+				        
+ 
+
+				        $.post('/?p=home&c=user&a=insertaddress', user, function (data) {
+				            if (data == 'ok') {
+				                layer.msg('操作成功，正在跳转...', {icon: 6, time: 2000}, function () {
+				                    window.location.href = '/?p=home&c=user&a=addresslist';
+				                });
+				            }
+				        });
+              
+                });
+
+              $('#edit_address').click(function () {
+                      var t = new jsonUtil();
+				        var user = t.form_to_object('edit_address_form');
+
+				        if (user.name == '') {
+				            layer.msg('please input your new name', {icon: 5, time: 2000});
+				            return;
+				        }
+
+				        if (user.phone == '') {
+				            layer.msg('please input your new phone', {icon: 5, time: 2000});
+				            return;
+				        }
+
+				        if (user.address == '') {
+				            layer.msg('please input your new address', {icon: 5, time: 2000});
+				            return;
+				        }
+				        
+				        $.post('/?p=home&c=user&a=insertaddress', user, function (data) {
+				            if (data == 'ok') {
+				                layer.msg('操作成功，正在跳转...', {icon: 6, time: 2000}, function () {
+				                    window.location.href = '/?p=home&c=user&a=addresslist';
+				                });
+				            }
+				        });
+              
+                });
                 
+        $('.delete').click(function () {
+	         var id = $(this).attr('data_id');
+	        layer.confirm('is not delete', {
+	            btn: ['yes', 'no']
+	        }, function () {
+	           $.post("?p=home&c=user&a=addressdel",{"id":id},function(data){
+	               if(data == "ok"){
+	                   layer.msg("delete success!",{icon: 6, time: 2000});
+	                   window.location.reload();
+	               }else{
+	                   layer.msg("delete failed!",{icon: 5, time: 2000});
+	               }
+	           });
+	        }, function () {            
+	        });
+    	});
 });
 

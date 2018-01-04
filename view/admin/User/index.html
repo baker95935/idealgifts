@@ -64,7 +64,7 @@ and open the template in the editor.
 
                         <th>上次登录时间</th>
                         <th>邮箱</th>
-                        <th>激活状态</th>
+                       
                         
                         <th>改密</th>
                         <th>删除</th>
@@ -86,7 +86,7 @@ and open the template in the editor.
                         <td>{$cat.ctime|date_format:"%Y-%m-%d %I:%M %p"}</td>
                         <td>{$cat.utime|date_format:"%Y-%m-%d %I:%M %p"}</td>
                         <td>{$cat.email}</td>
-                        <td>{if $cat.status eq 1}未认证{else}已认证{/if}</td>
+                     
                         <td><a href="?p=admin&c=user&a=edit&id={$cat.id}">修改</a></td>
                         <td><a href="javascript:void(0);" data_id="{$cat.id}" class= "delete">删除</a></td>
                

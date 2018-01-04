@@ -59,7 +59,9 @@
                         <td>{$val.phone}</td>
 						<td>{$val.address}</td>
 						
-                        <td><a href=" ">edit</a>&nbsp;<a href=" ">del</a></td>                       
+                        <td><a href="/?p=home&c=user&a=addressedit&id={$val.id}">edit</a>&nbsp;
+                            <a href="javascript:void(0);" data_id="{$val.id}" class= "delete">删除</a>
+                        </td>                       
 
                     </tr>
 				 {/foreach} 

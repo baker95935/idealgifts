@@ -42,7 +42,7 @@ class Mailer { //class start
 		//Set who the message is to be sent to
 		$mail->addAddress($targetEmail, $username);
 		//Set the subject line
-		$mail->Subject = 'PHPMailer SMTP test';
+		$mail->Subject = 'hello,'.$username;
 		//Read an HTML message body from an external file, convert referenced images to embedded,
 		//convert HTML into a basic plain-text alternative body
 		$mail->msgHTML("<div style='width: 640px; font-family: Arial, Helvetica, sans-serif; font-size: 11px;'>

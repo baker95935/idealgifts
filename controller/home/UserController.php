@@ -16,14 +16,7 @@ require_once 'controller/home/AuthController.php';
 class UserController extends ForeController {
 
  	
-	public function test()
-	{
-		$mail = $this->load('mailer', FALSE);
-		$targetEmail='zhaoxueming@zhaoyuncapital.com';
-		$res=$mail->sendEmail($targetEmail);
-		var_dump($res);exit;
-
-	}
+ 
 	
 	public function addresslist()
 	{
@@ -48,6 +41,26 @@ class UserController extends ForeController {
 	{
 		$auth = new AuthController();
 		$this->setValue("user", $_SESSION['username']);
+ 
+		$this->display();
+	}
+
+	public function addressedit()
+	{
+		$auth = new AuthController();
+		$this->setValue("user", $_SESSION['username']);
+
+		$id = $_REQUEST['id'] ? $_REQUEST['id'] : NULL;
+
+        if ($id == NULL) {
+
+            echo 'failed,please retry!';
+
+            return;
+
+        }
+ 
+        $this->setValue('data', $this->get_address($id));
  
 		$this->display();
 	}
@@ -84,10 +97,31 @@ class UserController extends ForeController {
 		
 	}
 	
- 
+   private function get_first_category() {
+        $category = new CategoryController();
+        $result = $category->get_first_category();
+        $i = 0;
+        while ($rs = $this->getDb()->fetch_assoc($result)) {
+            $data[$i] = "<a title='{$rs['category_name']}' class='' href='" . SERVER . "/?p=home&c=Category&a=index&id={$rs['category_id']}'>{$rs['category_name']}</a>";
+            $i++;
+        }
+        $this->setValue('first_category', $data);
+    }
+
+    private function get_shop_info() {
+        $controller = new ContactController();
+        $this->setValue('shop_info', $controller->get_shop_info());
+    }
+
+    private function get_advertisement() {
+        $controller = new AdvertisementController();
+        $this->setValue('banner', $controller->get_banner_img());
+    }
 
     public function register() {
         $this->get_advertisement();
+        $this->get_shop_info();
+        $this->setValue('category', $this->get_all_category());
         $this->display();
     }
 
@@ -142,6 +176,9 @@ class UserController extends ForeController {
 	
 	public function login()
 	{
+		$this->get_advertisement();
+        $this->get_shop_info();
+        $this->setValue('category', $this->get_all_category());
 		$this->display();
 	}
 	
@@ -171,7 +208,44 @@ class UserController extends ForeController {
 	}
  	
  
-    
+    public function insertaddress()
+    {
+    	$auth = new AuthController();
+    	$model = $this->getModel();
+        $db = $model->getDb();
+
+        $_POST['ctime'] = time();
+        $_POST['username'] = $_SESSION['username'];
+        $uinfo=$this->get_user($_SESSION['username']);
+        $_POST['uid']=$uinfo[0]['id'];
+        $_POST['id']=$_POST['id'];
+
+        $column = "uid,username,name,phone,address,ctime";
+    	
+        
+        if($_POST['id']) 
+        {
+
+        	if ($db->update_by_post_param($model->table('user_address'), $column, $_POST, "id = ".$_POST['id'])) {
+        		echo 'ok';
+        	} else {
+        		echo 'failed,please retry!';
+        	}
+
+        } else {
+
+	    	if ($db->insert_by_post_param($model->table('user_address'), $column, $_POST)) {
+	    	
+	    		echo 'ok';
+	    	
+	    	}else{
+	    	
+	    		echo 'failed,please retry!';
+	    	
+	    	}
+    	}
+
+    }
     
     public function insert(){
 
@@ -233,6 +307,50 @@ class UserController extends ForeController {
     
     }
     
+     private function get_address($id = 0) {
+
+        $model = $this->getModel();
+
+        $db = $this->getDb();
+
+        $result = $db->select($model->table('user_address'), '*', "id = $id");
+
+        return $db->get_array($result);
+
+    }
     
+
+     public function addressdel() {
+
+        $model = $this->getModel();
+
+        $db = $this->getDb();
+
+         $id = $_REQUEST['id'] ? $_REQUEST['id'] : NULL;
+
+        if ($id == NULL) {
+
+            echo 'failed,please retry!';
+
+            return;
+
+        }
+
+ 
+
+		$result=$db->delete($model->table('user_address'), 'id='.$id);
+	
+   
+        if ($result){
+
+            echo 'ok';
+
+       } else {
+
+            echo 'error';
+
+       }
+
+    }
     
 }
