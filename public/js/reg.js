@@ -39,10 +39,10 @@
 				        }
 			 
 
-				        $.post('/?p=home&c=user&a=insert', user, function (data) {
+				        $.post('?p=home&c=user&a=insert', user, function (data) {
 				            if (data == 'ok') {
 				                layer.msg('操作成功，正在跳转...', {icon: 6, time: 2000}, function () {
-				                    window.location.href = '/?p=home&c=user&a=index';
+				                    window.location.href = '?p=home&c=user&a=index';
 				                });
 				            } else {
 				            	layer.msg(data, {icon: 5, time: 2000});
