@@ -15,7 +15,7 @@ require_once 'controller/home/AuthController.php';
 
 class UserController extends ForeController {
 
- 	
+ 
  
 	
 	public function addresslist()
@@ -84,8 +84,8 @@ class UserController extends ForeController {
 		if(!empty($email) && !empty($username)) {
 			
 			//发个邮件
-			//$mail = $this->load('mailer', FALSE);
-			//$result=$mail->sendEmail($email,$username);
+			$mail = $this->load('mailer', FALSE);
+			$result=$mail->sendEmail($email,$username);
 		
 			//更改邮件地址
 			$model = $this->getModel();
@@ -274,10 +274,10 @@ class UserController extends ForeController {
         }
         
         //发邮件
-        //$mail = $this->load('mailer', FALSE);
-        //if(!empty($_POST['email']) && !empty($_POST['username'])) {
-        //	$mail->sendEmail($_POST['email'],$_POST['username']);
-        //}
+        $mail = $this->load('mailer', FALSE);
+        if(!empty($_POST['email']) && !empty($_POST['username'])) {
+        	$mail->sendEmail($_POST['email'],$_POST['username']);
+        }
         
     	if ($db->insert_by_post_param($model->table('user'), $column, $_POST)) {
     	

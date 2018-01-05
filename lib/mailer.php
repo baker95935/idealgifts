@@ -13,7 +13,7 @@ class Mailer { //class start
     
 		date_default_timezone_set('Etc/UTC');
 		
-		require_once 'lib/phpmailer/PHPMailerAutoload.php';
+		require_once 'phpmailer/PHPMailerAutoload.php';
 		
 		//Create a new PHPMailer instance
 		$mail = new PHPMailer;
@@ -23,13 +23,15 @@ class Mailer { //class start
 		// 0 = off (for production use)
 		// 1 = client messages
 		// 2 = client and server messages
-		$mail->SMTPDebug = 2;
+		$mail->SMTPDebug = 0;
 		//Ask for HTML-friendly debug output
 		$mail->Debugoutput = 'html';
 		//Set the hostname of the mail server
 		$mail->Host = "smtp.163.com";
 		//Set the SMTP port number - likely to be 25, 465 or 587
-		$mail->Port = 25;
+		//$mail->Port = 25;
+		$mail->SMTPSecure = 'ssl';
+		$mail->Port = 465;
 		//Whether to use SMTP authentication
 		$mail->SMTPAuth = true;
 		//Username to use for SMTP authentication
@@ -47,7 +49,7 @@ class Mailer { //class start
 		//Read an HTML message body from an external file, convert referenced images to embedded,
 		//convert HTML into a basic plain-text alternative body
 		$mail->msgHTML("<div style='width: 640px; font-family: Arial, Helvetica, sans-serif; font-size: 11px;'>
-  							<h1>hi".$username.",welcome visit idealgiftscn.</h1>
+  							<h1>hi,".$username.",welcome visit http://www.idealgiftscn.com .</h1>
 						</div>");
 		//Replace the plain text body with one created manually
 		$mail->AltBody = 'This is a plain-text message body';
