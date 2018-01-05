@@ -37,7 +37,7 @@ class Mailer { //class start
 		//Username to use for SMTP authentication
 		$mail->Username = "13146794571@163.com";
 		//Password to use for SMTP authentication
-		$mail->Password = "Baker95930";
+		$mail->Password = "121212";
 		//Set who the message is to be sent from
 		$mail->setFrom('13146794571@163.com', 'admin');
 		//Set an alternative reply-to address
