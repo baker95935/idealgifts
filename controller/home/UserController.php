@@ -170,7 +170,7 @@ class UserController extends ForeController {
 		session_start();
     	$_SESSION['username']='';
     	$_SESSION['password']='';
-    	echo "<script>window.location.href='?p=home&c=user&a=login';</script>";
+    	echo "<script>window.location.href='?p=home&c=index&a=index';</script>";
     	exit;
 	}
 	

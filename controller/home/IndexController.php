@@ -11,18 +11,9 @@ require_once 'controller/home/CategoryController.php';
 require_once 'controller/home/GoodController.php';
 require_once 'controller/home/ContactController.php';
 require_once 'controller/home/AdvertisementController.php';
+require_once 'controller/home/AuthController.php';
 
 class IndexController extends ForeController {
-
-    public function indexold() {
-        $this->get_first_category();
-        $this->get_hot_goods();
-        $this->get_best_goods();
-        $this->get_new_goods();
-        $this->get_shop_info();
-        $this->get_advertisement();
-        $this->display();
-    }
 
     private function get_first_category() {
         $category = new CategoryController();
@@ -109,6 +100,9 @@ class IndexController extends ForeController {
     }
 
     public function index() {
+        session_start();
+        $this->setValue("user", $_SESSION['username']);
+
         $this->get_advertisement();
         $this->get_shop_info();
         $this->setValue('category', $this->get_all_category());

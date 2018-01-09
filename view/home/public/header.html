@@ -123,7 +123,10 @@
 
     </div>
 
-
-
 </div>
-
+{if !empty($user)} 
+<div style="margin:0 auto; width:89%;height:30px; background:orange;" class="f1">
+    <span style="float:left;margin-top:8px;margin-left:10px"><b>dear {$user}!  <a href="?p=home&c=user&a=logout">logout</a></b></span>  
+    <span style="float:right;margin-top:8px;margin-right:10px"><b><a href="?p=home&c=user&a=index">go to my account</a></b></span>
+</div>
+{/if}

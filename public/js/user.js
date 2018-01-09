@@ -19,7 +19,7 @@
 
 				        $.post('?p=home&c=user&a=check', user, function (data) {
 				            if (data == 'ok') {
-				                layer.msg('操作成功，正在跳转...', {icon: 6, time: 2000}, function () {
+				                layer.msg('operation success!，location...', {icon: 6, time: 2000}, function () {
 				                    window.location.href = '?p=home&c=user&a=index';
 				                });
 				            }
@@ -60,7 +60,7 @@
 
 				        $.post('?p=home&c=user&a=modify', user, function (data) {
 				            if (data == 'ok') {
-				                layer.msg('操作成功，正在跳转...', {icon: 6, time: 2000}, function () {
+				                layer.msg('operation success!，location...', {icon: 6, time: 2000}, function () {
 				                    window.location.href = '?p=home&c=user&a=index';
 				                });
 				            }
@@ -86,7 +86,7 @@
 
 				        $.post('?p=home&c=user&a=modifyemail', user, function (data) {
 				            if (data == 'ok') {
-				                layer.msg('操作成功，正在跳转...', {icon: 6, time: 2000}, function () {
+				                layer.msg('operation success!，location...', {icon: 6, time: 2000}, function () {
 				                    window.location.href = '?p=home&c=user&a=index';
 				                });
 				            }
@@ -117,7 +117,7 @@
 
 				        $.post('?p=home&c=user&a=insertaddress', user, function (data) {
 				            if (data == 'ok') {
-				                layer.msg('操作成功，正在跳转...', {icon: 6, time: 2000}, function () {
+				                layer.msg('operation success!，location...', {icon: 6, time: 2000}, function () {
 				                    window.location.href = '?p=home&c=user&a=addresslist';
 				                });
 				            }
@@ -146,7 +146,7 @@
 				        
 				        $.post('?p=home&c=user&a=insertaddress', user, function (data) {
 				            if (data == 'ok') {
-				                layer.msg('操作成功，正在跳转...', {icon: 6, time: 2000}, function () {
+				                layer.msg('operation success!，location...', {icon: 6, time: 2000}, function () {
 				                    window.location.href = '?p=home&c=user&a=addresslist';
 				                });
 				            }

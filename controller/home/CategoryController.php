@@ -4,6 +4,7 @@ require_once 'controller/home/ForeController.php';
 require_once 'controller/home/GoodController.php';
 require_once 'lib/page.php';
 require_once 'controller/home/AdvertisementController.php';
+require_once 'controller/home/AuthController.php';
 
 class CategoryController extends ForeController {
 
@@ -20,6 +21,10 @@ class CategoryController extends ForeController {
     }
 
     public function index() {
+
+        session_start();
+        $this->setValue("user", $_SESSION['username']);
+
         if (isset($_REQUEST['page'])) {
             $page = $_REQUEST['page'];
         } else {
