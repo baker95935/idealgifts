@@ -6,7 +6,7 @@
         <link rel="stylesheet" type="text/css" href="public/css/page.css" />
         <link rel="stylesheet" type="text/css" href="public/css/good.css" />
         <script type='text/javascript' src='public/js/home_new.js' ></script>
-        <script type='text/javascript' src='public/js/good.js' ></script>
+        <script type='text/javascript' src='public/js/good.js' ></script>          <script type="text/javascript" src="public/js/jsonUtil.js"></script>        <script type="text/javascript" src="public/layer/layer.js"></script>
     </head>
     <body>
         {include file="home/public/header.html"}
@@ -116,7 +116,7 @@
                     </div>
                     <div class="mt-20 row">
                         <div class="col-sm-offset-7 col-sm-5" >
-<!--                            <a id="download" href="{$data.pdf_path}"><img src="public/images/document_pdf.png" width="48"></a>-->
+                         <a class="goback" id="addtocart" data_id="{$data.good_id}" data_user="{$user}" href="javascript:void(0);">addtocart</a> 
                             <a class="goback" href="javascript:void(0);" onclick="go_back();">go back</a>
                             &nbsp;&nbsp;
                             <a href="Mailto:william@idealgiftscn.com?subject=Products inquery&body=product is {$data.good_code}<hr>"><img src="public/images/email.jpg" width="48"></a>

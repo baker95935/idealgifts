@@ -35,6 +35,33 @@ $(function () {
       var id = $(this).parent().attr("good_id");
       window.location.href="?p=home&c=good&a=index&id="+id;
   });
+  
+   $("#search td").click(function(){
+      var id = $(this).parent().attr("good_id");
+      window.location.href="?p=home&c=good&a=index&id="+id;
+  });
+  
+  
+     $('#addtocart').click(function () {
+		var id = $(this).attr('data_id');
+		var user = $(this).attr('data_user');
+		
+		if(user==''){
+			layer.msg('please login first...', {icon: 6, time: 2000}, function () {
+		            window.location.href = '?p=home&c=user&a=login';
+		        });
+		}
+
+		$.post('?p=home&c=user&a=insertcart', {"id":id}, function (data) {
+		    if (data == 'ok') {
+		        layer.msg('add success,location...', {icon: 6, time: 2000}, function () {
+		            window.location.href = '?p=home&c=user&a=cartlist';
+		        });
+		    }
+		});
+
+		});
+  
 })
 
 

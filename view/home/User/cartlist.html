@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {include file="home/public/top.html"}
+        <link rel="stylesheet" type="text/css" href="public/css/home_new.css" />
+        <script src="public/js/home_new.js" type="text/javascript"></script>
+        <script src="public/js/verificationNumbers.js"></script>
+        <script src="public/js/user.js" type="text/javascript"></script>
+        <script type="text/javascript" src="public/js/jsonUtil.js"></script>
+        <script type="text/javascript" src="public/layer/layer.js"></script>
+        
+
+    </head>
+ 
+    
+    <body>
+        {include file="home/public/header.html"}
+  
+ 
+        
+        <div class="wide-1200 clearfix" style="margin-top: 20px;">
+            {include file="home/User/left.html"}
+            
+            <div class="width-950 pull-right">
+            <div   class="btn-lg">
+              <span class="glyphicon glyphicon-user "></span>{$user}
+              </div>
+             
+                <table class="table table-hover table-border">
+
+                <thead>
+
+                    <tr>
+
+                        <th>id</th>
+
+                        <th>goodname</th>
+                        
+                        <th>price</th>
+
+                        <th>action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+               
+				 {foreach from=$data  item=val}      
+                    <tr>
+
+                        <td>{$val.id}</td>                       
+
+                        <td>{$val.good_name}</td>   
+
+                        <td>{$val.good_price}</td>
+	 
+						
+                        <td>
+                        	<input class="min" name="" type="button" value="-" /> 
+							<input class="text_box" id="goodcount" name="goodcount" type="text" value="{$val.good_count}" style="width:30px;text-align: center"/> 
+							<input class="add" name="" type="button" value="+" /> 
+							
+							
+ 
+							
+                            <a href="javascript:void(0);" data_id="{$val.id}" class= "deleteCart">删除</a>
+                        </td>                       
+
+                    </tr>
+				 {/foreach} 
+                   
+
+
+
+                </tbody>
+                
+              
+
+            </table>
+
+            </div>
+
+        </div>
+        {include file="home/public/footer.html"}  
+
+    </body>
+</html>

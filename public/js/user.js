@@ -1,5 +1,18 @@
- $(document).ready(function () {
+$(document).ready(function () {
+	
+$(".add").click(function(){ 
+	var t=$(this).parent().find('input[class*=text_box]'); 
+	t.val(parseInt(t.val())+1) 
  
+	}) 
+$(".min").click(function(){ 
+	var t=$(this).parent().find('input[class*=text_box]'); 
+	t.val(parseInt(t.val())-1) 
+	if(parseInt(t.val())<1){ 
+	t.val(1); 
+	} 
+ 
+}) 
                 
                   $('#login_user').click(function () {
                       var t = new jsonUtil();
@@ -170,5 +183,21 @@
 	        }, function () {            
 	        });
     	});
+    	
+    	 $('.deleteCart').click(function () {
+	         var id = $(this).attr('data_id');
+	        layer.confirm('is not delete', {
+	            btn: ['yes', 'no']
+	        }, function () {
+	           $.post("?p=home&c=user&a=cartdel",{"id":id},function(data){
+	               if(data == "ok"){
+	                   layer.msg("delete success!",{icon: 6, time: 2000});
+	                   window.location.reload();
+	               }else{
+	                   layer.msg("delete failed!",{icon: 5, time: 2000});
+	               }
+	           });
+	        }, function () {            
+	        });
+    	});
 });
-

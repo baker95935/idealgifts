@@ -16,7 +16,24 @@ require_once 'controller/home/AuthController.php';
 class UserController extends ForeController {
 
  
- 
+ 	public function cartlist()
+	{
+		$auth = new AuthController();
+		$this->setValue("user", $_SESSION['username']);
+        
+        $model = $this->getModel();
+        $db = $this->getDb();
+        $result = $db->select($model->table('cart'), '*', "username = '".$_SESSION['username']."' limit 0,5");
+  		$data = null;
+     
+    	while ($rs = $db->fetch_assoc($result)) {
+    	
+    		$data[] = $rs;
+    	
+    	}
+        $this->setValue("data", $data);
+		$this->display();
+	}
 	
 	public function addresslist()
 	{
@@ -247,6 +264,55 @@ class UserController extends ForeController {
 
     }
     
+     public function insertcart()
+    {
+    	$auth = new AuthController();
+    	$model = $this->getModel();
+        $db = $model->getDb();
+
+		$data=array();
+        $data['ctime'] = time();
+        $data['username'] = $_SESSION['username'];
+        $uinfo=$this->get_user($_SESSION['username']);
+        $data['uid']=$uinfo[0]['id'];
+        $data['good_id']=$_POST['id'];
+        $ginfo=$this->get_good($data['good_id']);
+        $data['good_name']=$ginfo[0]['good_name'];
+        $data['good_price']=$ginfo[0]['good_price'];
+ 		$data['good_count']=1;
+
+        $column = "good_name,good_id,ctime,uid,good_price,username,good_count";
+
+		//校验下是否存在 存在就数量加1
+		
+        $res=$this->get_cart($data['good_id']);
+        
+        if($res==0) {
+        	
+	       	if ($db->insert_by_post_param($model->table('cart'), $column, $data)) {
+	    	
+	    		echo 'ok';
+	    	
+	    	}else{
+	    	
+	    		echo 'failed,please retry!';
+	    	
+	    	}
+ 
+        } else {
+        	$data['good_count']=$res[0]['good_count']+1;;
+        	if ($db->update_by_post_param($model->table('cart'), $column, $data, "good_id = ".$data['good_id'])) {
+        		echo 'ok';
+        	} else {
+        		echo 'failed,please retry!';
+        	}
+        }
+		
+
+     
+
+    }
+    
     public function insert(){
 
         $model = $this->getModel();
@@ -307,6 +373,38 @@ class UserController extends ForeController {
     
     }
     
+    private function get_good($id=0) {
+    
+    	$res=0;
+    	
+    	$model = $this->getModel();
+    
+    	$db = $this->getDb();
+    
+    	$result = $db->select($model->table('good'), '*', "good_id = $id");
+     
+    	$res=$db->get_array($result);
+    	
+    	return $res;
+    
+    }
+    
+     private function get_cart($good_id=0) {
+    
+    	$res=0;
+    	
+    	$model = $this->getModel();
+    
+    	$db = $this->getDb();
+    
+    	$result = $db->select($model->table('cart'), '*', "good_id = $good_id");
+     
+    	$res=$db->get_array($result);
+    	
+    	return $res;
+    
+    }
+    
      private function get_address($id = 0) {
 
         $model = $this->getModel();
@@ -336,9 +434,40 @@ class UserController extends ForeController {
 
         }
 
- 
-
 		$result=$db->delete($model->table('user_address'), 'id='.$id);
+	
+   
+        if ($result){
+
+            echo 'ok';
+
+       } else {
+
+            echo 'error';
+
+       }
+
+    }
+    
+    
+      public function cartdel() 
+      {
+
+        $model = $this->getModel();
+
+        $db = $this->getDb();
+
+         $id = $_REQUEST['id'] ? $_REQUEST['id'] : NULL;
+
+        if ($id == NULL) {
+
+            echo 'failed,please retry!';
+
+            return;
+
+        }
+
+		$result=$db->delete($model->table('cart'), 'id='.$id);
 	
    
         if ($result){
