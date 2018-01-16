@@ -186,7 +186,7 @@ $(".min").click(function(){
     	
     	 $('.deleteCart').click(function () {
 	         var id = $(this).attr('data_id');
-	        layer.confirm('is not delete', {
+	        layer.confirm('Are you sure?', {
 	            btn: ['yes', 'no']
 	        }, function () {
 	           $.post("?p=home&c=user&a=cartdel",{"id":id},function(data){

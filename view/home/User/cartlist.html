@@ -15,8 +15,6 @@
     
     <body>
         {include file="home/public/header.html"}
-  
- 
         
         <div class="wide-1200 clearfix" style="margin-top: 20px;">
             {include file="home/User/left.html"}
@@ -34,7 +32,7 @@
 
                         <th>id</th>
 
-                        <th>goodname</th>
+                        <th>good_code</th>
                         
                         <th>price</th>
 
@@ -51,12 +49,8 @@
                     <tr>
 
                         <td>{$val.id}</td>                       
-
-                        <td>{$val.good_name}</td>   
-
+ 						<td><a 																href="?p=home&c=good&a=index&cat_id={$val.cid}&id={$val.good_id}">{$val.good_code}</a></td>
                         <td>{$val.good_price}</td>
-	 
-						
                         <td>
                         	<input class="min" name="" type="button" value="-" /> 
 							<input class="text_box" id="goodcount" name="goodcount" type="text" value="{$val.good_count}" style="width:30px;text-align: center"/> 

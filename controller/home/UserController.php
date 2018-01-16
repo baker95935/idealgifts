@@ -277,11 +277,14 @@ class UserController extends ForeController {
         $data['uid']=$uinfo[0]['id'];
         $data['good_id']=$_POST['id'];
         $ginfo=$this->get_good($data['good_id']);
+ 
         $data['good_name']=$ginfo[0]['good_name'];
         $data['good_price']=$ginfo[0]['good_price'];
  		$data['good_count']=1;
+ 		$data['good_code']=$ginfo[0]['good_code'];
+ 		$data['cid']=$ginfo[0]['category_id'];
 
-        $column = "good_name,good_id,ctime,uid,good_price,username,good_count";
+        $column = "good_name,good_id,ctime,uid,good_price,username,good_count,good_code,cid";
 
 		//校验下是否存在 存在就数量加1
 		
