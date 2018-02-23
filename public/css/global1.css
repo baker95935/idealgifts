@@ -101,7 +101,7 @@
     background-color: #5a1870;
 }
 .NavBgColor {
-    background-color: #01aebc;
+    background-color: #EAEAEE;
 }
 #nav_outer {
     border-bottom: 1px solid #ccc;
@@ -155,12 +155,12 @@
 }
 
 .NavBorderColor1 {
-    border-color: #01aebc;
+    border-color: #EAEAEE;
 }
 .nav_item li > a {
     border-right-style: solid;
     border-right-width: 1px;
-    color: #fff;
+    color:#000 !important;
     display: inline-block;
     font-size: 18px;
     padding: 0 24px;
