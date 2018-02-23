@@ -3,7 +3,6 @@
 }
 .side_category {
     background: #fff none repeat scroll 0 0;
-    border: 1px solid #d5d5d5;
 }
 .side_category .cate_title {
     background: #e6e6e6 none repeat scroll 0 0;
@@ -15,13 +14,8 @@
     padding: 0 3px;
     background: url(../images/catmenu_bg.png) repeat-x 0 center;
 }*/
-.side_category .cate_menu dd.first {
-    margin: 0 3px;
-    padding: 0;
-}
-.side_category .cate_menu dd:first-child {
-    border-top: 0 none;
-}
+ 
+ 
 .side_category a {
     border: 0 none;
     display: block;

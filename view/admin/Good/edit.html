@@ -106,12 +106,12 @@ and open the template in the editor.
 
                 <div class="form-group">
                     <label for="good_pic" class="col-sm-2 control-label">商品图片</label>
-                    <div class="col-md-10">
-                        <img src="{if $thumbs[0] eq ''}public/images/default_head.jpg{else}{$thumbs[0]}{/if}" name="img1" id="img1" style="cursor: pointer;width:100px"/>                        {if $imgid[0] neq ''} <a onclick="deleteImg({$imgid[0]})" href="#">删除</a>{/if}
-                        <img src="{if $thumbs[1] eq ''}public/images/default_head.jpg{else}{$thumbs[1]}{/if}" name="img2" id="img2" style="cursor: pointer;width:100px"/>                        {if $imgid[1] neq ''} <a onclick="deleteImg({$imgid[1]})" href="#">删除</a>{/if}
-                        <img src="{if $thumbs[2] eq ''}public/images/default_head.jpg{else}{$thumbs[2]}{/if}" name="img3" id="img3" style="cursor: pointer;width:100px"/>                        {if $imgid[2] neq ''}<a onclick="deleteImg({$imgid[2]})" href="#">删除</a>{/if}
-                        <img src="{if $thumbs[3] eq ''}public/images/default_head.jpg{else}{$thumbs[3]}{/if}" name="img4" id="img4" style="cursor: pointer;width:100px"/>                        {if $imgid[3] neq ''} <a onclick="deleteImg({$imgid[3]})" href="#">删除</a>{/if}
-                        <img src="{if $thumbs[4] eq ''}public/images/default_head.jpg{else}{$thumbs[4]}{/if}" name="img5" id="img5" style="cursor: pointer;width:100px"/>                        {if $imgid[4] neq ''} <a onclick="deleteImg({$imgid[4]})" href="#">删除</a>{/if}
+                    <div class="col-md-10">					<table >					<tr><td>
+                        <img src="{if $thumbs[0] eq ''}public/images/default_head.jpg{else}{$thumbs[0]}{/if}" name="img1" id="img1" style="cursor: pointer;width:100px"/>						</td><td>
+                        <img src="{if $thumbs[1] eq ''}public/images/default_head.jpg{else}{$thumbs[1]}{/if}" name="img2" id="img2" style="cursor: pointer;width:100px"/>						</td><td>
+                        <img src="{if $thumbs[2] eq ''}public/images/default_head.jpg{else}{$thumbs[2]}{/if}" name="img3" id="img3" style="cursor: pointer;width:100px"/>						</td><td>
+                        <img src="{if $thumbs[3] eq ''}public/images/default_head.jpg{else}{$thumbs[3]}{/if}" name="img4" id="img4" style="cursor: pointer;width:100px"/>						</td><td>
+                        <img src="{if $thumbs[4] eq ''}public/images/default_head.jpg{else}{$thumbs[4]}{/if}" name="img5" id="img5" style="cursor: pointer;width:100px"/>                        </td></tr>                        <tr>                        <td>{if $imgid[0] neq ''} <a onclick="deleteImg({$imgid[0]})" href="#">删除</a>{/if}</td>                        <td>{if $imgid[1] neq ''} <a onclick="deleteImg({$imgid[1]})" href="#">删除</a>{/if}</td>                        <td>{if $imgid[2] neq ''} <a onclick="deleteImg({$imgid[2]})" href="#">删除</a>{/if}</td>                        <td>{if $imgid[3] neq ''} <a onclick="deleteImg({$imgid[3]})" href="#">删除</a>{/if}</td>                        <td>{if $imgid[4] neq ''} <a onclick="deleteImg({$imgid[4]})" href="#">删除</a>{/if}</td>                        </tr>					</table>
                     </div>
                 </div>
 
