@@ -259,14 +259,9 @@ class GoodController extends ForeController {
 
         while($rs = $db->fetch_assoc($result)){
 
-            $search[$i]['good_name'] = $rs['good_name'];
-
-            $search[$i]['good_id'] = $rs['good_id'];
-
-            $search[$i]['good_code'] = $rs['good_code'];
-
-            $search[$i]['good_small_img'] = $rs['good_small_img'];
-
+          $search[$i] = '<dd class=active><a href="' . SERVER . '/?p=home&c=good&a=index&cat_id=' . $rs['category_id'] . '&id=' . $rs['good_id'] . '"><img src="' . $rs['good_small_img'] . '" style="height:186px"><h1 class="mask"></h1><h1>' . $rs['good_name'];            
+            $rs['sale_price']>0 && $data[$i].='--'.$rs['sale_price'].'$';            
+            $search[$i].='</h1></a></dd>';
             $i++;
 
         }

@@ -25,7 +25,7 @@ and open the template in the editor.
                    商品名称： <input type="text" value="{$good_name}" class="form-control" name="good_name" id="good_name"/>                                                         <input type="hidden" name="p" value="admin">                 <input type="hidden" name="c" value="good">                  <input type="hidden" name="a" value="index">       
                     <input type="submit"   value="查询"> 
                 </div>
-                <a id="addBtn"  class="btn btn-default pull-right" href="{php}echo SERVER;{/php}/?p=admin&c=Good&a=add" target="_self">新增</a>
+                <a id="addBtn"  class="btn btn-default pull-right" href="/?p=admin&c=Good&a=add" target="_self">新增</a>
             </form>
         </div>
         <div class="mainContent-box ">
@@ -51,8 +51,8 @@ and open the template in the editor.
 
                 </tbody>
             </table>
-        </div>
-        <div class="paging">{$page}</div>
+        </div><form class="form-inline" role="form" method="post">
+        <div class="paging">{$page}         	<input class="form-control" type="number" min="1" max="{$pageCount}" name="page" placeholder="请输入页码"/>            <input class="btn btn-danger" type="submit" value="确定" />        </div>
         <div style="height: 100px;"></div>
     </body>
 </html>

@@ -83,6 +83,25 @@ $(function () {
     create_uploader('img5', $('#img5'), $('input[name="img5_path"]'));
     
     pdf_uploader('pdf',$('#pdf'), $('input[name="pdf_path"]'));
+    
+  
 });
 
+//图片缩略图删除
+function deleteImg(id)
+{
+     layer.confirm('是否删除所选的图片', {
+         btn: ['是', '否']
+     }, function () {
+        $.post("?p=admin&c=good&a=deleteImg",{"img_id":id},function(data){
+            if(data == "ok"){
+                layer.msg("删除成功",{icon: 6, time: 2000});
+                window.location.reload();
+            }else{
+                layer.msg("删除失败",{icon: 5, time: 2000});
+            }
+        });
+     }, function () {            
+     });
+}
 

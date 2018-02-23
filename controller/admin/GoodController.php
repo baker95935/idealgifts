@@ -10,7 +10,7 @@ class GoodController extends CommonController {
             $page = $_REQUEST['page'];
         } else {
             $page = 1;
-        } 
+        }  
         $this->get_category_list('category');
         $this->get_all_goods($page,$data);
        $this->display();
@@ -26,10 +26,10 @@ class GoodController extends CommonController {
         $controller = new GalleryController();
         $thumb = $controller->get_thumb($id);
         while ($rs = $this->getDb()->fetch_assoc($thumb)) {
-            $img[] = $rs['img_path'];
+            $img[] = $rs['img_path'];            $imgid[] =$rs['gallery_id'];
         }
-        if (isset($img)) {
-            $this->setValue("thumbs", $img);
+        if (isset($img)) {            $this->setValue("thumbs", $img);        }        if (isset($imgid)) {
+        	$this->setValue("imgid", $imgid);
         }
         $this->setValue('id', $id);
         $this->get_category_list('category');
@@ -99,9 +99,9 @@ class GoodController extends CommonController {
             $data[$i]['is_show'] = $rs['is_show'] ? "<img src='public/images/yes.gif'>" : "<img src='public/images/no.gif'>";                        $data[$i]['sale_price'] = $rs['sale_price'];
             $data[$i]['op'] = '<a href="?p=admin&c=Good&a=edit&id=' . $rs['good_id'] . '">编辑</a>&nbsp;&nbsp;<a class="'.'delete" data_id="'.$rs["good_id"].'" href="javascript:void(0);">删除</a>';
             $i++;
-        }
-        $page = new Page($this->get_goods_count($data), Application::$_config['page']['page_size']);
-        $this->setValue('data', $data);
+        }        //获取总数        $count=$this->get_goods_count($data);        //获取分页数        $pageCount=ceil($count/Application::$_config['page']['page_size']);
+        $page = new Page($count, Application::$_config['page']['page_size']);
+        $this->setValue('data', $data);                $this->setValue('pageCount', $pageCount);
         $this->setValue('page', $page->showpage());
     }
 
@@ -127,6 +127,23 @@ class GoodController extends CommonController {
         }else{
             echo 'error';
         }
+    }        //产品缩略图删除    public function deleteImg()     {
+    
+    	$img_id = $_POST['img_id'];
+    
+    	$model = $this->getModel();
+    
+    	$db = $this->getDb();    
+    	if($db->delete($model->table('gallery'),"gallery_id = {$img_id}") ){
+    
+    		echo 'ok';
+    
+    	}else{
+    
+    		echo 'error';
+    
+    	}
+    
     }
 
 }

@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <div class="good_right fr">
-                    <div id="goodName"><strong>{$data.good_code}</strong></div>
+                    <div id="goodName"><strong>{$data.good_name}</strong></div>
                     <div id="describe">{$data.good_desc}</div>
                     <div class="caracts">                                        	{if $data.sale_price neq ''}                        <div class="row caract">                            <div class="col-xs-1">                                <img alt="" class="caracteristique" src="public/images/good_icon/moq.png">                            </div>                            <div class="col-xs-11">                                <span class="gras">sale price</span> : {$data.sale_price} $                                               </div>                        </div>                        {/if}
                         {if $data.good_weight neq ''}
