@@ -35,12 +35,12 @@ class Page {
 
     //获取当前页码
     private function setPage() {
-        if (!empty($_GET['page'])) {
-            if ($_GET['page'] > 0) {
-                if ($_GET['page'] > $this->pagenum) {
+        if (!empty($_REQUEST['page'])) {
+            if ($_REQUEST['page'] > 0) {
+                if ($_REQUEST['page'] > $this->pagenum) {
                     return $this->pagenum;
                 } else {
-                    return $_GET['page'];
+                    return $_REQUEST['page'];
                 }
             } else {
                 return 1;
