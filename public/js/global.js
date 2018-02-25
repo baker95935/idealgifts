@@ -1,9 +1,9 @@
 $(function(){
    var url = window.location.href;
    if(url.indexOf("?p=home&c=index") != -1){
-       $('a[href="?p=home&c=index&a=index"]').css("background-color","#CC0000");
+       $('a[href="?p=home&c=index&a=index"]').text(str).css("cssText","color:rgb(204, 0, 0) !important");
    }else if(url.indexOf("?p=home&c=category") != -1){
-        $('a[href="?p=home&c=category&a=index"]').css("background-color","#CC0000");
+        $('a[href="?p=home&c=category&a=index"]').text(str).css("cssText","color:rgb(204, 0, 0) !important");
         //category菜单选中样式
         var id_str = url.match(/id=\d+/)+"";
         if(id_str != "null"){
@@ -12,21 +12,21 @@ $(function(){
             $("#category"+id).parent().addClass("current");
         }
    }else if(url.indexOf("?p=home&c=promotion") != -1){
-        $('a[href="?p=home&c=promotion&a=index"]').css("background-color","#CC0000");
+        $('a[href="?p=home&c=promotion&a=index"]').text(str).css("cssText","color:rgb(204, 0, 0) !important");
    }else if(url.indexOf("?p=home&c=technic") != -1){
-        $('a[href="?p=home&c=technic&a=index"]').css("background-color","#CC0000");
+        $('a[href="?p=home&c=technic&a=index"]').text(str).css("cssText","color:rgb(204, 0, 0) !important");
    }else if(url.indexOf("?p=home&c=contact") != -1){
         
         var str = url.match(/p=home&c=contact&a=index/)+"";
          if(str != "null"){
            $('a[href="?p=home&c=contact&a=index&no"]').parent().addClass("current");
-           $('a[href="?p=home&c=contact&a=index"]').css("background-color","#CC0000");
+           $('a[href="?p=home&c=contact&a=index"]').text(str).css("cssText","color:rgb(204, 0, 0) !important");
         }
         
         str = url.match(/p=home&c=contact&a=link/)+"";
          if(str != "null"){
            $('a[href="?p=home&c=contact&a=link&no"]').parent().addClass("current");
-           $('a[href="?p=home&c=contact&a=link"]').css("background-color","#CC0000");
+           $('a[href="?p=home&c=contact&a=link"]').text(str).css("cssText","color:rgb(204, 0, 0) !important");
         }
         
         str = url.match(/p=home&c=contact&a=index&no/)+"";
