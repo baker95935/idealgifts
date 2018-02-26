@@ -67,7 +67,7 @@
                     {foreach from=$category item=cat}
                     {foreach from=$cat item=value}
                     {if $value.is_tuijian eq 1}
-                    <dd><a href="?p=home&c=Category&a=index&id={$value.category_id}"><img src="{$value.cover_path}"><h1 class="mask"></h1><h1>{$value.category_name}</h1></a></dd>
+                    <dd class="active"><a href="?p=home&c=Category&a=index&id={$value.category_id}"><img src="{$value.cover_path}"><h1 class="mask"></h1><h1>{$value.category_name}</h1></a></dd>
                     {/if}
                     {/foreach}
                     {/foreach} 
