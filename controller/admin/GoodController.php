@@ -294,7 +294,7 @@ class GoodController extends CommonController {
     
     	$db = $this->getDb();
     
-    	if($db->delete($model->table('gallery'),"gallery_id = {$img_id}") ){
+    	if($db->delete($model->table('gallery'),"img_path = '{$img_id}'") ){
     
     		echo 'ok';
     

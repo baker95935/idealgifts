@@ -14,7 +14,7 @@
                 <dt style="margin-bottom: 10px;background: white;padding: 10px; border-bottom: 1px solid #666;font-size: 16px;">Product</dt>
                 {foreach from=$data item=val}
                 <dd style="margin:10px 10px 50px;height: 280px;width: 280px;">
-                    <div style="width:280px;height:280px;"><a href="?p=home&c=good&a=index&id={$val.good_id}"><img src="{$val.good_small_img}"><h1 class="mask"></h1><h1>{$val.good_code}</h1></a>
+                    <div style="width:280px;height:280px;"><a href="?p=home&c=good&a=index&id={$val.good_id}"><img src="{$val.good_small_img}"><h1 class="mask"></h1><h1>{$val.good_name}</h1></a>
                     <div>  
                         <div style="with:200px;display:none;height:0px;">
                             <a style="border: 0px !important;" id="download" href="{$val.pdf_path}"><img src="public/images/document_pdf.png" style="width: 48px !important;height:48px !important;"></a>

@@ -1,5 +1,5 @@
 $(function () {
-    function create_uploader(btn_id, img_obj, text_obj) {
+    function create_uploader(btn_id, img_obj, text_obj,img_delete) {
         document.getElementById(btn_id).style.cursor = "pointer";
         var uploader = new plupload.Uploader({
             runtimes: 'html5,flash,silverlight,html4',
@@ -29,9 +29,11 @@ $(function () {
                     myAlert("上传文件太大,最大不能超过5M");
                 },
                 FileUploaded: function (up, file, info) {
-                    var src = info.response;
+                    var src = info.response
                     img_obj.attr({"src": src});
                     text_obj.val(src);
+                    //img_delete.html(src);
+                    //img_delete.html('<a  onclick=deleteImg('+src+')>删除</a>');
                     layer.msg("上传结束...");
                 }
             }
@@ -76,11 +78,11 @@ $(function () {
         });
         uploader.init();
     }
-    create_uploader('img1', $('#img1'), $('input[name="img1_path"]'));
-    create_uploader('img2', $('#img2'), $('input[name="img2_path"]'));
-    create_uploader('img3', $('#img3'), $('input[name="img3_path"]'));
-    create_uploader('img4', $('#img4'), $('input[name="img4_path"]'));
-    create_uploader('img5', $('#img5'), $('input[name="img5_path"]'));
+    create_uploader('img1', $('#img1'), $('input[name="img1_path"]'),$('#imgDelete1'));
+    create_uploader('img2', $('#img2'), $('input[name="img2_path"]'),$('#imgDelete2'));
+    create_uploader('img3', $('#img3'), $('input[name="img3_path"]'),$('#imgDelete3'));
+    create_uploader('img4', $('#img4'), $('input[name="img4_path"]'),$('#imgDelete4'));
+    create_uploader('img5', $('#img5'), $('input[name="img5_path"]'),$('#imgDelete5'));
     
     pdf_uploader('pdf',$('#pdf'), $('input[name="pdf_path"]'));
     

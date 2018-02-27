@@ -20,13 +20,14 @@ $(function(){
         var str = url.match(/p=home&c=contact&a=index/)+"";
          if(str != "null"){
            $('a[href="?p=home&c=contact&a=index&no"]').parent().addClass("current");
-           $('a[href="?p=home&c=contact&a=index"]').text(str).css("cssText","color:rgb(204, 0, 0) !important");
+           $('a[href="?p=home&c=contact&a=index"]').css("cssText","color:rgb(204, 0, 0) !important");
         }
         
         str = url.match(/p=home&c=contact&a=link/)+"";
-         if(str != "null"){
+       
+        if(str != "null"){
            $('a[href="?p=home&c=contact&a=link&no"]').parent().addClass("current");
-           $('a[href="?p=home&c=contact&a=link"]').text(str).css("cssText","color:rgb(204, 0, 0) !important");
+           $('a[href="?p=home&c=contact&a=link"]').css("cssText","color:rgb(204, 0, 0) !important");
         }
         
         str = url.match(/p=home&c=contact&a=index&no/)+"";
