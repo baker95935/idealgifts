@@ -252,6 +252,31 @@ $(function () {
             }
         });
     });
+    
+    
+      $('#update_order').click(function () {
+        var t = new jsonUtil();
+        var order = t.form_to_object('update_order_form');
+
+    
+        if (order.express_number == '') {
+            layer.msg('请填写物流单号', {icon: 5, time: 2000});
+            return;
+        }
+        if (order.express_name == '') {
+            layer.msg('请填写物流方式', {icon: 5, time: 2000});
+            return;
+        }
+
+
+        $.post('?p=admin&c=order&a=insert_or_update', order, function (data) {
+            if (data == 'ok') {
+                layer.msg('操作成功，正在跳转...', {icon: 6, time: 2000}, function () {
+                    window.location.href = '?p=admin&c=order&a=index';
+                });
+            }
+        });
+    });
  
  	    $('#save_user').click(function () {
         var t = new jsonUtil();
@@ -289,6 +314,8 @@ $(function () {
             }
         });
     });
+    
+
 
 });
 

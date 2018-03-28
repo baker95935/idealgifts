@@ -59,67 +59,32 @@ class OrderController extends Controller {
 
         $db = $model->getDb();
 
-        $_POST['createtime'] = date('Y-m-d H:i:s');
+        $_POST['send_time'] = time();
 
-        $_POST['good_small_img'] = $_POST['img1_path'] == '' ? ($_POST['img2_path'] == '' ? ($_POST['img3_path'] == '' ? ($_POST['img4_path'] == '' ? $_POST['img5_path'] : $_POST['img4_path']) : $_POST['img3_path']) : $_POST['img2_path']) : $_POST['img1_path'];
+		$_POST['express_name'];
+		$_POST['express_number'];
 
-        $img = array($_POST['img1_path'], $_POST['img2_path'], $_POST['img3_path'], $_POST['img4_path'], $_POST['img5_path']);
-
-        $column = 'category_id,good_code,good_name,is_show,good_desc,good_small_img,good_order,is_hot,is_new,is_best,pdf_path,createtime,good_weight,packing,material,size,discount_price,sale_price,shipping_info,logo,plate,MOQ,type,is_promotion';
-
+        $column = 'express_name,express_number';
 
 
+        if (isset($_POST['order_number'])) {
 
-
-        $controller = new GalleryController();
-
-
-
-        if (isset($_POST['good_id'])) {
-
-            $good_id = $_POST['good_id'];
-
-            $controller->delete_by_good_id($good_id);
-
-            if ($db->update_by_post_param($model->table('good'), $column, $_POST, "good_id = $good_id")) {
-
-                foreach ($img as $val) {
-
-                    if ($val != '')
-
-                        $controller->insert($good_id, $val);
-
-                }
+            $order_number = $_POST['order_number'];
+            if ($db->update_by_post_param($model->table('orders'), $column, $_POST, "order_number = $order_number")) {
 
                 echo 'ok';
 
-            } else
+            }   
 
-                echo '操作失败，请联系相关技术人员';
+           
 
-        } else {
+        }  else {
+         	echo '操作失败，请联系相关技术人员';
+        }
 
             
 
-            if ($db->insert_by_post_param($model->table('good'), $column, $_POST)) {
-
-                $insert_good_id = $db->insert_id();
-
-                foreach ($img as $val) {
-
-                    if ($val != '')
-
-                        $controller->insert($insert_good_id, $val);
-
-                }
-
-                echo 'ok';
-
-            } else
-
-                echo '操作失败，请联系相关技术人员';
-
-        }
+            
 
     }
 

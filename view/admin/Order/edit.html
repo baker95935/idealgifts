@@ -19,28 +19,27 @@ and open the template in the editor.
         <script type="text/javascript" src="public/admin/js/share.js"></script>
         <script type="text/javascript" src="public/layer/layer.js"></script>
         <script type="text/javascript" src="public/plupload-2.1.2/js/plupload.full.min.js"></script>
-        <script type="text/javascript" src="public/admin/js/good_add.js"></script>
+ 
 
     </head>
     <body>
         <div style="width:800px;margin-top: 20px;margin-bottom: 200px;">
-            <form class="form-horizontal" role="form" onsubmit="return false;" id="update_good_form">
+            <form class="form-horizontal" role="form" onsubmit="return false;" id="update_order_form">
        
 
                 <div class="form-group">
                     <label for="good_name" class="col-sm-2 control-label">商品名称</label>
                     <div class="col-sm-10">
-                        <input disabled type="text" class="form-control" id="good_name"  name="good_name" value="{$data.good_name}">
+                        <input disabled type="text" class="form-control" id="good_name"  name="good_name" value="{$data.gname}">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="good_code" class="col-sm-2 control-label">商品编号</label>
+                    <label for="good_code" class="col-sm-2 control-label">订单编号</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="good_code"  name="good_code"
-                               value="{$data.good_code}">
+                        <input disabled type="text" class="form-control" id="good_code"  name="good_code" value="{$data.order_number}">
                     </div>
-                </div>
+                </div>                                     <div class="form-group">                    <label for="good_code" class="col-sm-2 control-label">订单价格</label>                    <div class="col-sm-10">                        <input  disabled type="text" class="form-control" id="good_code"  name="good_code"  value="{$data.order_price}">                    </div>                </div>
  
 
                 <div class="form-group">
@@ -51,43 +50,37 @@ and open the template in the editor.
                                 $
                             </button>
                         </span>
-                        <input type="text" class="form-control" id="sale_price" name="sale_price" 
-                               value="{$data.sale_price}">
+                        <input disabled type="text" class="form-control" id="sale_price" name="sale_price" 
+                               value="{$data.gprice}">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="discount_price" class="col-sm-2 control-label">商品数量</label>
                     <div class="input-group col-sm-10 pl-15 pr-15">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button" >
-                                $
-                            </button>
-                        </span>
-                        <input type="text" class="form-control" id="discount_price" name="discount_price"
-                               value="{$data.discount_price}">
+                      
+                        <input disabled type="text" class="form-control" id="discount_price" name="discount_price"
+                               value="{$data.number}">
                     </div>
                 </div>
  
                 <div class="form-group">
-                    <label for="shipping_info" class="col-sm-2 control-label">配送信息</label>
-                    <div class="col-sm-10">
-                        <textarea class="form-control" rows="3" id="shipping_info" name="shipping_info">{$data.shipping_info}</textarea>
+                    <label for="shipping_info" class="col-sm-2 control-label">配送方式</label>
+                    <div class="col-sm-10">   <input  type="text" class="form-control" id="express_name" name="express_name"  value="{$data.express_name}">
+                       
                     </div>
-                </div>
+                </div>                                                <div class="form-group">                    <label for="shipping_info" class="col-sm-2 control-label">配送单号</label>                    <div class="col-sm-10">   <input  type="text" class="form-control" id="express_number" name="express_number" value="{$data.express_number}">                                           </div>                </div>
 
                 <div class="form-group">
                     <div class="col-sm-offset-9 col-sm-3">
-                        <input type="hidden" name="order_number" value="{$id}" />
-                        <input type="hidden" name="createTime" value="{$data.createtime}" />
+                        <input type="hidden" name="order_number" value="{$data.order_number}"/>
                         <button  class="btn btn-primary pull-right" id="go_back">返回</button>
-                        <button  class="btn btn-success pull-right " id="update_good">提交</button>                       
+                        <button  class="btn btn-success pull-right " id="update_order">提交</button>                       
                     </div>
                 </div>
-                <script>
-                    $('select[name="category_id"]').val({$data.category_id});
-                </script>
+         
             </form>
         </div>
     </body>
-</html>
+</html> 
+
