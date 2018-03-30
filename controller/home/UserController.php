@@ -54,6 +54,46 @@ class UserController extends ForeController {
 		$this->display();
 	}
 	
+	public function orderlist()
+	{
+ 
+		$auth = new AuthController();
+		$this->setValue("user", $_SESSION['username']);
+        
+        $model = $this->getModel();
+        $db = $this->getDb();
+        $result = $db->select($model->table('orders'), '*', "username = '".$_SESSION['username']."' limit 0,10");
+  		$data = null;
+     
+    	while ($rs = $db->fetch_assoc($result)) {
+    	
+    		$data[] = $rs;
+    	
+    	}
+        $this->setValue("data", $data);
+		$this->display();
+	}
+	
+	public function orderview()
+	{
+		$auth = new AuthController();
+		$this->setValue("user", $_SESSION['username']);
+
+		$id = $_REQUEST['id'] ? $_REQUEST['id'] : NULL;
+
+        if ($id == NULL) {
+
+            echo 'failed,please retry!';
+
+            return;
+
+        }
+ 
+        $this->setValue('data', $this->get_order($id));
+ 
+		$this->display();
+	}
+	
 	public function addressadd()
 	{
 		$auth = new AuthController();
@@ -408,6 +448,18 @@ class UserController extends ForeController {
     
     }
     
+    private function get_order($id = 0) {
+
+        $model = $this->getModel();
+
+        $db = $this->getDb();
+
+        $result = $db->select($model->table('orders'), '*', "order_number = $id");
+
+        return $db->get_array($result);
+
+    }
+    
      private function get_address($id = 0) {
 
         $model = $this->getModel();
@@ -482,6 +534,70 @@ class UserController extends ForeController {
             echo 'error';
 
        }
+
+    }
+    
+     public function orderdel() 
+      {
+
+        $model = $this->getModel();
+
+        $db = $this->getDb();
+
+         $id = $_REQUEST['id'] ? $_REQUEST['id'] : NULL;
+
+        if ($id == NULL) {
+
+            echo 'failed,please retry!';
+
+            return;
+
+        }
+
+		$result=$db->delete($model->table('orders'), 'order_number='.$id);
+	
+   
+        if ($result){
+
+            echo 'ok';
+
+       } else {
+
+            echo 'error';
+
+       }
+
+    }
+    
+       public function ordercomplete() 
+      {
+
+        $model = $this->getModel();
+
+        $db = $this->getDb();
+
+         $id = $_REQUEST['id'] ? $_REQUEST['id'] : NULL;
+
+        if ($id == NULL) {
+
+            echo 'failed,please retry!';
+
+            return;
+
+        }
+       
+		$_POST['complete_time']=time();
+		$_POST['status']=3;
+			
+        $column = "complete_time,status";
+
+		if ($db->update_by_post_param($model->table('orders'), $column, $_POST, "order_number = ".$id)) {
+        		echo 'ok';
+        	} else {
+        		echo 'failed,please retry!';
+        	}
+	
+    
 
     }
     

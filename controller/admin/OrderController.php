@@ -7,6 +7,7 @@ class OrderController extends Controller {
 
 
     public function index() {
+
         $data=array();
         $data['order_number']=$_REQUEST['order_number'];
    		!empty($data['order_number']) && $this->setValue('order_number', $data['order_number']);
@@ -63,8 +64,9 @@ class OrderController extends Controller {
 
 		$_POST['express_name'];
 		$_POST['express_number'];
-
-        $column = 'express_name,express_number';
+		$_POST['status']=2;
+		$_POST['send_time']=time();
+        $column = 'express_name,express_number,status,send_time';
 
 
         if (isset($_POST['order_number'])) {
@@ -135,7 +137,7 @@ class OrderController extends Controller {
 
             $data[$i]['order_price'] = $rs['order_price'];
 
-            $data[$i]['ctime'] = $rs['ctime'];
+            $data[$i]['ctime'] = date('Y-m-d H:i:s',$rs['ctime']);
 
             $data[$i]['op'] = '<a href="?p=admin&c=Order&a=edit&id=' . $rs['order_number'] . '">发货</a>&nbsp;&nbsp;<a class="'.'delete" data_id="'.$rs["order_number"].'" href="javascript:void(0);">删除</a>';
 

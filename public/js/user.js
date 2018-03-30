@@ -200,4 +200,38 @@ $(".min").click(function(){
 	        }, function () {            
 	        });
     	});
+    	
+    	 $('.deleteOrder').click(function () {
+	         var id = $(this).attr('data_id');
+	        layer.confirm('Are you sure?', {
+	            btn: ['yes', 'no']
+	        }, function () {
+	           $.post("?p=home&c=user&a=orderdel",{"id":id},function(data){
+	               if(data == "ok"){
+	                   layer.msg("delete success!",{icon: 6, time: 2000});
+	                   window.location.reload();
+	               }else{
+	                   layer.msg("delete failed!",{icon: 5, time: 2000});
+	               }
+	           });
+	        }, function () {            
+	        });
+    	});
+    	
+    	$('.completeOrder').click(function () {
+	         var id = $(this).attr('data_id');
+	        layer.confirm('Are you sure?', {
+	            btn: ['yes', 'no']
+	        }, function () {
+	           $.post("?p=home&c=user&a=ordercomplete",{"id":id},function(data){
+	               if(data == "ok"){
+	                   layer.msg("delete success!",{icon: 6, time: 2000});
+	                   window.location.reload();
+	               }else{
+	                   layer.msg("delete failed!",{icon: 5, time: 2000});
+	               }
+	           });
+	        }, function () {            
+	        });
+    	});
 });

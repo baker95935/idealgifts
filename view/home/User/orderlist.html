@@ -15,6 +15,8 @@
     
     <body>
         {include file="home/public/header.html"}
+  
+ 
         
         <div class="wide-1200 clearfix" style="margin-top: 20px;">
             {include file="home/User/left.html"}
@@ -23,18 +25,20 @@
             <div   class="btn-lg">
               <span class="glyphicon glyphicon-user "></span>{$user}
               </div>
-             
+          
                 <table class="table table-hover table-border">
 
                 <thead>
 
                     <tr>
 
-                        <th>id</th>
+                        <th>order number</th>
 
-                        <th>good_name</th>
+                        <th>good name</th>
+
+                        <th>number</th>
                         
-                        <th>price</th>
+                        <th>order price</th>
 
                         <th>action</th>
 
@@ -48,15 +52,15 @@
 				 {foreach from=$data  item=val}      
                     <tr>
 
-                        <td>{$val.id}</td>                       
- 						<td><a href="?p=home&c=good&a=index&cat_id={$val.cid}&id={$val.good_id}">{$val.good_name}</a></td>
-                        <td>{$val.good_price}</td>
-                        <td>
-                        	<input class="min" name="" type="button" value="-" /> 
-							<input class="text_box" id="goodcount" name="goodcount" type="text" value="{$val.good_count}" style="width:30px;text-align: center"/> 
-							<input class="add" name="" type="button" value="+" /> 
+                        <td>{$val.order_number}</td>                       
 
-                            <a href="javascript:void(0);" data_id="{$val.id}" class= "deleteCart">delete</a>
+                        <td>{$val.goodname}</td>   
+
+                        <td>{$val.number}</td>
+						<td>{$val.order_price}</td>
+						
+                        <td><a href="/?p=home&c=user&a=orderview&id={$val.order_number}">view</a>&nbsp;
+                            <a href="javascript:void(0);" data_id="{$val.order_number}" class= "deleteOrder">del</a>
                         </td>                       
 
                     </tr>
@@ -66,11 +70,9 @@
 
 
                 </tbody>
-                
-              
 
             </table>
-  <button  class="btn btn-success pull-right " id="update_order">buy</button>
+
             </div>
 
         </div>

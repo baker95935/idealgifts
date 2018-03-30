@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {include file="home/public/top.html"}
+        <link rel="stylesheet" type="text/css" href="public/css/home_new.css" />
+        <script src="public/js/home_new.js" type="text/javascript"></script>
+        <script src="public/js/verificationNumbers.js"></script>
+        <script src="public/js/user.js" type="text/javascript"></script>
+        <script type="text/javascript" src="public/js/jsonUtil.js"></script>
+        <script type="text/javascript" src="public/layer/layer.js"></script>
+        
+
+    </head>
+ 
+    
+    <body>
+        {include file="home/public/header.html"}
+        
+        
+        <div class="wide-1200 clearfix" style="margin-top: 20px;">
+            {include file="home/User/left.html"}
+            
+            <div class="width-950 pull-right">
+            <div   class="btn-lg">
+              <span class="glyphicon glyphicon-user "></span>order view
+              </div>
+              
+            <form  role="form" onsubmit="return false;" id="add_address_form">
+
+            <div class="form-group has-feedback">
+                <label for="username" class="control-label">order_number:</label> {$data.0.order_number}
+            </div>
+
+            <div class="form-group has-feedback">
+                <label for="username" class="control-label">good name:</label> {$data.0.gname}
+            </div>
+            <div class="form-group has-feedback">
+                <label for="username" class="control-label">number:</label>{$data.0.number}
+            </div>
+            <div class="form-group has-feedback">
+                <label for="username" class="control-label">good price:</label> {$data.0.gprice}
+            </div>
+            <div class="form-group has-feedback">
+                <label for="username" class="control-label">order_price:</label> {$data.0.order_price}
+            </div>
+       
+            <div class="form-group has-feedback">
+                <label for="username" class="control-label">express name:</label>{$data.0.express_name}
+            </div>
+            <div class="form-group has-feedback">
+                <label for="username" class="control-label">express number:</label> {$data.0.express_number}
+            </div>
+            <div class="form-group has-feedback">
+                <label for="username" class="control-label">name:</label>{$data.0.name}
+            </div>
+             <div class="form-group has-feedback">
+                <label for="username" class="control-label">phone:</label>{$data.0.phone}
+            </div>
+                      <div class="form-group has-feedback">
+                <label for="username" class="control-label">address:</label> {$data.0.address}
+            </div>
+            
+             <div class="form-group has-feedback">
+                <label for="username" class="control-label">status:</label>  
+                {if $data.0.status eq 1}order submit time:{$data.0.send_time|date_format:"%Y-%m-%d %I:%M %p"}{/if}
+                {if $data.0.status eq 2} order delivery time:{$data.0.send_time|date_format:"%Y-%m-%d %I:%M %p"}
+                <a href="javascript:void(0);" data_id="{$data.0.order_number}" class= "completeOrder">completeOrder</a>
+                {/if}
+                {if $data.0.status eq 3} order commplete time:{$data.0.complete_time|date_format:"%Y-%m-%d %I:%M %p"}{/if}
+            </div>
+         
+
+
+        
+
+  
+
+            <div >
+              <a href="/?p=home&c=user&a=orderlist">return</a>
+            </div>
+        </form>
+
+            </div>
+
+        </div>
+        {include file="home/public/footer.html"}  
+
+    </body>
+</html>
