@@ -131,6 +131,7 @@ class UserController extends ForeController {
     		$adata[] = $rs;
     	
     	}
+    	
    
         $this->setValue("data", $data);
     	
@@ -412,6 +413,17 @@ class UserController extends ForeController {
 	    	}
     	}
 
+    }
+    
+    public function mincart()
+    {
+    	$data['good_count']=$_POST['goodcount'];
+        $_POST['cart_id'];
+        $column="good_count";
+        
+        $model = $this->getModel();
+        $db = $model->getDb();
+        $db->update_by_post_param($model->table('cart'), $column, $data, "id = ".$_POST['cart_id']);
     }
     
      public function insertcart()

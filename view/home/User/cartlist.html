@@ -43,7 +43,7 @@
                 </thead>
 
                 <tbody>
-
+ <form  role="form" onsubmit="return false;" id="cartlist_form">
                
 				 {foreach from=$data  item=val}      
                     <tr>
@@ -52,7 +52,7 @@
  						<td><a href="?p=home&c=good&a=index&cat_id={$val.cid}&id={$val.good_id}">{$val.good_name}</a></td>
                         <td>{$val.good_price}</td>
                         <td>
-                        	<input class="min" name="" type="button" value="-" /> 
+                        	<input class="min" name="" type="button" value="-" /> <input type="hidden" name="cart_id" id="cart_id" value="{$val.id}">
 							<input class="text_box" id="goodcount" name="goodcount" type="text" value="{$val.good_count}" style="width:30px;text-align: center"/> 
 							<input class="add" name="" type="button" value="+" /> 
 
@@ -71,7 +71,7 @@
 
             </table>
             
- 
+ </form>
   <a class='btn btn-success pull-right' href="/?p=home&c=user&a=orderconfirm">buy</a>
             </div>
 
