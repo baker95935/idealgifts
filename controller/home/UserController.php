@@ -62,7 +62,7 @@ class UserController extends ForeController {
         
         $model = $this->getModel();
         $db = $this->getDb();
-        $result = $db->select($model->table('orders'), '*', "username = '".$_SESSION['username']."' limit 0,10");
+        $result = $db->select($model->table('orders'), '*', "username = '".$_SESSION['username']."' group by order_number order by id desc  limit 0,10");
   		$data = null;
      
     	while ($rs = $db->fetch_assoc($result)) {
@@ -90,9 +90,108 @@ class UserController extends ForeController {
         }
  
         $this->setValue('data', $this->get_order($id));
+        
  
 		$this->display();
 	}
+	
+	 public function orderconfirm()
+	{
+		$auth = new AuthController();
+		$this->setValue("user", $_SESSION['username']);
+        
+        $model = $this->getModel();
+        $db = $this->getDb();
+        $result = $db->select($model->table('cart'), '*', "username = '".$_SESSION['username']."'   limit 0,5");
+  		$data = null;
+     
+    	while ($rs = $db->fetch_assoc($result)) {
+    	
+    		$data[] = $rs;
+    	
+    	}
+    
+    	
+    	$result = $db->select($model->table('user_address'), '*', "username = '".$_SESSION['username']."' order by id desc limit 0,5");
+  		$adata = null;
+     
+    	while ($rs = $db->fetch_assoc($result)) {
+    	
+    		$adata[] = $rs;
+    	
+    	}
+   
+        $this->setValue("data", $data);
+    	
+        $this->setValue("adata", $adata);
+		$this->display();
+	}
+	
+	public function addorder()
+    {
+ 
+    	$auth = new AuthController();
+    	$model = $this->getModel();
+        $db = $model->getDb();
+ 
+        $_POST['username'] = $_SESSION['username'];
+        $uinfo=$this->get_user($_SESSION['username']);
+        
+        $_POST['uid']=$uinfo[0]['id'];
+        
+        
+        $addressId=$_POST['addressId'];
+        $addressInfo=$this->get_address($addressId);
+		$_POST['name']=$addressInfo[0]['name'];
+		$_POST['phone']=$addressInfo[0]['phone'];
+		$_POST['address']=$addressInfo[0]['address'];
+		$_POST['ctime']=time();
+		$_POST['status']=1;
+		$_POST['order_number']=$_POST['uid'].date('YmdHis');
+		
+		//获取购物车中的商品
+		$result = $db->select($model->table('cart'), '*', "username = '".$_SESSION['username']."' limit 0,5");
+  		$data = null;
+     
+    	while ($rs = $db->fetch_assoc($result)) {
+    	
+    		$data[] = $rs;
+    	
+    	}
+    	
+    	//添加订单
+    	$order_price=0;
+    	$res=0;
+  
+    	foreach($data as $k=>$v)
+    	{
+    	    $column = "uid,username,name,phone,address,ctime,status,order_number,gname,gid,gprice,number";
+    	    
+			$_POST['gname']=$v['good_name'];
+			$_POST['gid']=$v['good_id'];
+			$_POST['gprice']=$v['good_price'];
+			$_POST['number']=$v['good_count'];
+			
+			$order_price+=$_POST['gprice']*$_POST['number'];
+		 
+	    	$res=$db->insert_by_post_param($model->table('orders'), $column, $_POST);
+
+    	}
+    	 
+     
+    	//更新订单表中的订单价格
+    	$model->getDb()->update('mvc_orders', "order_price='".$order_price."'", "order_number='".$_POST['order_number']."'");
+     
+	
+	 	if($res){
+
+	        echo 'ok';
+        }else{
+        	echo 'failed,please retry!';
+        }
+  
+    }
+
 	
 	public function addressadd()
 	{

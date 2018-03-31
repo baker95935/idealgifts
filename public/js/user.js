@@ -234,4 +234,26 @@ $(".min").click(function(){
 	        }, function () {            
 	        });
     	});
+    	
+    	 $('#add_user_order').click(function () {
+	     	var t = new jsonUtil();
+	        var order = t.form_to_object('add_user_order_form');
+ 
+ 			layer.confirm('Are you sure?', {
+	            btn: ['yes', 'no']
+	        }, function () {
+		       $.post('?p=home&c=user&a=addorder', order, function (data) {
+		            if (data == 'ok') {
+		                layer.msg('operation success!，location...', {icon: 6, time: 2000}, function () {
+		                    window.location.href = '?p=home&c=user&a=orderlist';
+		                });
+		            }else{
+		                layer.msg(" failed! retry again!",{icon: 5, time: 2000});
+		           }
+		        });
+	        }, function () {            
+	        });
+	        
+	       
+        });
 });

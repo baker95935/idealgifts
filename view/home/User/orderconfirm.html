@@ -23,6 +23,51 @@
             <div   class="btn-lg">
               <span class="glyphicon glyphicon-user "></span>{$user}
               </div>
+              <form  role="form" onsubmit="return false;" id="add_user_order_form">
+
+               <table class="table table-hover table-border">
+
+                <thead>
+
+                    <tr>
+                    
+
+                      <th>id</th>
+
+                        <th>name</th>
+
+                        <th>phone</th>
+                        
+                        <th>address</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+               
+				 {foreach from=$adata  key=key  item=val}      
+                    <tr>
+                    <td><input type="radio" name="addressId" id="addressId" value="{$val.id}"  {if $key eq 0} checked{/if}>  </td>
+                  
+
+                        <td>{$val.name}</td>   
+
+                        <td>{$val.phone}</td>
+						<td>{$val.address}</td>
+
+                    </tr>
+				 {/foreach} 
+                   
+
+
+
+                </tbody>
+                
+              
+
+            </table>
              
                 <table class="table table-hover table-border">
 
@@ -36,7 +81,7 @@
                         
                         <th>price</th>
 
-                        <th>action</th>
+                        <th>number</th>
 
                     </tr>
 
@@ -52,11 +97,10 @@
  						<td><a href="?p=home&c=good&a=index&cat_id={$val.cid}&id={$val.good_id}">{$val.good_name}</a></td>
                         <td>{$val.good_price}</td>
                         <td>
-                        	<input class="min" name="" type="button" value="-" /> 
+                         
 							<input class="text_box" id="goodcount" name="goodcount" type="text" value="{$val.good_count}" style="width:30px;text-align: center"/> 
-							<input class="add" name="" type="button" value="+" /> 
-
-                            <a href="javascript:void(0);" data_id="{$val.id}" class= "deleteCart">delete</a>
+						 
+ 
                         </td>                       
 
                     </tr>
@@ -70,9 +114,8 @@
               
 
             </table>
-            
- 
-  <a class='btn btn-success pull-right' href="/?p=home&c=user&a=orderconfirm">buy</a>
+  <button  class="btn btn-success pull-right " id="add_user_order">order</button>
+  </form>
             </div>
 
         </div>
