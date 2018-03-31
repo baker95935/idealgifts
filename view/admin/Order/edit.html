@@ -23,58 +23,27 @@ and open the template in the editor.
 
     </head>
     <body>
-        <div style="width:800px;margin-top: 20px;margin-bottom: 200px;">
-            <form class="form-horizontal" role="form" onsubmit="return false;" id="update_order_form">
-       
-
-                <div class="form-group">
-                    <label for="good_name" class="col-sm-2 control-label">商品名称</label>
-                    <div class="col-sm-10">
-                        <input disabled type="text" class="form-control" id="good_name"  name="good_name" value="{$data.gname}">
-                    </div>
-                </div>
-
+        <div style="width:800px;margin-top: 20px;margin-bottom: 200px;">                                                  <table class="table">                <thead>                    <tr>                        <th>商品名称</th>                                                <th>价格</th>                                                <th>数量</th>                    </tr>				</thead>                        <tbody>               				 {foreach from=$adata  item=val}                          <tr>                                      						<td>{$val.gname}</td>                        <td>{$val.gprice}</td>                        <td>{$val.number}</td>                    </tr>				 {/foreach}                 </tbody>                                          </table>
+            <form class="form-horizontal" role="form" onsubmit="return false;" id="update_order_form">
                 <div class="form-group">
                     <label for="good_code" class="col-sm-2 control-label">订单编号</label>
                     <div class="col-sm-10">
                         <input disabled type="text" class="form-control" id="good_code"  name="good_code" value="{$data.order_number}">
                     </div>
-                </div>                                     <div class="form-group">                    <label for="good_code" class="col-sm-2 control-label">订单价格</label>                    <div class="col-sm-10">                        <input  disabled type="text" class="form-control" id="good_code"  name="good_code"  value="{$data.order_price}">                    </div>                </div>
- 
-
-                <div class="form-group">
-                    <label for="sale_price" class="col-sm-2 control-label">商品售价</label>
-                    <div class="input-group col-sm-10 pl-15 pr-15">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button" >
-                                $
-                            </button>
-                        </span>
-                        <input disabled type="text" class="form-control" id="sale_price" name="sale_price" 
-                               value="{$data.gprice}">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="discount_price" class="col-sm-2 control-label">商品数量</label>
-                    <div class="input-group col-sm-10 pl-15 pr-15">
-                      
-                        <input disabled type="text" class="form-control" id="discount_price" name="discount_price"
-                               value="{$data.number}">
-                    </div>
-                </div>                                                <div class="form-group">                    <label for="discount_price" class="col-sm-2 control-label">订单状态</label>                    <div class="input-group col-sm-10 pl-15 pr-15">                                              <input disabled type="text" class="form-control" id="discount_price" name="discount_price"                               value=" {if $data.status eq 1}订单提交，待发货{/if}{if $data.status eq 2}订单已发货 {/if}{if $data.status eq 3}订单完成 {/if}">                    </div>                </div>
- {if $data.status eq 1}
+                </div>                                     <div class="form-group">                    <label for="good_code" class="col-sm-2 control-label">订单价格</label>                    <div class="col-sm-10">                        <input  disabled type="text" class="form-control" id="good_code"  name="good_code"  value="{$data.order_price}">                    </div>                </div>                                 <div class="form-group">                    <label for="good_code" class="col-sm-2 control-label">订单提交时间</label>                    <div class="col-sm-10">                        <input  disabled type="text" class="form-control" id="good_code"  name="good_code"  value="{$data.ctime|date_format:"%Y-%m-%d %I:%M %p"}">                    </div>                </div>
+                                <div class="form-group">                    <label for="discount_price" class="col-sm-2 control-label">订单状态</label>                    <div class="input-group col-sm-10 pl-15 pr-15">                                              <input disabled type="text" class="form-control" id="discount_price" name="discount_price"                               value=" {if $data.status eq 1}订单提交{/if}{if $data.status eq 2}订单已发货 {/if}{if $data.status eq 3}订单完成 {/if}">                    </div>                </div>
+                  <div class="form-group">                    <label for="good_code" class="col-sm-2 control-label">收货人姓名</label>                    <div class="col-sm-10">                        <input  disabled type="text" class="form-control" id="good_code"  name="good_code"  value="{$data.name}">                    </div>                    </div>                 <div class="form-group">                    <label for="good_code" class="col-sm-2 control-label">收货人电话</label>                    <div class="col-sm-10">                        <input  disabled type="text" class="form-control" id="good_code"  name="good_code"  value="{$data.phone}">                    </div>                    </div>                 <div class="form-group">                    <label for="good_code" class="col-sm-2 control-label">收货人地址</label>                    <div class="col-sm-10">                        <input  disabled type="text" class="form-control" id="good_code"  name="good_code"  value="{$data.address}">                    </div>                    </div>  
                 <div class="form-group">
                     <label for="shipping_info" class="col-sm-2 control-label">配送方式</label>
                     <div class="col-sm-10">   <input  type="text" class="form-control" id="express_name" name="express_name"  value="{$data.express_name}">
                        
                     </div>
-                </div>                                                <div class="form-group">                    <label for="shipping_info" class="col-sm-2 control-label">配送单号</label>                    <div class="col-sm-10">   <input  type="text" class="form-control" id="express_number" name="express_number" value="{$data.express_number}">                                           </div>                </div>{/if}
+                </div>                                                <div class="form-group">                    <label for="shipping_info" class="col-sm-2 control-label">配送单号</label>                    <div class="col-sm-10">   <input  type="text" class="form-control" id="express_number" name="express_number" value="{$data.express_number}">                                           </div>                </div> 
 
                 <div class="form-group">
                     <div class="col-sm-offset-9 col-sm-3">
                         <input type="hidden" name="order_number" value="{$data.order_number}"/>
-                        <a href="/?p=admin&c=Order&a=index"><button  class="btn btn-primary pull-right" >返回</button></a>{if $data.status eq 1}
+                        <a href="/?p=admin&c=Order&a=index"   class="btn btn-primary pull-right" >返回</button></a>{if $data.status eq 1}
                         <button  class="btn btn-success pull-right " id="update_order">提交</button>     {/if}                  
                     </div>
                 </div>

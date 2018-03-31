@@ -44,9 +44,20 @@ class OrderController extends Controller {
  
 
         $this->setValue('id', $id);
- 
-
         $this->setValue('data', $this->get_order_by_id($id));
+        
+        $model = $this->getModel();
+        $db = $this->getDb();
+        $result = $db->select($model->table('orders'), '*', "order_number = '".$id."'   limit 0,5");
+  		$adata = null;
+     
+    	while ($rs = $db->fetch_assoc($result)) {
+    	
+    		$adata[] = $rs;
+    	
+    	}
+    	$this->setValue('adata', $adata);
+        
 
         $this->display();
 
@@ -118,7 +129,7 @@ class OrderController extends Controller {
          
         }
 		 
-		$sql.="order by order_number desc limit $start," . Application::$_config['page']['page_size'];
+		$sql.="group by order_number order by id desc limit $start," . Application::$_config['page']['page_size'];
  
 
  
@@ -132,8 +143,18 @@ class OrderController extends Controller {
 
             $data[$i]['order_number'] = $rs['order_number'];
             
-            $data[$i]['gprice'] = $rs['gprice'];
-            $data[$i]['number'] = $rs['number'];
+            if($rs['status']==1){
+            	$status='订单提交';
+            } else if($rs['status']==2) {
+            	$status='订单已发货';
+            } else if($rs['status']==3){
+            	$status='订单完成';
+            } else {
+            	$status='订单未知状态';
+            }
+            
+            $data[$i]['status'] = $status;
+
 
             $data[$i]['order_price'] = $rs['order_price'];
 

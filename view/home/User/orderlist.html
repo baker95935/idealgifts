@@ -54,9 +54,14 @@
 
                         <td>{$val.order_number}</td>                       
 
-                        <td>{$val.ctime}</td>   
+                        <td>{$val.ctime|date_format:"%Y-%m-%d %I:%M %p"}</td>   
 
-                        <td>{$val.status}</td>
+                        <td>
+                        {if $val.status eq 1}order submit {/if}
+                        {if $val.status eq 2}order delivery  {/if}
+                        {if $val.status eq 3}order commplete  {/if}
+              
+                        </td>
 						<td>{$val.order_price}</td>
 						
                         <td><a href="/?p=home&c=user&a=orderview&id={$val.order_number}">view</a>&nbsp;

@@ -91,6 +91,17 @@ class UserController extends ForeController {
  
         $this->setValue('data', $this->get_order($id));
         
+        $model = $this->getModel();
+        $db = $this->getDb();
+        $result = $db->select($model->table('orders'), '*', "order_number = '".$id."'   limit 0,5");
+  		$adata = null;
+     
+    	while ($rs = $db->fetch_assoc($result)) {
+    	
+    		$adata[] = $rs;
+    	
+    	}
+    	$this->setValue('adata', $adata);
  
 		$this->display();
 	}
