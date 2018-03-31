@@ -1,8 +1,22 @@
 $(document).ready(function () {
 	
+	$('.add').unbind('click').click(function () {  
+});  
+	$('.min').unbind('click').click(function () {  
+});  
+	
 $(".add").click(function(){ 
 	var t=$(this).parent().find('input[class*=text_box]'); 
-	t.val(parseInt(t.val())+1) 
+	t.val(parseInt(t.val())+1);
+	
+	var j = new jsonUtil();
+	var cart = j.form_to_object('cartlist_form');
+	cart.goodcount=t.val();
+	cart.cart_id=$(this).parent().find('input[name=cart_id]').val(); 
+	$.post('?p=home&c=user&a=mincart', cart, function (data) {
+		 
+	});
+	
  
 	}) 
 $(".min").click(function(){ 
@@ -11,8 +25,19 @@ $(".min").click(function(){
 	if(parseInt(t.val())<1){ 
 	t.val(1); 
 	} 
+	var j = new jsonUtil();
+	var cart = j.form_to_object('cartlist_form');
+	cart.goodcount=t.val();
+	cart.cart_id=$(this).parent().find('input[name=cart_id]').val(); 
+	$.post('?p=home&c=user&a=mincart', cart, function (data) {
+		 
+	});
  
 }) 
+	
+ 
+	
+	
                 
                   $('#login_user').click(function () {
                       var t = new jsonUtil();
@@ -247,7 +272,11 @@ $(".min").click(function(){
 		                layer.msg('operation success!，location...', {icon: 6, time: 2000}, function () {
 		                    window.location.href = '?p=home&c=user&a=orderlist';
 		                });
-		            }else{
+		            }else if(data == 'address'){
+		            	layer.msg('please add address!', {icon: 5, time: 2000}, function () {
+		                    window.location.href = '?p=home&c=user&a=addresslist';
+		                });
+		            } else{
 		                layer.msg(" failed! retry again!",{icon: 5, time: 2000});
 		           }
 		        });

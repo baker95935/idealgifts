@@ -153,6 +153,13 @@ class UserController extends ForeController {
         
         
         $addressId=$_POST['addressId'];
+        
+        //如果没有地址ID 返回报错
+		if(empty($addressId)) {
+			echo 'address';
+			exit;
+		}
+        
         $addressInfo=$this->get_address($addressId);
 		$_POST['name']=$addressInfo[0]['name'];
 		$_POST['phone']=$addressInfo[0]['phone'];
@@ -160,6 +167,8 @@ class UserController extends ForeController {
 		$_POST['ctime']=time();
 		$_POST['status']=1;
 		$_POST['order_number']=$_POST['uid'].date('YmdHis');
+		
+
 		
 		//获取购物车中的商品
 		$result = $db->select($model->table('cart'), '*', "username = '".$_SESSION['username']."' limit 0,5");
