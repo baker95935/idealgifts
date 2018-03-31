@@ -132,6 +132,8 @@ $(".min").click(function(){
               
                 });
 
+	$('#save_address').unbind('click').click(function () {  
+	});  
                 $('#save_address').click(function () {
                       var t = new jsonUtil();
 				        var user = t.form_to_object('add_address_form');
