@@ -1,58 +1,58 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>后台管理系统</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">      
-        <link rel="stylesheet" type="text/css" href="public/bootstrap/css/bootstrap.min.css"/>
-        <link rel="stylesheet" type="text/css" href="public/admin/css/share.css"/>
-         <link rel="stylesheet" type="text/css" href="public/css/page.css"/>
-        <script type="text/javascript" src="public/js/jquery-2.0.0.js"></script>
-        <script type="text/javascript" src="public/layer/layer.js"></script>
-        <script type="text/javascript" src="public/bootstrap/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="public/admin/js/good.js"></script>     
-    </head>
-    <body> 
-        <div class="mainContent-top"> 
-            <form action="?p=admin&c=Good&a=index" class="form-inline"  method="get"  >
-                <div class="form-group">
-           
-                   商品名称： <input type="text" value="{$good_name}" class="form-control" name="good_name" id="good_name"/>                                                         <input type="hidden" name="p" value="admin">                 <input type="hidden" name="c" value="good">                  <input type="hidden" name="a" value="index">       
-                    <input type="submit"   value="查询"> 
-                </div>
-                <a id="addBtn"  class="btn btn-default pull-right" href="/?p=admin&c=Good&a=add" target="_self">新增</a>
-            </form>
-        </div>
-        <div class="mainContent-box ">
-            <table class="table table-hover table-border">
-                <thead>
-                    <tr>
-                        <th>id</th>
-                        <th>商品名称</th>
-                        <th>商品图片</th>
-                        <th>是否显示</th>                                                    <th>商品价格</th>                    
-                        <th>操作</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {foreach from=$data  item=good}      
-                    <tr>
-                        {foreach from=$good item=value}
-                        <td>{$value}</td>
-                        {/foreach}
-                    </tr>
-
-                    {/foreach}
-
-                </tbody>
-            </table>
-        </div><form class="form-inline" role="form" method="post">
-        <div class="paging">{$page}         	<input class="form-control" type="number" min="1" max="{$pageCount}" name="page" placeholder="请输入页码"/>            <input class="btn btn-danger" type="submit" value="确定" />        </div>
-        <div style="height: 100px;"></div>
-    </body>
-</html>
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>后台管理系统</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">      
+        <link rel="stylesheet" type="text/css" href="public/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="public/admin/css/share.css"/>
+         <link rel="stylesheet" type="text/css" href="public/css/page.css"/>
+        <script type="text/javascript" src="public/js/jquery-2.0.0.js"></script>
+        <script type="text/javascript" src="public/layer/layer.js"></script>
+        <script type="text/javascript" src="public/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="public/admin/js/good.js"></script>     
+    </head>
+    <body> 
+        <div class="mainContent-top"> 
+            <form action="?p=admin&c=Good&a=index" class="form-inline"  method="get"  >
+                <div class="form-group">
+           
+                   商品名称： <input type="text" value="{$good_name}" class="form-control" name="good_name" id="good_name"/>                                                         <input type="hidden" name="p" value="admin">                 <input type="hidden" name="c" value="good">                  <input type="hidden" name="a" value="index">       
+                    <input type="submit"   value="查询"> 
+                </div>
+                <a id="addBtn"  class="btn btn-default pull-right" href="/?p=admin&c=Good&a=add" target="_self">新增</a>
+            </form>
+        </div>
+        <div class="mainContent-box ">
+            <table class="table table-hover table-border">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>商品名称</th>
+                        <th>商品图片</th>
+                        <th>是否显示</th>                                                    <th>商品价格</th>                    
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {foreach from=$data  item=good}      
+                    <tr>
+                        {foreach from=$good item=value}
+                        <td>{$value}</td>
+                        {/foreach}
+                    </tr>
+
+                    {/foreach}
+
+                </tbody>
+            </table>
+        </div><form class="form-inline" role="form" method="post">
+        <div class="paging">{$page}         	<input class="form-control" type="number" min="1" max="{$pageCount}" name="page" placeholder="请输入页码"/>            <input class="btn btn-danger" type="submit" value="确定" />        </div>
+        <div style="height: 100px;"></div>
+    </body>
+</html>

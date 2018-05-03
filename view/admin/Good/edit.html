@@ -1,254 +1,254 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="public/bootstrap/css/bootstrap.min.css"/>
-        <link rel="stylesheet" type="text/css" href="public/admin/css/share.css" />
-        <link rel="stylesheet" type="text/css" href="public/admin/css/good_add.css" />
-        <script type="text/javascript" src="public/js/jquery-2.0.0.js"></script>
-        <script type="text/javascript" src="public/js/json2.js"></script>
-        <script type="text/javascript" src="public/js/jsonUtil.js"></script>
-        <script type="text/javascript" src="public/bootstrap/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="public/admin/js/share.js"></script>
-        <script type="text/javascript" src="public/layer/layer.js"></script>
-        <script type="text/javascript" src="public/plupload-2.1.2/js/plupload.full.min.js"></script>
-        <script type="text/javascript" src="public/admin/js/good_add.js"></script>
-
-    </head>
-    <body>
-        <div style="width:800px;margin-top: 20px;margin-bottom: 200px;">
-            <form class="form-horizontal" role="form" onsubmit="return false;" id="update_good_form">
-                <div class="form-group">
-                    <label for="category_id" class="col-sm-2 control-label">上级分类</label>
-                    <div class="col-sm-10">
-                        <select class="form-control" name="category_id" id="category_id">
-                            <option value="0" selected>顶级分类</option>    
-                            {foreach from=$category item=val}
-                            {$val}
-                            {/foreach}
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="good_name" class="col-sm-2 control-label">商品名称</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="good_name"  name="good_name"
-                               value="{$data.good_name}">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="good_code" class="col-sm-2 control-label">商品编号</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="good_code"  name="good_code"
-                               value="{$data.good_code}">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label  class="col-sm-2 control-label">是否促销</label>
-                    <div class="col-sm-10">
-                        <label class="checkbox-inline">
-                            <input type="radio" id="is_promotion" name="is_promotion" value="1" {if $data.is_promotion eq 1}checked{/if}> 是
-                        </label>
-                        <label class="checkbox-inline">
-                            <input type="radio" id="is_promotion" name="is_promotion" value="0" {if $data.is_promotion eq 0}checked{/if}> 否
-                        </label>
-                    </div>
-                </div>
-                
-                <div class="form-group"  style="visibility: hidden;height: 0px;">
-                    <label  class="col-sm-2 control-label">推荐</label>
-                    <div class="col-sm-10">
-                        <label class="checkbox-inline">
-                            <input type="checkbox" id="inlineCheckbox1" name="is_hot" value="1"> 热卖
-                        </label>
-                        <label class="checkbox-inline">
-                            <input type="checkbox" id="inlineCheckbox2" name="is_new" value="1"> 新品
-                        </label>
-                        <label class="checkbox-inline">
-                            <input type="checkbox" id="inlineCheckbox3" name="is_best" value="1"> 最好
-                        </label>
-                    </div>
-                </div>
-
-
-
-                <div class="form-group">
-                    <label for="is_show" class="col-sm-2 control-label">是否显示</label>
-                    <div class="col-sm-10">
-                        <label class="checkbox-inline">
-                            <input type="radio" name="is_show" id="yes" 
-                                   value="1" {if $data.is_show eq 1}checked{/if}> 是
-                        </label>
-                        <label class="checkbox-inline">
-                            <input type="radio" name="is_show" id="no" 
-                                   value="0" {if $data.is_show eq 0}checked{/if}> 否
-                        </label>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="good_order" class="col-sm-2 control-label">排序（0-50）</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="good_order" name="good_order"
-                               value="{$data.good_order}">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="good_pic" class="col-sm-2 control-label">商品图片</label>
-                    <div class="col-md-10">					<table >					<tr><td>
-                        <img src="{if $thumbs[0] eq ''}public/images/default_head.jpg{else}{$thumbs[0]}{/if}" name="img1" id="img1" style="cursor: pointer;width:100px"/>						</td><td>
-                        <img src="{if $thumbs[1] eq ''}public/images/default_head.jpg{else}{$thumbs[1]}{/if}" name="img2" id="img2" style="cursor: pointer;width:100px"/>						</td><td>
-                        <img src="{if $thumbs[2] eq ''}public/images/default_head.jpg{else}{$thumbs[2]}{/if}" name="img3" id="img3" style="cursor: pointer;width:100px"/>						</td><td>
-                        <img src="{if $thumbs[3] eq ''}public/images/default_head.jpg{else}{$thumbs[3]}{/if}" name="img4" id="img4" style="cursor: pointer;width:100px"/>						</td><td>
-                        <img src="{if $thumbs[4] eq ''}public/images/default_head.jpg{else}{$thumbs[4]}{/if}" name="img5" id="img5" style="cursor: pointer;width:100px"/>                        </td></tr>                        <tr>                        <td><span id="imgDelete1">{if $imgid[0] neq ''} <a onclick="deleteImg('{$thumbs[0]}')" href="#">删除</a>{/if}</span></td>                        <td><span id="imgDelete2">{if $imgid[1] neq ''} <a onclick="deleteImg('{$thumbs[1]}')" href="#">删除</a>{/if}</span></td>                        <td><span id="imgDelete3">{if $imgid[2] neq ''} <a onclick="deleteImg('{$thumbs[2]}')" href="#">删除</a>{/if}</span></td>                        <td><span id="imgDelete4">{if $imgid[3] neq ''} <a onclick="deleteImg('{$thumbs[3]}')" href="#">删除</a>{/if}</span></td>                        <td><span id="imgDelete5">{if $imgid[4] neq ''} <a onclick="deleteImg('{$thumbs[4]}')" href="#">删除</a>{/if}</span></td>                        </tr>					</table>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="pdf" class="col-sm-2 control-label">商品说明书</label>
-                    <div class="input-group col-sm-10 pl-15 pr-15">
-                        <input type="text" class="form-control" id="pdf_path" name="pdf_path" 
-                               value="{$data.pdf_path}">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button" id="pdf" name="pdf">
-                                选择
-                            </button>
-                        </span>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="good_weight" class="col-sm-2 control-label">商品净重</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="good_weight"  name="good_weight"
-                               value="{$data.good_weight}">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="packing" class="col-sm-2 control-label">商品包装</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="packing"  name="packing"
-                               value="{$data.packing}">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="material" class="col-sm-2 control-label">商品物料</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="material"  name="material"
-                               value="{$data.material}">
-                    </div>
-                </div>
-
-
-                <div class="form-group">
-                    <label for="size" class="col-sm-2 control-label">商品规格</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="size"  name="size"
-                               value="{$data.size}">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="sale_price" class="col-sm-2 control-label">商品售价</label>
-                    <div class="input-group col-sm-10 pl-15 pr-15">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button" >
-                                $
-                            </button>
-                        </span>
-                        <input type="text" class="form-control" id="sale_price" name="sale_price" 
-                               value="{$data.sale_price}">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="discount_price" class="col-sm-2 control-label">商品折扣价</label>
-                    <div class="input-group col-sm-10 pl-15 pr-15">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button" >
-                                $
-                            </button>
-                        </span>
-                        <input type="text" class="form-control" id="discount_price" name="discount_price"
-                               value="{$data.discount_price}">
-                    </div>
-                </div>
-
-                                <div class="form-group">
-                    <label for="type" class="col-sm-2 control-label">type</label>
-                    <div class="col-sm-10">
-                         <input type="text" class="form-control" id="type" name="type" value="{$data.type}">
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="logo" class="col-sm-2 control-label">logo</label>
-                    <div class="col-sm-10">
-                         <input type="text" class="form-control" id="logo" name="logo"
-                                value="{$data.logo}">
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="plate" class="col-sm-2 control-label">plate</label>
-                    <div class="col-sm-10">
-                         <input type="text" class="form-control" id="plate" name="plate"
-                                value="{$data.plate}">
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="MOQ" class="col-sm-2 control-label">MOQ</label>
-                    <div class="col-sm-10">
-                         <input type="text" class="form-control" id="MOQ" name="MOQ"
-                                value="{$data.MOQ}">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="good_desc" class="col-sm-2 control-label">商品描述</label>
-                    <div class="col-sm-10">
-                        <textarea class="form-control" rows="5" id="good_desc" name="good_desc">{$data.good_desc}</textarea>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="shipping_info" class="col-sm-2 control-label">配送信息</label>
-                    <div class="col-sm-10">
-                        <textarea class="form-control" rows="3" id="shipping_info" name="shipping_info">{$data.shipping_info}</textarea>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-sm-offset-9 col-sm-3">
-                        <input type="hidden" name="img1_path"  value="{if $thumbs[0] neq ''}{$thumbs[0]}{/if}"/>
-                        <input type="hidden" name="img2_path"  value="{if $thumbs[0] neq ''}{$thumbs[1]}{/if}"/>
-                        <input type="hidden" name="img3_path"  value="{if $thumbs[0] neq ''}{$thumbs[2]}{/if}"/>
-                        <input type="hidden" name="img4_path"  value="{if $thumbs[0] neq ''}{$thumbs[3]}{/if}"/>
-                        <input type="hidden" name="img5_path"  value="{if $thumbs[0] neq ''}{$thumbs[4]}{/if}"/>
-                        <input type="hidden" name="server" value="{php}echo SERVER;{/php}" />
-                        <input type="hidden" name="good_id" value="{$id}" />
-                        <input type="hidden" name="createTime" value="{$data.createtime}" />
-                        <button  class="btn btn-primary pull-right" id="go_back">返回</button>
-                        <button  class="btn btn-success pull-right " id="update_good">提交</button>                       
-                    </div>
-                </div>
-                <script>
-                    $('select[name="category_id"]').val({$data.category_id});
-                </script>
-            </form>
-        </div>
-    </body>
-</html>
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="public/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="public/admin/css/share.css" />
+        <link rel="stylesheet" type="text/css" href="public/admin/css/good_add.css" />
+        <script type="text/javascript" src="public/js/jquery-2.0.0.js"></script>
+        <script type="text/javascript" src="public/js/json2.js"></script>
+        <script type="text/javascript" src="public/js/jsonUtil.js"></script>
+        <script type="text/javascript" src="public/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="public/admin/js/share.js"></script>
+        <script type="text/javascript" src="public/layer/layer.js"></script>
+        <script type="text/javascript" src="public/plupload-2.1.2/js/plupload.full.min.js"></script>
+        <script type="text/javascript" src="public/admin/js/good_add.js"></script>
+
+    </head>
+    <body>
+        <div style="width:800px;margin-top: 20px;margin-bottom: 200px;">
+            <form class="form-horizontal" role="form" onsubmit="return false;" id="update_good_form">
+                <div class="form-group">
+                    <label for="category_id" class="col-sm-2 control-label">上级分类</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" name="category_id" id="category_id">
+                            <option value="0" selected>顶级分类</option>    
+                            {foreach from=$category item=val}
+                            {$val}
+                            {/foreach}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="good_name" class="col-sm-2 control-label">商品名称</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="good_name"  name="good_name"
+                               value="{$data.good_name}">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="good_code" class="col-sm-2 control-label">商品编号</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="good_code"  name="good_code"
+                               value="{$data.good_code}">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label  class="col-sm-2 control-label">是否促销</label>
+                    <div class="col-sm-10">
+                        <label class="checkbox-inline">
+                            <input type="radio" id="is_promotion" name="is_promotion" value="1" {if $data.is_promotion eq 1}checked{/if}> 是
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="radio" id="is_promotion" name="is_promotion" value="0" {if $data.is_promotion eq 0}checked{/if}> 否
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group"  style="visibility: hidden;height: 0px;">
+                    <label  class="col-sm-2 control-label">推荐</label>
+                    <div class="col-sm-10">
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="inlineCheckbox1" name="is_hot" value="1"> 热卖
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="inlineCheckbox2" name="is_new" value="1"> 新品
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="inlineCheckbox3" name="is_best" value="1"> 最好
+                        </label>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label for="is_show" class="col-sm-2 control-label">是否显示</label>
+                    <div class="col-sm-10">
+                        <label class="checkbox-inline">
+                            <input type="radio" name="is_show" id="yes" 
+                                   value="1" {if $data.is_show eq 1}checked{/if}> 是
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="radio" name="is_show" id="no" 
+                                   value="0" {if $data.is_show eq 0}checked{/if}> 否
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="good_order" class="col-sm-2 control-label">排序（0-50）</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="good_order" name="good_order"
+                               value="{$data.good_order}">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="good_pic" class="col-sm-2 control-label">商品图片</label>
+                    <div class="col-md-10">					<table >					<tr><td>
+                        <img src="{if $thumbs[0] eq ''}public/images/default_head.jpg{else}{$thumbs[0]}{/if}" name="img1" id="img1" style="cursor: pointer;width:100px"/>						</td><td>
+                        <img src="{if $thumbs[1] eq ''}public/images/default_head.jpg{else}{$thumbs[1]}{/if}" name="img2" id="img2" style="cursor: pointer;width:100px"/>						</td><td>
+                        <img src="{if $thumbs[2] eq ''}public/images/default_head.jpg{else}{$thumbs[2]}{/if}" name="img3" id="img3" style="cursor: pointer;width:100px"/>						</td><td>
+                        <img src="{if $thumbs[3] eq ''}public/images/default_head.jpg{else}{$thumbs[3]}{/if}" name="img4" id="img4" style="cursor: pointer;width:100px"/>						</td><td>
+                        <img src="{if $thumbs[4] eq ''}public/images/default_head.jpg{else}{$thumbs[4]}{/if}" name="img5" id="img5" style="cursor: pointer;width:100px"/>                        </td></tr>                        <tr>                        <td><span id="imgDelete1">{if $imgid[0] neq ''} <a onclick="deleteImg('{$thumbs[0]}')" href="#">删除</a>{/if}</span></td>                        <td><span id="imgDelete2">{if $imgid[1] neq ''} <a onclick="deleteImg('{$thumbs[1]}')" href="#">删除</a>{/if}</span></td>                        <td><span id="imgDelete3">{if $imgid[2] neq ''} <a onclick="deleteImg('{$thumbs[2]}')" href="#">删除</a>{/if}</span></td>                        <td><span id="imgDelete4">{if $imgid[3] neq ''} <a onclick="deleteImg('{$thumbs[3]}')" href="#">删除</a>{/if}</span></td>                        <td><span id="imgDelete5">{if $imgid[4] neq ''} <a onclick="deleteImg('{$thumbs[4]}')" href="#">删除</a>{/if}</span></td>                        </tr>					</table>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="pdf" class="col-sm-2 control-label">商品说明书</label>
+                    <div class="input-group col-sm-10 pl-15 pr-15">
+                        <input type="text" class="form-control" id="pdf_path" name="pdf_path" 
+                               value="{$data.pdf_path}">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" id="pdf" name="pdf">
+                                选择
+                            </button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="good_weight" class="col-sm-2 control-label">商品净重</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="good_weight"  name="good_weight"
+                               value="{$data.good_weight}">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="packing" class="col-sm-2 control-label">商品包装</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="packing"  name="packing"
+                               value="{$data.packing}">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="material" class="col-sm-2 control-label">商品物料</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="material"  name="material"
+                               value="{$data.material}">
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="size" class="col-sm-2 control-label">商品规格</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="size"  name="size"
+                               value="{$data.size}">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="sale_price" class="col-sm-2 control-label">商品售价</label>
+                    <div class="input-group col-sm-10 pl-15 pr-15">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" >
+                                $
+                            </button>
+                        </span>
+                        <input type="text" class="form-control" id="sale_price" name="sale_price" 
+                               value="{$data.sale_price}">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="discount_price" class="col-sm-2 control-label">商品折扣价</label>
+                    <div class="input-group col-sm-10 pl-15 pr-15">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" >
+                                $
+                            </button>
+                        </span>
+                        <input type="text" class="form-control" id="discount_price" name="discount_price"
+                               value="{$data.discount_price}">
+                    </div>
+                </div>
+
+                                <div class="form-group">
+                    <label for="type" class="col-sm-2 control-label">type</label>
+                    <div class="col-sm-10">
+                         <input type="text" class="form-control" id="type" name="type" value="{$data.type}">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="logo" class="col-sm-2 control-label">logo</label>
+                    <div class="col-sm-10">
+                         <input type="text" class="form-control" id="logo" name="logo"
+                                value="{$data.logo}">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="plate" class="col-sm-2 control-label">plate</label>
+                    <div class="col-sm-10">
+                         <input type="text" class="form-control" id="plate" name="plate"
+                                value="{$data.plate}">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="MOQ" class="col-sm-2 control-label">MOQ</label>
+                    <div class="col-sm-10">
+                         <input type="text" class="form-control" id="MOQ" name="MOQ"
+                                value="{$data.MOQ}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="good_desc" class="col-sm-2 control-label">商品描述</label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control" rows="5" id="good_desc" name="good_desc">{$data.good_desc}</textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="shipping_info" class="col-sm-2 control-label">配送信息</label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control" rows="3" id="shipping_info" name="shipping_info">{$data.shipping_info}</textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-9 col-sm-3">
+                        <input type="hidden" name="img1_path"  value="{if $thumbs[0] neq ''}{$thumbs[0]}{/if}"/>
+                        <input type="hidden" name="img2_path"  value="{if $thumbs[0] neq ''}{$thumbs[1]}{/if}"/>
+                        <input type="hidden" name="img3_path"  value="{if $thumbs[0] neq ''}{$thumbs[2]}{/if}"/>
+                        <input type="hidden" name="img4_path"  value="{if $thumbs[0] neq ''}{$thumbs[3]}{/if}"/>
+                        <input type="hidden" name="img5_path"  value="{if $thumbs[0] neq ''}{$thumbs[4]}{/if}"/>
+                        <input type="hidden" name="server" value="{php}echo SERVER;{/php}" />
+                        <input type="hidden" name="good_id" value="{$id}" />
+                        <input type="hidden" name="createTime" value="{$data.createtime}" />
+                        <button  class="btn btn-primary pull-right" id="go_back">返回</button>
+                        <button  class="btn btn-success pull-right " id="update_good">提交</button>                       
+                    </div>
+                </div>
+                <script>
+                    $('select[name="category_id"]').val({$data.category_id});
+                </script>
+            </form>
+        </div>
+    </body>
+</html>

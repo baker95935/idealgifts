@@ -11,7 +11,7 @@ require_once 'controller/home/CategoryController.php';
 require_once 'controller/home/GoodController.php';
 require_once 'controller/home/ContactController.php';
 require_once 'controller/home/AdvertisementController.php';
-require_once 'controller/home/AuthController.php';
+require_once 'controller/home/AuthController.php'; 
 
 class IndexController extends ForeController {
 

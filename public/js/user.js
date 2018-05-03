@@ -19,7 +19,8 @@ $(".add").click(function(){
 	
  
 	}) 
-$(".min").click(function(){ 
+	
+	$(".min").click(function(){ 
 	var t=$(this).parent().find('input[class*=text_box]'); 
 	t.val(parseInt(t.val())-1) 
 	if(parseInt(t.val())<1){ 
@@ -36,10 +37,8 @@ $(".min").click(function(){
 }) 
 	
  
-	
-	
-                
                   $('#login_user').click(function () {
+                	  alert('sdsd');
                       var t = new jsonUtil();
 				        var user = t.form_to_object('login_user_form');
 

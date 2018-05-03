@@ -71,15 +71,14 @@ class OrderController extends Controller {
 
         $db = $model->getDb();
 
-        $_POST['send_time'] = time();
-
+        $_POST['order_price'];
 		$_POST['express_name'];
 		$_POST['express_number'];
 		$_POST['status']=2;
 		$_POST['send_time']=time();
-        $column = 'express_name,express_number,status,send_time';
+        $column = 'order_price,express_name,express_number,status,send_time';
 
-
+ 
         if (isset($_POST['order_number'])) {
 
             $order_number = $_POST['order_number'];
@@ -88,9 +87,6 @@ class OrderController extends Controller {
                 echo 'ok';
 
             }   
-
-           
-
         }  else {
          	echo '操作失败，请联系相关技术人员';
         }

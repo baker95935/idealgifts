@@ -96,12 +96,7 @@
                         <td>{$val.id}</td>                       
  						<td><a href="?p=home&c=good&a=index&cat_id={$val.cid}&id={$val.good_id}">{$val.good_name}</a></td>
                         <td>{$val.good_price}</td>
-                        <td>
-                         
-							<input class="text_box" id="goodcount" name="goodcount" type="text" value="{$val.good_count}" style="width:30px;text-align: center"/> 
-						 
- 
-                        </td>                       
+                        <td>{$val.good_count} </td>                       
 
                     </tr>
 				 {/foreach} 
@@ -114,6 +109,7 @@
               
 
             </table>
+            <input type="hidden" name="cart_id_str" id="cart_id_str" value="{$cart_id_str}">
   <button  class="btn btn-success pull-right " id="add_user_order">order</button>
   </form>
             </div>

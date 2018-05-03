@@ -111,9 +111,12 @@ class UserController extends ForeController {
 		$auth = new AuthController();
 		$this->setValue("user", $_SESSION['username']);
         
+		$cart_id_array=$_POST['id'];
+		$cart_id_str=implode(",",$cart_id_array);
+		
         $model = $this->getModel();
         $db = $this->getDb();
-        $result = $db->select($model->table('cart'), '*', "username = '".$_SESSION['username']."'   limit 0,5");
+        $result = $db->select($model->table('cart'), '*', "username = '".$_SESSION['username']."' and id in (".$cart_id_str.")  ");
   		$data = null;
      
     	while ($rs = $db->fetch_assoc($result)) {
@@ -123,19 +126,21 @@ class UserController extends ForeController {
     	}
     
     	
-    	$result = $db->select($model->table('user_address'), '*', "username = '".$_SESSION['username']."' order by id desc limit 0,5");
+    	$result = $db->select($model->table('user_address'), '*', "username = '".$_SESSION['username']."' order by id desc limit 0,1");
   		$adata = null;
-     
+     	$addressId='';
     	while ($rs = $db->fetch_assoc($result)) {
     	
     		$adata[] = $rs;
-    	
+    		$addressId=$rs['id'];
     	}
     	
-   
+    	
+    	$this->setValue("cart_id_str", $cart_id_str);
         $this->setValue("data", $data);
     	
         $this->setValue("adata", $adata);
+        $this->setValue("addressId", $addressId);
 		$this->display();
 	}
 	
@@ -151,6 +156,7 @@ class UserController extends ForeController {
         
         $_POST['uid']=$uinfo[0]['id'];
         
+        $cart_id_str=$_POST['cart_id_str'];
         
         $addressId=$_POST['addressId'];
         
@@ -171,7 +177,7 @@ class UserController extends ForeController {
 
 		
 		//获取购物车中的商品
-		$result = $db->select($model->table('cart'), '*', "username = '".$_SESSION['username']."' limit 0,5");
+		$result = $db->select($model->table('cart'), '*', "username = '".$_SESSION['username']."' and id in (".$cart_id_str.") limit 0,5");
   		$data = null;
      
     	while ($rs = $db->fetch_assoc($result)) {
@@ -203,6 +209,8 @@ class UserController extends ForeController {
     	//更新订单表中的订单价格
     	$model->getDb()->update('mvc_orders', "order_price='".$order_price."'", "order_number='".$_POST['order_number']."'");
      
+    	//删除购物车中的商品
+    	$db->delete($model->table('cart'), 'id in('.$cart_id_str.")");
 	
 	 	if($res){
 

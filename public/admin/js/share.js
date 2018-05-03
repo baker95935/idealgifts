@@ -266,7 +266,12 @@ $(function () {
         if (order.express_name == '') {
             layer.msg('请填写物流方式', {icon: 5, time: 2000});
             return;
-        }
+        } 
+        
+        if (order.order_price == 0) {
+            layer.msg('请填写订单价格', {icon: 5, time: 2000});
+            return;
+        } 
 
 
         $.post('?p=admin&c=order&a=insert_or_update', order, function (data) {
