@@ -1,132 +1,142 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        {include file="home/public/top.html"}
-        <link rel="stylesheet" type="text/css" href="public/css/category.css" />
-        <link rel="stylesheet" type="text/css" href="public/css/page.css" />
-        <link rel="stylesheet" type="text/css" href="public/css/good.css" />
-        <script type='text/javascript' src='public/js/home_new.js' ></script>
-        <script type='text/javascript' src='public/js/good.js' ></script>          <script type="text/javascript" src="public/js/jsonUtil.js"></script>        <script type="text/javascript" src="public/layer/layer.js"></script>
-    </head>
-    <body>
-        {include file="home/public/header.html"}
-        {include file="home/public/banner.html"}
-        <div class="wide-1200 clearfix" style="margin-top: 20px;">
-        {include file="home/public/category.html"}
-            <div class="width-950 pull-right">
-                <div class="good_left fl" >
-                    <div><img id="preview" src="{$data.good_small_img}" ></div>
-                    <div id="thumb" class="mt-20">
-                        <ul>
-                            {foreach from=$thumbs item=val}
-                            {$val}
-                            {/foreach}
-                        </ul>
-                    </div>
-                </div>
-                <div class="good_right fr">
-                    <div id="goodName"><strong>{$data.good_name}</strong></div>
-                    <!-- <div id="describe">{$data.good_desc}</div> -->
-                    <div class="caracts">                                        	{if $data.sale_price neq ''}                        <div class="row caract">                            <div class="col-xs-1">                                <img alt="" class="caracteristique" src="public/images/good_icon/moq.png">                            </div>                            <div class="col-xs-11">                                <span class="gras">sale price</span> : {$data.sale_price} $                                               </div>                        </div>                        {/if}
-                        {if $data.good_weight neq ''}
-                        <div class="row caract">
-                            <div class="col-xs-1">
-                                <img alt="" class="caracteristique" src="public/images/good_icon/moq.png">
-                            </div>
-                            <div class="col-xs-11">
-                                <span class="gras">Weight</span> : {$data.good_weight}                                                </div>
-                        </div>
-                        {/if}
-
-                        {if $data.packing neq ''}
-                        <div class="row caract">
-                            <div class="col-xs-1">
-                                <img alt="" class="caracteristique" src="public/images/good_icon/delais.png">
-                            </div>
-                            <div class="col-xs-11">
-                                <span class="gras">Packing</span> : {$data.packing}                                                </div>
-                        </div>
-                        {/if}
-
-                        {if $data.material neq ''}
-                        <div class="row caract">
-                            <div class="col-xs-1">
-                                <img alt="" class="caracteristique" src="public/images/good_icon/colisage.png">
-                            </div>
-                            <div class="col-xs-11">
-                                <span class="gras">Material</span> : {$data.material}                                                </div>
-                        </div>
-                        {/if}
-
-                        {if $data.size neq ''}
-                        <div class="row caract">
-                            <div class="col-xs-1">
-                                <img alt="" class="caracteristique" src="public/images/good_icon/poids.png">
-                            </div>
-                            <div class="col-xs-11">
-                                <span class="gras">Dimention</span> : {$data.size}                                                </div>
-                        </div>
-                        {/if}
-
-                        {if $data.shipping_info neq ''}
-                        <div class="row caract">
-                            <div class="col-xs-1">
-                                <img alt="" class="caracteristique" src="public/images/good_icon/origine.png">
-                            </div>
-                            <div class="col-xs-11">
-                                <span class="gras">Effect</span> : {$data.shipping_info}                                               </div>
-                        </div>
-                        {/if}
-                        {if $data.type neq ''}
-                        <div class="row caract">
-                            <div class="col-xs-1">
-                                <img alt="" class="caracteristique" src="public/images/good_icon/origine.png">
-                            </div>
-                            <div class="col-xs-11">
-                                <span class="gras">Size</span> : {$data.type}                                               </div>
-                        </div>
-                        {/if}
-                        {if $data.logo neq ''}
-                        <div class="row caract">
-                            <div class="col-xs-1">
-                                <img alt="" class="caracteristique" src="public/images/good_icon/origine.png">
-                            </div>
-                            <div class="col-xs-11">
-                                <span class="gras">Process</span> : {$data.logo}                                               </div>
-                        </div>
-                        {/if}
-                        {if $data.plate neq ''}
-                        <div class="row caract">
-                            <div class="col-xs-1">
-                                <img alt="" class="caracteristique" src="public/images/good_icon/origine.png">
-                            </div>
-                            <div class="col-xs-11">
-                                <span class="gras">Plate</span> : {$data.plate}                                               </div>
-                        </div>
-                        {/if}
-                        {if $data.MOQ neq ''}
-                        <div class="row caract">
-                            <div class="col-xs-1">
-                                <img alt="" class="caracteristique" src="public/images/good_icon/origine.png">
-                            </div>
-                            <div class="col-xs-11">
-                                <span class="gras">Attachment</span> : {$data.MOQ}                                               </div>
-                        </div>
-                        {/if}
-                    </div>
-                    <div class="mt-20 row">
-                        <div class="col-sm-offset-7 col-sm-5" >
-                         <a class="goback" id="addtocart" data_id="{$data.good_id}" data_user="{$user}" href="javascript:void(0);">addtocart</a> 
-                            <a class="goback" href="javascript:void(0);" onclick="go_back();">go back</a>
-                            &nbsp;&nbsp;
-                            <a href="Mailto:william@idealgiftscn.com?subject=Products inquery&body=product is {$data.good_code}<hr>"><img src="public/images/email.jpg" width="48"></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div class="blank25"></div>
-        {include file="home/public/footer.html"}       
-    </body>
-</html>
+<!DOCTYPE html>
+<html>
+    <head>
+        {include file="home/public/top.html"}
+        <link rel="stylesheet" type="text/css" href="public/css/category.css" />
+        <link rel="stylesheet" type="text/css" href="public/css/page.css" />
+        <link rel="stylesheet" type="text/css" href="public/css/good.css" />
+        <script type='text/javascript' src='public/js/home_new.js' ></script>
+        <script type='text/javascript' src='public/js/good.js' ></script>          <script type="text/javascript" src="public/js/jsonUtil.js"></script>        <script type="text/javascript" src="public/layer/layer.js"></script>
+    </head>
+    <body>
+        {include file="home/public/header.html"}
+        {include file="home/public/banner.html"}
+        <div class="wide-1200 clearfix" style="margin-top: 20px;">
+        {include file="home/public/category.html"}
+            <div class="width-950 pull-right">
+                <div class="good_left fl" >
+                    <div><img id="preview" src="{$data.good_small_img}" ></div>
+                    <div id="thumb" class="mt-20">
+                        <ul>
+                            {foreach from=$thumbs item=val}
+                            {$val}
+                            {/foreach}
+                        </ul>
+                    </div>
+                </div>
+                <div class="good_right fr">
+                    <div id="goodName"><strong>{$data.good_name}</strong></div>
+                    <!-- <div id="describe">{$data.good_desc}</div> -->
+                    <div class="caracts"> 
+                    	<!--{if $data.sale_price neq ''}                       
+                     	<div class="row caract">           
+	                     	<div class="col-xs-1">  
+	 							<img alt="" class="caracteristique" src="public/images/good_icon/moq.png">      
+	                       	</div>                         
+	                        <div class="col-xs-11">       
+	                           <span class="gras">sale price</span> : {$data.sale_price} $                                             
+	                        </div>                       
+                        </div>                       
+                        {/if}-->
+                        {if $data.good_weight neq ''}
+                        <div class="row caract">
+                            <div class="col-xs-1">
+                                <img alt="" class="caracteristique" src="public/images/good_icon/moq.png">
+                            </div>
+                            <div class="col-xs-11">
+                                <span class="gras">Weight</span> : {$data.good_weight}                                                </div>
+                        </div>
+                        {/if}
+
+                        {if $data.packing neq ''}
+                        <div class="row caract">
+                            <div class="col-xs-1">
+                                <img alt="" class="caracteristique" src="public/images/good_icon/delais.png">
+                            </div>
+                            <div class="col-xs-11">
+                                <span class="gras">Packing</span> : {$data.packing}                                                </div>
+                        </div>
+                        {/if}
+
+                        {if $data.material neq ''}
+                        <div class="row caract">
+                            <div class="col-xs-1">
+                                <img alt="" class="caracteristique" src="public/images/good_icon/colisage.png">
+                            </div>
+                            <div class="col-xs-11">
+                                <span class="gras">Material</span> : {$data.material}                                                </div>
+                        </div>
+                        {/if}
+
+                        {if $data.size neq ''}
+                        <div class="row caract">
+                            <div class="col-xs-1">
+                                <img alt="" class="caracteristique" src="public/images/good_icon/poids.png">
+                            </div>
+                            <div class="col-xs-11">
+                                <span class="gras">Dimention</span> : {$data.size}                                                </div>
+                        </div>
+                        {/if}
+
+                        {if $data.shipping_info neq ''}
+                        <div class="row caract">
+                            <div class="col-xs-1">
+                                <img alt="" class="caracteristique" src="public/images/good_icon/origine.png">
+                            </div>
+                            <div class="col-xs-11">
+                                <span class="gras">Effect</span> : {$data.shipping_info}                                               </div>
+                        </div>
+                        {/if}
+                        {if $data.type neq ''}
+                        <div class="row caract">
+                            <div class="col-xs-1">
+                                <img alt="" class="caracteristique" src="public/images/good_icon/origine.png">
+                            </div>
+                            <div class="col-xs-11">
+                                <span class="gras">Size</span> : {$data.type}                                               </div>
+                        </div>
+                        {/if}
+                        {if $data.logo neq ''}
+                        <div class="row caract">
+                            <div class="col-xs-1">
+                                <img alt="" class="caracteristique" src="public/images/good_icon/origine.png">
+                            </div>
+                            <div class="col-xs-11">
+                                <span class="gras">Process</span> : {$data.logo}                                               </div>
+                        </div>
+                        {/if}
+                        {if $data.plate neq ''}
+                        <div class="row caract">
+                            <div class="col-xs-1">
+                                <img alt="" class="caracteristique" src="public/images/good_icon/origine.png">
+                            </div>
+                            <div class="col-xs-11">
+                                <span class="gras">Plate</span> : {$data.plate}                                               </div>
+                        </div>
+                        {/if}
+                        {if $data.MOQ neq ''}
+                        <div class="row caract">
+                            <div class="col-xs-1">
+                                <img alt="" class="caracteristique" src="public/images/good_icon/origine.png">
+                            </div>
+                            <div class="col-xs-11">
+                                <span class="gras">Attachment</span> : {$data.MOQ}                                               </div>
+                        </div>
+                        {/if}
+                    </div>
+                    <div class="mt-20 row">
+                        <div class="col-sm-offset-7 col-sm-5" >
+                         <a class="goback" id="addtocart" data_id="{$data.good_id}" data_user="{$user}" href="javascript:void(0);">addtocart</a> 
+                            <a class="goback" href="javascript:void(0);" onclick="go_back();">go back</a>
+                            &nbsp;&nbsp;
+                            <a href="Mailto:william@idealgiftscn.com?subject=Products inquery&body=product is {$data.good_code}<hr>"><img src="public/images/email.jpg" width="48"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="blank25"></div>
+        {include file="home/public/footer.html"}       
+    </body>
+</html>
