@@ -156,7 +156,7 @@ class OrderController extends Controller {
 
             $data[$i]['ctime'] = date('Y-m-d H:i:s',$rs['ctime']);
 
-            $data[$i]['op'] = '<a href="?p=admin&c=Order&a=edit&id=' . $rs['order_number'] . '">发货</a>&nbsp;&nbsp;<a class="'.'delete" data_id="'.$rs["order_number"].'" href="javascript:void(0);">删除</a>';
+            $data[$i]['op'] = '<a href="?p=admin&c=Order&a=edit&id=' . $rs['order_number'] . '">修改</a>&nbsp;&nbsp;<a class="'.'delete" data_id="'.$rs["order_number"].'" href="javascript:void(0);">删除</a>';
 
             $i++;
 

@@ -110,7 +110,7 @@ class CategoryController extends ForeController {
     public function get_all_category($page = 0, $page_size = 0) {
         $model = $this->getModel();
         $db = $model->getDb();
-        $sql = 'select category_id,category_name,cover_path,concat(category_path,"-",category_id) as path,sort_order,is_tuijian  from ' . $model->table('category') . ' where is_show = 1 and is_delete = 0 order by path';
+        $sql = 'select category_id,category_name,cover_path,concat(category_path,"-",category_id) as path,sort_order,is_tuijian  from ' . $model->table('category') . ' where is_show = 1 and is_delete = 0  order by sort_order desc';
         $result = $db->query($sql);
         $i = 0;
         $a = null;
@@ -135,6 +135,7 @@ class CategoryController extends ForeController {
             $i++;
         }
 
+        /*
         //排序   
         if ($first) {
             for ($k = 0; $k < count($first); $k++) {
@@ -162,6 +163,7 @@ class CategoryController extends ForeController {
                 }
             }
         }
+        */
         return $first;
     }
 
