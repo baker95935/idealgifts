@@ -23,13 +23,13 @@ class GoodController extends ForeController {
 
         if (empty($page))
 
-            $result = $db->select($model->table('good'), 'sale_price,category_id,good_id,good_name,good_small_img', "category_id = $cat_id");
+            $result = $db->select($model->table('good'), 'sale_price,category_id,good_id,good_name,good_small_img', "category_id = $cat_id order by good_id asc");
 
         else {
 
             $start = ($page - 1) * $page_size;
 
-            $result = $db->select($model->table('good'), 'sale_price,category_id,good_id,good_name,good_small_img', "category_id = $cat_id limit $start,$page_size");
+            $result = $db->select($model->table('good'), 'sale_price,category_id,good_id,good_name,good_small_img', "category_id = $cat_id order by good_id asc limit $start,$page_size");
 
         }
 
@@ -47,7 +47,7 @@ class GoodController extends ForeController {
 
         $start = ($page - 1) * $page_size;
 
-        $result = $db->select($model->table('good'), 'sale_price,category_id,good_id,good_name,good_small_img', "1=1 order by good_id desc limit $start,$page_size");
+        $result = $db->select($model->table('good'), 'sale_price,category_id,good_id,good_name,good_small_img', "1=1 order by good_id asc limit $start,$page_size");
 
         return $result;
 
