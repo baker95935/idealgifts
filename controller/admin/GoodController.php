@@ -97,7 +97,7 @@ class GoodController extends CommonController {
 
         $img = array($_POST['img1_path'], $_POST['img2_path'], $_POST['img3_path'], $_POST['img4_path'], $_POST['img5_path']);
 
-        $column = 'category_id,good_code,good_name,is_show,good_desc,good_small_img,good_order,is_hot,is_new,is_best,pdf_path,createtime,good_weight,packing,material,size,discount_price,sale_price,shipping_info,logo,plate,MOQ,type,is_promotion';
+        $column = 'category_id,good_code,good_name,is_show,is_new,good_desc,good_small_img,good_order,is_hot,is_new,is_best,pdf_path,createtime,good_weight,packing,material,size,discount_price,sale_price,shipping_info,logo,plate,MOQ,type,is_promotion';
 
 
 
@@ -185,7 +185,7 @@ class GoodController extends CommonController {
  
         $start = ($page - 1) * Application::$_config['page']['page_size'];
         
-        $sql = "select good_id,good_name,good_small_img,is_show from {$model->table('good')} ";
+        $sql = "select good_id,good_name,good_small_img,is_show,is_new from {$model->table('good')} ";
         
         if(!empty($data))
         {
@@ -195,7 +195,7 @@ class GoodController extends CommonController {
 		 
 		$sql.="order by good_id desc limit $start," . Application::$_config['page']['page_size'];
  
-
+echo $sql;
  
         $result = $db->query($sql);
 
@@ -210,9 +210,9 @@ class GoodController extends CommonController {
             $data[$i]['good_small_img'] = "<img class='goodimg' src='{$rs['good_small_img']}'>";
 
             $data[$i]['is_show'] = $rs['is_show'] ? "<img src='public/images/yes.gif'>" : "<img src='public/images/no.gif'>";
-            
             $data[$i]['sale_price'] = $rs['sale_price'];
-
+            
+            $data[$i]['is_new'] = $rs['is_new'] ? "<img src='public/images/yes.gif'>" : "<img src='public/images/no.gif'>";
             $data[$i]['op'] = '<a href="?p=admin&c=Good&a=edit&id=' . $rs['good_id'] . '">编辑</a>&nbsp;&nbsp;<a class="'.'delete" data_id="'.$rs["good_id"].'" href="javascript:void(0);">删除</a>';
 
             $i++;

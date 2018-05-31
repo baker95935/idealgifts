@@ -82,6 +82,36 @@ class CategoryController extends ForeController {
         $this->get_advertisement();
         $this->display();
     }
+    
+    
+    //最新的产品列表
+    public function new_good_list() {
+    
+    	session_start();
+    	$this->setValue("user", $_SESSION['username']);
+    
+    	$model = $this->getModel();
+    	$db = $model->getDb();
+    	$i = 0;
+    	
+    	$goodController = new GoodController();
+    	$result = $goodController->get_new_goods(12);
+    	 
+    	while ($rs = $db->fetch_assoc($result)) {
+    			$data[$i] = '<dd class=active><a href="' . SERVER . '/?p=home&c=good&a=index&cat_id=' . $rs['category_id'] . '&id=' . $rs['good_id'] . '"><img src="' . $rs['good_small_img'] . '" style="height:186px;"><h1 class="mask"></h1><h1>' . $rs['good_name'];
+    			$rs['sale_price']>0 && $data[$i].='--'.$rs['sale_price'].'$';
+    			$data[$i].='</h1></a></dd>';
+    			$i++;
+    	}
+    	 
+ 
+    	if (isset($data))
+    		$this->setValue('data', $data);
+ 
+    	$this->setValue('category', $this->get_all_category());
+    	$this->get_advertisement();
+    	$this->display();
+    }
 
     private function get_topone_category() {
         $model = $this->getModel();

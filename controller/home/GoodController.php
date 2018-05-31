@@ -23,13 +23,13 @@ class GoodController extends ForeController {
 
         if (empty($page))
 
-            $result = $db->select($model->table('good'), 'sale_price,category_id,good_id,good_name,good_small_img', "category_id = $cat_id order by good_id asc");
+            $result = $db->select($model->table('good'), 'sale_price,category_id,good_id,good_name,good_small_img', "category_id = $cat_id order by good_id desc");
 
         else {
 
             $start = ($page - 1) * $page_size;
 
-            $result = $db->select($model->table('good'), 'sale_price,category_id,good_id,good_name,good_small_img', "category_id = $cat_id order by good_id asc limit $start,$page_size");
+            $result = $db->select($model->table('good'), 'sale_price,category_id,good_id,good_name,good_small_img', "category_id = $cat_id order by good_id desc limit $start,$page_size");
 
         }
 
@@ -47,7 +47,7 @@ class GoodController extends ForeController {
 
         $start = ($page - 1) * $page_size;
 
-        $result = $db->select($model->table('good'), 'sale_price,category_id,good_id,good_name,good_small_img', "1=1 order by good_id asc limit $start,$page_size");
+        $result = $db->select($model->table('good'), 'sale_price,category_id,good_id,good_name,good_small_img', "1=1 order by good_id desc limit $start,$page_size");
 
         return $result;
 
@@ -132,7 +132,7 @@ class GoodController extends ForeController {
         return $result;
 
     }
-
+    
 
 
     public function get_best_goods() {
@@ -149,13 +149,13 @@ class GoodController extends ForeController {
 
 
 
-    public function get_new_goods() {
+    public function get_new_goods($count=8) {
 
         $model = $this->getModel();
 
         $db = $this->getDb();
 
-        $result = $db->select($model->table('good'), 'good_id,good_name,good_small_img,sale_price', "is_new = 1 order by good_id desc limit 0,8");
+        $result = $db->select($model->table('good'), 'good_id,good_name,good_small_img,sale_price', "is_new = 1 order by good_id desc limit 0,".$count);
 
         return $result;
 
