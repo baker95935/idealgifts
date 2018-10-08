@@ -64,22 +64,7 @@ and open the template in the editor.
                         </label>
                     </div>
                 </div>
-                
-                <div class="form-group"  style="visibility: hidden;height: 0px;">
-                    <label  class="col-sm-2 control-label">推荐</label>
-                    <div class="col-sm-10">
-                        <label class="checkbox-inline">
-                            <input type="checkbox" id="inlineCheckbox1" name="is_hot" value="1"> 热卖
-                        </label>
-                        <label class="checkbox-inline">
-                            <input type="checkbox" id="inlineCheckbox2" name="is_new" value="1"> 新品
-                        </label>
-                        <label class="checkbox-inline">
-                            <input type="checkbox" id="inlineCheckbox3" name="is_best" value="1"> 最好
-                        </label>
-                    </div>
-                </div>
-
+ 
 
 
                 <div class="form-group">
@@ -99,14 +84,19 @@ and open the template in the editor.
                <div class="form-group">
                     <label for="is_show" class="col-sm-2 control-label">是否最新</label>
                     <div class="col-sm-10">
-                        <label class="checkbox-inline">
+                    	{if $newDisableButton eq 1}
+                    	<font color="red">最新产品已有12个，请删除旧的再添加。</font>
+                        {else}
+                         <label class="checkbox-inline">
                             <input type="radio" name="is_new" id="yes" 
                                    value="1" {if $data.is_new eq 1}checked{/if}> 是
                         </label>
+                        {/if}
                         <label class="checkbox-inline">
                             <input type="radio" name="is_new" id="no" 
                                    value="0" {if $data.is_new eq 0}checked{/if}> 否
                         </label>
+                     
                     </div>
                 </div>
 

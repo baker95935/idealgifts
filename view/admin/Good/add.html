@@ -64,7 +64,7 @@ and open the template in the editor.
                         </label>
                     </div>
                 </div>
-                
+                <!-- 
                 <div class="form-group"  style="visibility: hidden;height: 0px;">
                     <label  class="col-sm-2 control-label">推荐</label>
                     <div class="col-sm-10">
@@ -78,7 +78,7 @@ and open the template in the editor.
                             <input type="checkbox" id="inlineCheckbox3" name="is_best" value="1"> 最好
                         </label>
                     </div>
-                </div>
+                </div> -->
 
 
 
@@ -99,15 +99,20 @@ and open the template in the editor.
                 <div class="form-group">
                     <label for="is_new" class="col-sm-2 control-label">是否最新</label>
                     <div class="col-sm-10">
+                        {if $newDisableButton eq 1}
+                    	<font color="red">最新产品已有12个，请删除旧的再添加。</font>
+                        {else}
                         <label class="checkbox-inline">
                             <input type="radio" name="is_new" id="yes" 
                                    value="1" checked> 是
                         </label>
+                        {/if}
                         <label class="checkbox-inline">
                             <input type="radio" name="is_new" id="no" 
                                    value="0"> 否
                         </label>
                     </div>
+                   
                 </div>
 
                 <div class="form-group">

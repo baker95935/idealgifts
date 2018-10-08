@@ -45,6 +45,17 @@ class GoodController extends CommonController {
 
         $this->get_category_list('category');
 
+        //获取最新添加的产品的数量
+        $newDisableButton=0;
+        
+        $newCount=$this->get_goods__isnew_count();
+  
+        if($newCount>=12) {
+        	$newDisableButton=1;
+        }
+ 
+        $this->setValue('newDisableButton',$newDisableButton);
+        
         parent::add();
 
     }
@@ -78,7 +89,16 @@ class GoodController extends CommonController {
         $this->get_category_list('category');
 
         $this->setValue('data', $this->get_good_by_id($id));
-
+        
+        //获取最新添加的产品的数量
+        $newDisableButton=0;
+        
+        $newCount=$this->get_goods__isnew_count();
+        if($newCount>=12) {
+        	$newDisableButton=1;
+        }
+        $this->setValue('newDisableButton',$newDisableButton);
+        
         $this->display();
 
     }
@@ -97,7 +117,7 @@ class GoodController extends CommonController {
 
         $img = array($_POST['img1_path'], $_POST['img2_path'], $_POST['img3_path'], $_POST['img4_path'], $_POST['img5_path']);
 
-        $column = 'category_id,good_code,good_name,is_show,is_new,good_desc,good_small_img,good_order,is_hot,is_new,is_best,pdf_path,createtime,good_weight,packing,material,size,discount_price,sale_price,shipping_info,logo,plate,MOQ,type,is_promotion';
+        $column = 'category_id,good_code,good_name,is_show,good_desc,good_small_img,good_order,is_hot,is_new,is_best,pdf_path,createtime,good_weight,packing,material,size,discount_price,sale_price,shipping_info,logo,plate,MOQ,type,is_promotion';
 
 
 
@@ -195,7 +215,6 @@ class GoodController extends CommonController {
 		 
 		$sql.="order by good_id desc limit $start," . Application::$_config['page']['page_size'];
  
-echo $sql;
  
         $result = $db->query($sql);
 
@@ -247,6 +266,20 @@ echo $sql;
         return $db->get_count($model->table('good'), 'good_id', $condition);
 
     }
+    
+    //获取最新的产品的数量
+    private function get_goods__isnew_count() {
+    
+    	$model = $this->getModel();
+    
+    	$db = $this->getDb();
+
+    	$condition=" is_new =1";
+    
+    	return $db->get_count($model->table('good'), 'good_id', $condition);
+    
+    }
+    
 
 
 
